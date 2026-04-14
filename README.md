@@ -27,6 +27,8 @@ All methods are implemented on top of [PySCF](https://pyscf.org).
 - **OSS-KS-OEP** open-shell singlet Kohn-Sham optimized effective potential method
 - **STA-KS-OEP** state-averaged Kohn-Sham optimized effective potential method
 
+More about OEP methods and their usage can be learned at https://github.com/EgorTrushin/PyOEP
+
 Each OEP method has two implementations based on orbital swapping and occupation numbers. In orbital swapping case, after each SCF iteration the orbitals are reordered so that the MOM-selected configuration occupies canonical positions. In fractional occupation numbers case, MOM is applied through occupation numbers that track the desired configuration throughout the SCF.
 
 ## Repository structure
@@ -295,7 +297,7 @@ python -m pytest tests/test_n2_oep_occ.py
 The `-m` flag is required to ensure the `methods/` and `methods_oep/` packages are importable from the project root. Alternatively, add the project root to `PYTHONPATH`:
 
 ```bash
-export PYTHONPATH="/path/to/DeltaSCF:$PYTHONPATH"
+export PYTHONPATH="/path/to/pa-delta-scf-methods:$PYTHONPATH"
 ```
 
 ## License
