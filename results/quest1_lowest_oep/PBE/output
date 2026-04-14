@@ -1,0 +1,2055 @@
+YAML-config at configs/quest1_lowest_oep/PBE.yaml was found. Using it.
+
+CONFIG
+  basis: aug-cc-pVQZ
+  oep_basis: aug-cc-pVDZ-RIFIT
+  dfit_basis: aug-cc-pV5Z-RIFIT
+  xc: PBE
+  excitation: [0, 1]
+  exceptions: {'Hydrogen sulfide': [0, 2]}
+  grid_level: 3
+  systems: None
+  space_sym: True
+  thr_fai_oep: 0.017
+  conv_thr: 1e-08
+  swap: True
+
+[1/16] Acetaldehyde
+Running ground-state KS calculation
+Energy of standard DFT calculation: -153.71521562963153
+
+Running ground-state KS-OEP calculation
+ITER        ENERGY               EDIFF
+  0   -153.714728466651
+  1   -153.714758666354     -0.000030199703
+  2   -153.714756075405      0.000002590949
+  3   -153.714757897211     -0.000001821806
+  4   -153.714757903647     -0.000000006435
+SCF converged
+Energy of ground-state KS-OEP calculation: -153.71475790364673
+
+Running excited-state singlet UKS-OEP calculation
+ITER        ENERGY               EDIFF
+  0   -153.347048349507
+  1   -153.571511558512     -0.224463209006
+  2   -153.575351048960     -0.003839490447
+  3   -153.576101675508     -0.000750626549
+  4   -153.576127291920     -0.000025616412
+  5   -153.576129205941     -0.000001914021
+  6   -153.576129369372     -0.000000163431
+  7   -153.576129448966     -0.000000079595
+  8   -153.576129440709      0.000000008258
+SCF converged
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 1 0 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0
+Energy of excited-state singlet UKS-OEP: -153.5761294407087
+
+Running excited-state singlet SS-KS-OEP calculation
+ITER        ENERGY               EDIFF
+  0   -153.297520753421
+  1   -153.567220184666     -0.269699431246
+  2   -153.570976847547     -0.003756662881
+  3   -153.571278762034     -0.000301914487
+  4   -153.571296451683     -0.000017689648
+  5   -153.571297116451     -0.000000664768
+  6   -153.571297119444     -0.000000002994
+SCF converged
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 1 0 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0
+Energy of excited-state singlet SS-KS-OEP: -153.57129711944418
+
+Running excited-state triplet UKS-OEP calculation
+ITER        ENERGY               EDIFF
+  0   -153.361264234013
+  1   -153.577155066058     -0.215890832045
+  2   -153.580569461202     -0.003414395144
+  3   -153.581102478021     -0.000533016820
+  4   -153.581123720886     -0.000021242864
+  5   -153.581127960887     -0.000004240001
+  6   -153.581128955308     -0.000000994422
+  7   -153.581128870237      0.000000085072
+  8   -153.581128844907      0.000000025330
+  9   -153.581128845589     -0.000000000682
+SCF converged
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0
+Energy of excited-state triplet UKS-OEP: -153.58112884558903
+
+Running excited-state triplet SS-KS-OEP calculation
+ITER        ENERGY               EDIFF
+  0   -153.310598631752
+  1   -153.573799694628     -0.263201062876
+  2   -153.577360129153     -0.003560434524
+  3   -153.577649573548     -0.000289444395
+  4   -153.577664541454     -0.000014967906
+  5   -153.577665313461     -0.000000772007
+  6   -153.577665397664     -0.000000084203
+  7   -153.577665301604      0.000000096060
+  8   -153.577665326137     -0.000000024533
+  9   -153.577665324309      0.000000001828
+SCF converged
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0
+Energy of excited-state triplet SS-KS-OEP: -153.57766532430895
+
+Running OSS-KS-OEP calculation
+ITER        ENERGY             ENERGY (T)            EDIFF
+  0   -153.284423709783   -153.297312240581
+  1   -153.560727559665   -153.573108172172     -0.276303849882
+  2   -153.564718441446   -153.577171550555     -0.003990881781
+  3   -153.565041662444   -153.577403877236     -0.000323220998
+  4   -153.565062836708   -153.577396276990     -0.000021174264
+  5   -153.565063630540   -153.577398022827     -0.000000793832
+  6   -153.565063566558   -153.577396895224      0.000000063982
+  7   -153.565063575393   -153.577396834000     -0.000000008835
+SCF converged
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 1 0 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0
+Energy of excited-state singlet OSS-KS-OEP: -153.56506357539263
+Energy of excited-state triplet OSS-KS-OEP: -153.57739683399967
+
+Running STA-KS-OEP calculation
+ITER  ENERGY (MULTIPLET)    ENERGY (S exci)        ENERGY (T)            EDIFF
+  0   -153.304061053672   -153.294295733810   -153.307316160292
+  1   -153.570498673761   -153.560894158326   -153.573700178905     -0.266437620089
+  2   -153.574152490579   -153.564519217542   -153.577363581591     -0.003653816818
+  3   -153.574447139245   -153.564880661103   -153.577635965292     -0.000294648666
+  4   -153.574463467399   -153.564913203893   -153.577646888568     -0.000016328154
+  5   -153.574464087181   -153.564912602627   -153.577647915366     -0.000000619782
+  6   -153.574464130803   -153.564913046500   -153.577647825571     -0.000000043622
+  7   -153.574464076963   -153.564913111370   -153.577647732161      0.000000053840
+  8   -153.574464072986   -153.564913084818   -153.577647735709      0.000000003977
+SCF converged
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 1 0 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0
+Energy of excited-state singlet STA-KS-OEP: -153.56491308481793
+Energy of excited-state triplet STA-KS-OEP: -153.57764773570898
+Singlet Excitation energy (UKS-OEP):    3.9083 eV
+Triplet Excitation energy (UKS-OEP):    3.6362 eV
+Singlet Excitation energy (SS-KS-OEP):  4.0771 eV
+Triplet Excitation energy (SS-KS-OEP):  3.7305 eV
+Singlet Excitation energy (OSS-KS-OEP): 4.0734 eV
+Singlet Excitation energy (STA-KS-OEP): 4.0775 eV
+Triplet Excitation energy (STA-KS-OEP): 3.7310 eV
+Elapsed: 00:05:53  Total: 00:05:53
+
+[2/16] Ammonia
+Running ground-state KS calculation
+Energy of standard DFT calculation: -56.515647357702406
+
+Running ground-state KS-OEP calculation
+ITER        ENERGY               EDIFF
+  0    -56.515581768982
+  1    -56.515583855363     -0.000002086381
+  2    -56.515584071223     -0.000000215860
+  3    -56.515584065931      0.000000005292
+SCF converged
+Energy of ground-state KS-OEP calculation: -56.51558406593146
+
+Running excited-state singlet UKS-OEP calculation
+ITER        ENERGY               EDIFF
+  0    -56.185827719030
+  1    -56.284066448355     -0.098238729325
+  2    -56.284648438913     -0.000581990558
+  3    -56.284634195090      0.000014243823
+  4    -56.284652534252     -0.000018339162
+  5    -56.284650771098      0.000001763153
+  6    -56.284650933200     -0.000000162102
+  7    -56.284650939314     -0.000000006114
+SCF converged
+Occupation numbers (alpha): 1 1 1 1 0 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 0 0 0 0 0
+Energy of excited-state singlet UKS-OEP: -56.28465093931365
+
+Running excited-state singlet SS-KS-OEP calculation
+ITER        ENERGY               EDIFF
+  0    -56.169856485600
+  1    -56.279736331673     -0.109879846073
+  2    -56.280371138515     -0.000634806841
+  3    -56.280389366686     -0.000018228172
+  4    -56.280396380007     -0.000007013321
+  5    -56.280394000719      0.000002379288
+  6    -56.280394848672     -0.000000847953
+  7    -56.280394794660      0.000000054013
+  8    -56.280394789255      0.000000005405
+SCF converged
+Occupation numbers (alpha): 1 1 1 1 0 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 0 0 0 0 0
+Energy of excited-state singlet SS-KS-OEP: -56.28039478925501
+
+Running excited-state triplet UKS-OEP calculation
+ITER        ENERGY               EDIFF
+  0    -56.188374120056
+  1    -56.289552943784     -0.101178823728
+  2    -56.289961942850     -0.000408999066
+  3    -56.289944459344      0.000017483506
+  4    -56.289960058369     -0.000015599025
+  5    -56.289958236217      0.000001822152
+  6    -56.289958101148      0.000000135069
+  7    -56.289958121544     -0.000000020396
+  8    -56.289958102226      0.000000019318
+  9    -56.289958105685     -0.000000003459
+SCF converged
+Occupation numbers (alpha): 1 1 1 1 1 1 0 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 0 0 0 0 0 0 0
+Energy of excited-state triplet UKS-OEP: -56.289958105685116
+
+Running excited-state triplet SS-KS-OEP calculation
+ITER        ENERGY               EDIFF
+  0    -56.177158853467
+  1    -56.286436659277     -0.109277805810
+  2    -56.287000379706     -0.000563720429
+  3    -56.287011162099     -0.000010782392
+  4    -56.287019333212     -0.000008171114
+  5    -56.287016142202      0.000003191011
+  6    -56.287016058724      0.000000083478
+  7    -56.287016072607     -0.000000013883
+  8    -56.287016066213      0.000000006394
+SCF converged
+Occupation numbers (alpha): 1 1 1 1 1 1 0 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 0 0 0 0 0 0 0
+Energy of excited-state triplet SS-KS-OEP: -56.28701606621263
+
+Running OSS-KS-OEP calculation
+ITER        ENERGY             ENERGY (T)            EDIFF
+  0    -56.162667537353    -56.178299902053
+  1    -56.273293554850    -56.285599325534     -0.110626017498
+  2    -56.274023224741    -56.286149989837     -0.000729669891
+  3    -56.274070527364    -56.286169070296     -0.000047302623
+  4    -56.274073649173    -56.286173110230     -0.000003121808
+  5    -56.274071493327    -56.286168705280      0.000002155845
+  6    -56.274074574415    -56.286168899277     -0.000003081088
+  7    -56.274074419044    -56.286168784532      0.000000155371
+  8    -56.274074388932    -56.286168739612      0.000000030112
+  9    -56.274074395936    -56.286168749130     -0.000000007004
+SCF converged
+Occupation numbers (alpha): 1 1 1 1 0 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 0 0 0 0 0
+Occupation numbers (alpha): 1 1 1 1 1 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 0 0 0 0 0 0
+Energy of excited-state singlet OSS-KS-OEP: -56.274074395935756
+Energy of excited-state triplet OSS-KS-OEP: -56.28616874912967
+
+Running STA-KS-OEP calculation
+ITER  ENERGY (MULTIPLET)    ENERGY (S exci)        ENERGY (T)            EDIFF
+  0    -56.173529648274    -56.161289458660    -56.177609711478
+  1    -56.283047067879    -56.273174583473    -56.286337896015     -0.109517419606
+  2    -56.283634063789    -56.273955102873    -56.286860384094     -0.000586995909
+  3    -56.283643427258    -56.273970950572    -56.286867586154     -0.000009363470
+  4    -56.283650499694    -56.273977007750    -56.286874997008     -0.000007072435
+  5    -56.283648898308    -56.273976441824    -56.286873050469      0.000001601386
+  6    -56.283649206149    -56.273976769679    -56.286873351638     -0.000000307841
+  7    -56.283649207130    -56.273976812527    -56.286873338664     -0.000000000981
+SCF converged
+Occupation numbers (alpha): 1 1 1 1 0 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 0 0 0 0 0
+Occupation numbers (alpha): 1 1 1 1 1 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 0 0 0 0 0 0
+Energy of excited-state singlet STA-KS-OEP: -56.273976812526826
+Energy of excited-state triplet STA-KS-OEP: -56.28687333866394
+Singlet Excitation energy (UKS-OEP):    6.4284 eV
+Triplet Excitation energy (UKS-OEP):    6.1396 eV
+Singlet Excitation energy (SS-KS-OEP):  6.5800 eV
+Triplet Excitation energy (SS-KS-OEP):  6.2197 eV
+Singlet Excitation energy (OSS-KS-OEP): 6.5718 eV
+Singlet Excitation energy (STA-KS-OEP): 6.5745 eV
+Triplet Excitation energy (STA-KS-OEP): 6.2235 eV
+Elapsed: 00:01:57  Total: 00:07:50
+
+[3/16] Carbon monoxide
+Running ground-state KS calculation
+Energy of standard DFT calculation: -113.2393525137858
+
+Running ground-state KS-OEP calculation
+ITER        ENERGY               EDIFF
+  0   -113.239293357389
+  1   -113.239295421338     -0.000002063949
+  2   -113.239295546670     -0.000000125333
+  3   -113.239295668090     -0.000000121420
+  4   -113.239295673621     -0.000000005532
+SCF converged
+Energy of ground-state KS-OEP calculation: -113.2392956736214
+
+Running excited-state singlet UKS-OEP calculation
+ITER        ENERGY               EDIFF
+  0   -112.806971264402
+  1   -112.991114121482     -0.184142857080
+  2   -112.991958701432     -0.000844579950
+  3   -112.991967553540     -0.000008852108
+  4   -112.991977166039     -0.000009612499
+  5   -112.991958854329      0.000018311710
+  6   -112.991963268168     -0.000004413839
+  7   -112.991963090442      0.000000177726
+  8   -112.991963270537     -0.000000180094
+  9   -112.991963273880     -0.000000003344
+SCF converged
+Occupation numbers (alpha): 1 1 1 1 1 1 0 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 0 0 0 0 0
+Energy of excited-state singlet UKS-OEP: -112.99196327388017
+
+Running excited-state singlet SS-KS-OEP calculation
+ITER        ENERGY               EDIFF
+  0   -112.706063701359
+  1   -112.987804847255     -0.281741145896
+  2   -112.989670789110     -0.001865941856
+  3   -112.989692291145     -0.000021502035
+  4   -112.989711606158     -0.000019315013
+  5   -112.989709992544      0.000001613615
+  6   -112.989710468103     -0.000000475560
+  7   -112.989710433947      0.000000034156
+  8   -112.989710331077      0.000000102870
+  9   -112.989710415788     -0.000000084710
+ 10   -112.989710422400     -0.000000006612
+SCF converged
+Occupation numbers (alpha): 1 1 1 1 1 1 0 0 1 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 0 0 0 0 0
+Energy of excited-state singlet SS-KS-OEP: -112.98971042240007
+
+Running excited-state triplet UKS-OEP calculation
+ITER        ENERGY               EDIFF
+  0   -112.901734936818
+  1   -113.020582747900     -0.118847811081
+  2   -113.021138434248     -0.000555686348
+  3   -113.021197934053     -0.000059499805
+  4   -113.021227543553     -0.000029609500
+  5   -113.021234228905     -0.000006685353
+  6   -113.021234550348     -0.000000321443
+  7   -113.021234883282     -0.000000332934
+  8   -113.021234876636      0.000000006646
+SCF converged
+Occupation numbers (alpha): 1 1 1 1 1 1 1 0 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 0 0 0 0 0 0 0
+Energy of excited-state triplet UKS-OEP: -113.02123487663584
+
+Running excited-state triplet SS-KS-OEP calculation
+ITER        ENERGY               EDIFF
+  0   -112.827052588847
+  1   -113.015573920764     -0.188521331917
+  2   -113.016567182202     -0.000993261438
+  3   -113.016607896509     -0.000040714307
+  4   -113.016618374601     -0.000010478092
+  5   -113.016617481855      0.000000892746
+  6   -113.016617705770     -0.000000223915
+  7   -113.016617701330      0.000000004440
+SCF converged
+Occupation numbers (alpha): 1 1 1 1 1 1 1 0 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 0 0 0 0 0 0 0
+Energy of excited-state triplet SS-KS-OEP: -113.01661770132995
+
+Running OSS-KS-OEP calculation
+ITER        ENERGY             ENERGY (T)            EDIFF
+  0   -112.568248523539   -112.600057810175
+  1   -112.961364627510   -113.008000210130     -0.393116103971
+  2   -112.964247655628   -113.014439974541     -0.002883028118
+  3   -112.964286709282   -113.014069937855     -0.000039053655
+  4   -112.964296691098   -113.014042332995     -0.000009981816
+  5   -112.964294042855   -113.014045333160      0.000002648243
+  6   -112.964294964094   -113.014037887579     -0.000000921239
+  7   -112.964294761427   -113.014039005103      0.000000202667
+  8   -112.964294785741   -113.014038866979     -0.000000024314
+  9   -112.964294807169   -113.014038863637     -0.000000021428
+ 10   -112.964294776091   -113.014038859868      0.000000031078
+ 11   -112.964294829527   -113.014038859969     -0.000000053436
+ 12   -112.964294765084   -113.014038861013      0.000000064443
+ 13   -112.964294797365   -113.014038860890     -0.000000032281
+ 14   -112.964294768449   -113.014038861073      0.000000028916
+ 15   -112.964294819530   -113.014038860931     -0.000000051081
+ 16   -112.964294764842   -113.014038860964      0.000000054688
+ 17   -112.964294722343   -113.014038861257      0.000000042499
+ 18   -112.964294808058   -113.014038860781     -0.000000085715
+ 19   -112.964294808173   -113.014038860650     -0.000000000115
+SCF converged
+Occupation numbers (alpha): 1 1 1 1 1 1 0 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 0 0 0 0 0
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 0 0 0 0 0 0
+Energy of excited-state singlet OSS-KS-OEP: -112.9642948081731
+Energy of excited-state triplet OSS-KS-OEP: -113.01403886064989
+
+Running STA-KS-OEP calculation
+ITER  ENERGY (MULTIPLET)    ENERGY (S exci)        ENERGY (T)            EDIFF
+  0   -112.769346482817   -112.742637272442   -112.778249552941
+  1   -113.001491803212   -112.962131301360   -113.014611970497     -0.232145320396
+  2   -113.002927703441   -112.962207955720   -113.016500952682     -0.001435900229
+  3   -113.002956000394   -112.962243423310   -113.016526859422     -0.000028296953
+  4   -113.002971103576   -112.962360594994   -113.016507939770     -0.000015103182
+  5   -113.002969861632   -112.962347166912   -113.016510759871      0.000001241945
+  6   -113.002970176730   -112.962350873363   -113.016509944519     -0.000000315098
+  7   -113.002970209452   -112.962350658369   -113.016510059812     -0.000000032722
+  8   -113.002970200323   -112.962350633841   -113.016510055817      0.000000009128
+SCF converged
+Occupation numbers (alpha): 1 1 1 1 1 1 0 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 0 0 0 0 0
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 0 0 0 0 0 0
+Energy of excited-state singlet STA-KS-OEP: -112.96235063384103
+Energy of excited-state triplet STA-KS-OEP: -113.01651005581746
+Singlet Excitation energy (UKS-OEP):    7.5268 eV
+Triplet Excitation energy (UKS-OEP):    5.9337 eV
+Singlet Excitation energy (SS-KS-OEP):  7.5237 eV
+Triplet Excitation energy (SS-KS-OEP):  6.0594 eV
+Singlet Excitation energy (OSS-KS-OEP): 7.4832 eV
+Singlet Excitation energy (STA-KS-OEP): 7.5361 eV
+Triplet Excitation energy (STA-KS-OEP): 6.0623 eV
+Elapsed: 00:01:53  Total: 00:09:44
+
+[4/16] Cyclopropene
+Running ground-state KS calculation
+Energy of standard DFT calculation: -116.51134698677046
+
+Running ground-state KS-OEP calculation
+ITER        ENERGY               EDIFF
+  0   -116.511055778945
+  1   -116.511076221108     -0.000020442163
+  2   -116.511074445926      0.000001775182
+  3   -116.511075442952     -0.000000997026
+  4   -116.511075462946     -0.000000019995
+  5   -116.511075472142     -0.000000009196
+SCF converged
+Energy of ground-state KS-OEP calculation: -116.51107547214241
+
+Running excited-state singlet UKS-OEP calculation
+ITER        ENERGY               EDIFF
+  0   -116.310104128996
+  1   -116.327036991773     -0.016932862777
+  2   -116.327835645760     -0.000798653987
+  3   -116.327957179475     -0.000121533716
+  4   -116.327967837352     -0.000010657876
+  5   -116.327967689801      0.000000147551
+  6   -116.327967763518     -0.000000073717
+  7   -116.327967744803      0.000000018715
+  8   -116.327967751264     -0.000000006462
+SCF converged
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 0 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0
+Energy of excited-state singlet UKS-OEP: -116.3279677512644
+
+Running excited-state singlet SS-KS-OEP calculation
+ITER        ENERGY               EDIFF
+  0   -116.309430659197
+  1   -116.326338924344     -0.016908265147
+  2   -116.327013657247     -0.000674732903
+  3   -116.327119957433     -0.000106300186
+  4   -116.327122399649     -0.000002442215
+  5   -116.327122415815     -0.000000016167
+  6   -116.327122596336     -0.000000180521
+  7   -116.327122594434      0.000000001902
+SCF converged
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 0 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0
+Energy of excited-state singlet SS-KS-OEP: -116.32712259443377
+
+Running excited-state triplet UKS-OEP calculation
+ITER        ENERGY               EDIFF
+  0   -116.342519300330
+  1   -116.359788155821     -0.017268855491
+  2   -116.360789412806     -0.001001256984
+  3   -116.360991264772     -0.000201851967
+  4   -116.361053670836     -0.000062406064
+  5   -116.361054825997     -0.000001155161
+  6   -116.361054935899     -0.000000109902
+  7   -116.361054935947     -0.000000000048
+SCF converged
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0
+Energy of excited-state triplet UKS-OEP: -116.36105493594718
+
+Running excited-state triplet SS-KS-OEP calculation
+ITER        ENERGY               EDIFF
+  0   -116.334835086048
+  1   -116.355179877998     -0.020344791950
+  2   -116.356135914181     -0.000956036183
+  3   -116.356276953196     -0.000141039015
+  4   -116.356277568879     -0.000000615684
+  5   -116.356277623682     -0.000000054802
+  6   -116.356277685840     -0.000000062158
+  7   -116.356277640635      0.000000045205
+  8   -116.356277637517      0.000000003118
+SCF converged
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0
+Energy of excited-state triplet SS-KS-OEP: -116.35627763751694
+
+Running OSS-KS-OEP calculation
+ITER        ENERGY             ENERGY (T)            EDIFF
+  0   -116.286181348730   -116.340147070716
+  1   -116.299454780015   -116.350567770384     -0.013273431285
+  2   -116.300118246777   -116.351275979758     -0.000663466762
+  3   -116.300217642210   -116.351619162650     -0.000099395433
+  4   -116.300217701370   -116.351595040915     -0.000000059160
+  5   -116.300218156432   -116.351579795538     -0.000000455063
+  6   -116.300218213231   -116.351587702053     -0.000000056799
+  7   -116.300218200818   -116.351587066497      0.000000012413
+  8   -116.300218198161   -116.351586960898      0.000000002658
+SCF converged
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 0 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0
+Energy of excited-state singlet OSS-KS-OEP: -116.30021819816079
+Energy of excited-state triplet OSS-KS-OEP: -116.35158696089837
+
+Running STA-KS-OEP calculation
+ITER  ENERGY (MULTIPLET)    ENERGY (S exci)        ENERGY (T)            EDIFF
+  0   -116.321870580879   -116.275350909080   -116.337377138146
+  1   -116.340515815918   -116.296456434851   -116.355202276273     -0.018645235038
+  2   -116.341305002019   -116.297651667700   -116.355856113459     -0.000789186101
+  3   -116.341420889895   -116.297657867027   -116.356008564184     -0.000115887876
+  4   -116.341421660057   -116.297639968165   -116.356015557355     -0.000000770162
+  5   -116.341421522770   -116.297643521308   -116.356014189924      0.000000137287
+  6   -116.341421563569   -116.297642191836   -116.356014687480     -0.000000040799
+  7   -116.341421541047   -116.297642475785   -116.356014562801      0.000000022522
+  8   -116.341421540242   -116.297642436441   -116.356014574842      0.000000000805
+SCF converged
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 0 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0
+Energy of excited-state singlet STA-KS-OEP: -116.29764243644118
+Energy of excited-state triplet STA-KS-OEP: -116.35601457484191
+Singlet Excitation energy (UKS-OEP):    5.8830 eV
+Triplet Excitation energy (UKS-OEP):    4.0823 eV
+Singlet Excitation energy (SS-KS-OEP):  5.7990 eV
+Triplet Excitation energy (SS-KS-OEP):  4.2123 eV
+Singlet Excitation energy (OSS-KS-OEP): 5.7377 eV
+Singlet Excitation energy (STA-KS-OEP): 5.8078 eV
+Triplet Excitation energy (STA-KS-OEP): 4.2194 eV
+Elapsed: 00:05:45  Total: 00:15:29
+
+[5/16] Diazomethane
+Running ground-state KS calculation
+Energy of standard DFT calculation: -148.64298983134694
+
+Running ground-state KS-OEP calculation
+ITER        ENERGY               EDIFF
+  0   -148.642704299997
+  1   -148.642717632250     -0.000013332252
+  2   -148.642716988438      0.000000643812
+  3   -148.642717076561     -0.000000088122
+  4   -148.642717097807     -0.000000021247
+  5   -148.642717091687      0.000000006120
+SCF converged
+Energy of ground-state KS-OEP calculation: -148.64271709168716
+
+Running excited-state singlet UKS-OEP calculation
+ITER        ENERGY               EDIFF
+  0   -148.260759473284
+  1   -148.530604909256     -0.269845435971
+  2   -148.533102139672     -0.002497230417
+  3   -148.537939560212     -0.004837420540
+  4   -148.538258888976     -0.000319328764
+  5   -148.538269169562     -0.000010280587
+  6   -148.538269702269     -0.000000532707
+  7   -148.538269740837     -0.000000038568
+  8   -148.538269745650     -0.000000004813
+SCF converged
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 0 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0
+Energy of excited-state singlet UKS-OEP: -148.53826974564964
+
+Running excited-state singlet SS-KS-OEP calculation
+ITER        ENERGY               EDIFF
+  0   -148.151782181820
+  1   -148.525498384824     -0.373716203003
+  2   -148.530158964135     -0.004660579311
+  3   -148.533572173364     -0.003413209229
+  4   -148.533816304129     -0.000244130765
+  5   -148.533815409104      0.000000895026
+  6   -148.533815763882     -0.000000354778
+  7   -148.533815849189     -0.000000085307
+  8   -148.533815845491      0.000000003697
+SCF converged
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 0 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0
+Energy of excited-state singlet SS-KS-OEP: -148.53381584549146
+
+Running excited-state triplet UKS-OEP calculation
+ITER        ENERGY               EDIFF
+  0   -148.269271518382
+  1   -148.535365704106     -0.266094185724
+  2   -148.537274315981     -0.001908611875
+  3   -148.541359727531     -0.004085411549
+  4   -148.541594961729     -0.000235234198
+  5   -148.541604485354     -0.000009523625
+  6   -148.541605106325     -0.000000620971
+  7   -148.541605101313      0.000000005012
+SCF converged
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0
+Energy of excited-state triplet UKS-OEP: -148.54160510131317
+
+Running excited-state triplet SS-KS-OEP calculation
+ITER        ENERGY               EDIFF
+  0   -148.173064627478
+  1   -148.529741347414     -0.356676719936
+  2   -148.534964437459     -0.005223090045
+  3   -148.538031469166     -0.003067031708
+  4   -148.538263000046     -0.000231530880
+  5   -148.538261969615      0.000001030431
+  6   -148.538262326972     -0.000000357357
+  7   -148.538262429097     -0.000000102125
+  8   -148.538262423634      0.000000005463
+SCF converged
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0
+Energy of excited-state triplet SS-KS-OEP: -148.538262423634
+
+Running OSS-KS-OEP calculation
+ITER        ENERGY             ENERGY (T)            EDIFF
+  0   -148.129835397336   -148.136442947644
+  1   -148.521316026907   -148.529774880290     -0.391480629571
+  2   -148.525441812877   -148.534127049162     -0.004125785970
+  3   -148.529218919010   -148.537716934375     -0.003777106133
+  4   -148.529476358184   -148.538060698894     -0.000257439173
+  5   -148.529475803475   -148.538051283795      0.000000554709
+  6   -148.529476135100   -148.538053420260     -0.000000331625
+  7   -148.529476202478   -148.538053461360     -0.000000067378
+  8   -148.529476201308   -148.538053429687      0.000000001169
+SCF converged
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 0 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0
+Energy of excited-state singlet OSS-KS-OEP: -148.52947620130823
+Energy of excited-state triplet OSS-KS-OEP: -148.53805342968727
+
+Running STA-KS-OEP calculation
+ITER  ENERGY (MULTIPLET)    ENERGY (S exci)        ENERGY (T)            EDIFF
+  0   -148.162508004866   -148.157253866427   -148.164259384346
+  1   -148.527612344970   -148.521047264888   -148.529800704998     -0.365104340104
+  2   -148.532550607298   -148.525801745774   -148.534800227806     -0.004938262328
+  3   -148.535788240099   -148.529176437243   -148.537992174385     -0.003237632801
+  4   -148.536025978992   -148.529350418312   -148.538251165886     -0.000237738893
+  5   -148.536025000549   -148.529353625486   -148.538248792236      0.000000978443
+  6   -148.536025358278   -148.529352687524   -148.538249581863     -0.000000357729
+  7   -148.536025452363   -148.529352841548   -148.538249655968     -0.000000094084
+  8   -148.536025447727   -148.529352854090   -148.538249645605      0.000000004636
+SCF converged
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 0 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0
+Energy of excited-state singlet STA-KS-OEP: -148.52935285408984
+Energy of excited-state triplet STA-KS-OEP: -148.53824964560548
+Singlet Excitation energy (UKS-OEP):    2.9329 eV
+Triplet Excitation energy (UKS-OEP):    2.7514 eV
+Singlet Excitation energy (SS-KS-OEP):  3.0844 eV
+Triplet Excitation energy (SS-KS-OEP):  2.8424 eV
+Singlet Excitation energy (OSS-KS-OEP): 3.0814 eV
+Singlet Excitation energy (STA-KS-OEP): 3.0848 eV
+Triplet Excitation energy (STA-KS-OEP): 2.8427 eV
+Elapsed: 00:03:53  Total: 00:19:22
+
+[6/16] Dinitrogen
+Running ground-state KS calculation
+Energy of standard DFT calculation: -109.45725410776465
+
+Running ground-state KS-OEP calculation
+ITER        ENERGY               EDIFF
+  0   -109.457241976726
+  1   -109.457242336717     -0.000000359992
+  2   -109.457242314539      0.000000022179
+  3   -109.457242312730      0.000000001808
+SCF converged
+Energy of ground-state KS-OEP calculation: -109.45724231273049
+
+Running excited-state singlet UKS-OEP calculation
+ITER        ENERGY               EDIFF
+  0   -109.162712406335
+  1   -109.163366586604     -0.000654180269
+  2   -109.163446397466     -0.000079810862
+  3   -109.163448361900     -0.000001964434
+  4   -109.163467473014     -0.000019111113
+  5   -109.163483683403     -0.000016210390
+  6   -109.163487402274     -0.000003718871
+  7   -109.163488081226     -0.000000678952
+  8   -109.163488136358     -0.000000055132
+  9   -109.163488131290      0.000000005067
+SCF converged
+Occupation numbers (alpha): 1 1 1 1 1 1 0 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 0 0 0 0 0
+Energy of excited-state singlet UKS-OEP: -109.16348813129049
+
+Running excited-state singlet SS-KS-OEP calculation
+ITER        ENERGY               EDIFF
+  0   -109.160344873894
+  1   -109.161134431696     -0.000789557802
+  2   -109.161138806911     -0.000004375215
+  3   -109.161143537540     -0.000004730629
+  4   -109.161143882491     -0.000000344951
+  5   -109.161143902456     -0.000000019965
+  6   -109.161143897180      0.000000005277
+SCF converged
+Occupation numbers (alpha): 1 1 1 1 1 1 0 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 0 0 0 0 0
+Energy of excited-state singlet SS-KS-OEP: -109.1611438971796
+
+Running excited-state triplet UKS-OEP calculation
+ITER        ENERGY               EDIFF
+  0   -109.180295213105
+  1   -109.181133272180     -0.000838059075
+  2   -109.181173119071     -0.000039846891
+  3   -109.181192834595     -0.000019715524
+  4   -109.181194466367     -0.000001631772
+  5   -109.181194216672      0.000000249694
+  6   -109.181194224379     -0.000000007707
+SCF converged
+Occupation numbers (alpha): 1 1 1 1 1 1 1 0 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 0 0 0 0 0 0 0
+Energy of excited-state triplet UKS-OEP: -109.18119422437924
+
+Running excited-state triplet SS-KS-OEP calculation
+ITER        ENERGY               EDIFF
+  0   -109.178306535023
+  1   -109.179260066684     -0.000953531661
+  2   -109.179286686813     -0.000026620130
+  3   -109.179288045385     -0.000001358572
+  4   -109.179288513011     -0.000000467626
+  5   -109.179288445339      0.000000067672
+  6   -109.179288440799      0.000000004539
+SCF converged
+Occupation numbers (alpha): 1 1 1 1 1 1 1 0 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 0 0 0 0 0 0 0
+Energy of excited-state triplet SS-KS-OEP: -109.17928844079914
+
+Running OSS-KS-OEP calculation
+ITER        ENERGY             ENERGY (T)            EDIFF
+  0   -109.142504838669   -109.178479635411
+  1   -109.143167413299   -109.178947637106     -0.000662574630
+  2   -109.143149068057   -109.179066846839      0.000018345242
+  3   -109.143161690235   -109.179037955254     -0.000012622178
+  4   -109.143162377941   -109.179036859131     -0.000000687706
+  5   -109.143162306039   -109.179036967300      0.000000071902
+  6   -109.143162310073   -109.179036964550     -0.000000004034
+SCF converged
+Occupation numbers (alpha): 1 1 1 1 1 1 0 0 1 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 0 0 0 0 0
+Occupation numbers (alpha): 1 1 1 1 1 1 1 0 1 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 0 0 0 0 0 0
+Energy of excited-state singlet OSS-KS-OEP: -109.14316231007312
+Energy of excited-state triplet OSS-KS-OEP: -109.17903696454952
+
+Running STA-KS-OEP calculation
+ITER  ENERGY (MULTIPLET)    ENERGY (S exci)        ENERGY (T)            EDIFF
+  0   -109.169310275951   -109.141849128739   -109.178463991688
+  1   -109.170177371482   -109.143021420774   -109.179229355051     -0.000867095531
+  2   -109.170192972687   -109.142906298983   -109.179288530588     -0.000015601205
+  3   -109.170195625423   -109.142925913192   -109.179285529499     -0.000002652736
+  4   -109.170195873006   -109.142926329366   -109.179285720886     -0.000000247583
+  5   -109.170195866712   -109.142926324533   -109.179285714105      0.000000006294
+SCF converged
+Occupation numbers (alpha): 1 1 1 1 1 1 0 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 0 0 0 0 0
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 0 0 0 0 0 0
+Energy of excited-state singlet STA-KS-OEP: -109.14292632453306
+Energy of excited-state triplet STA-KS-OEP: -109.17928571410503
+Singlet Excitation energy (UKS-OEP):    8.4753 eV
+Triplet Excitation energy (UKS-OEP):    7.5117 eV
+Singlet Excitation energy (SS-KS-OEP):  8.5510 eV
+Triplet Excitation energy (SS-KS-OEP):  7.5635 eV
+Singlet Excitation energy (OSS-KS-OEP): 8.5466 eV
+Singlet Excitation energy (STA-KS-OEP): 8.5530 eV
+Triplet Excitation energy (STA-KS-OEP): 7.5636 eV
+Elapsed: 00:01:17  Total: 00:20:40
+
+[7/16] Ethylene
+Running ground-state KS calculation
+Energy of standard DFT calculation: -78.5060805576071
+
+Running ground-state KS-OEP calculation
+ITER        ENERGY               EDIFF
+  0    -78.505897820289
+  1    -78.505907821419     -0.000010001130
+  2    -78.505907235919      0.000000585500
+  3    -78.505907456881     -0.000000220962
+  4    -78.505907458074     -0.000000001193
+SCF converged
+Energy of ground-state KS-OEP calculation: -78.50590745807415
+
+Running excited-state singlet UKS-OEP calculation
+ITER        ENERGY               EDIFF
+  0    -78.293168322331
+  1    -78.300015950066     -0.006847627736
+  2    -78.300301540219     -0.000285590153
+  3    -78.300303754017     -0.000002213798
+  4    -78.300303560342      0.000000193675
+  5    -78.300303551609      0.000000008733
+SCF converged
+Occupation numbers (alpha): 1 1 1 1 1 1 1 0 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 0 0 0 0 0
+Energy of excited-state singlet UKS-OEP: -78.30030355160892
+
+Running excited-state singlet SS-KS-OEP calculation
+ITER        ENERGY               EDIFF
+  0    -78.292356094541
+  1    -78.299379967536     -0.007023872995
+  2    -78.299592900786     -0.000212933250
+  3    -78.299593560328     -0.000000659542
+  4    -78.299593556162      0.000000004166
+SCF converged
+Occupation numbers (alpha): 1 1 1 1 1 1 1 0 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 0 0 0 0 0
+Energy of excited-state singlet SS-KS-OEP: -78.29959355616161
+
+Running excited-state triplet UKS-OEP calculation
+ITER        ENERGY               EDIFF
+  0    -78.332418127694
+  1    -78.341612278194     -0.009194150500
+  2    -78.342036627916     -0.000424349722
+  3    -78.342057050028     -0.000020422111
+  4    -78.342057407395     -0.000000357367
+  5    -78.342057302210      0.000000105185
+  6    -78.342057329023     -0.000000026813
+  7    -78.342057327721      0.000000001302
+SCF converged
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 0 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 0 0 0 0 0 0 0
+Energy of excited-state triplet UKS-OEP: -78.34205732772095
+
+Running excited-state triplet SS-KS-OEP calculation
+ITER        ENERGY               EDIFF
+  0    -78.327838451530
+  1    -78.337872204857     -0.010033753327
+  2    -78.337958594128     -0.000086389271
+  3    -78.337952628489      0.000005965639
+  4    -78.337953776256     -0.000001147767
+  5    -78.337953647166      0.000000129090
+  6    -78.337953643929      0.000000003237
+SCF converged
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 0 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 0 0 0 0 0 0 0
+Energy of excited-state triplet SS-KS-OEP: -78.33795364392854
+
+Running OSS-KS-OEP calculation
+ITER        ENERGY             ENERGY (T)            EDIFF
+  0    -78.258927737545    -78.331664081212
+  1    -78.262937511145    -78.331270098779     -0.004009773601
+  2    -78.263469890789    -78.333118153373     -0.000532379643
+  3    -78.263465247526    -78.333032173770      0.000004643263
+  4    -78.263465333151    -78.333027941793     -0.000000085625
+  5    -78.263465339396    -78.333028150798     -0.000000006246
+SCF converged
+Occupation numbers (alpha): 1 1 1 1 1 1 1 0 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 0 0 0 0 0
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 0 0 0 0 0 0
+Energy of excited-state singlet OSS-KS-OEP: -78.26346533939625
+Energy of excited-state triplet OSS-KS-OEP: -78.33302815079819
+
+Running STA-KS-OEP calculation
+ITER  ENERGY (MULTIPLET)    ENERGY (S exci)        ENERGY (T)            EDIFF
+  0    -78.309853052351    -78.249261327983    -78.330050293807
+  1    -78.318378302513    -78.261229676293    -78.337427844587     -0.008525250162
+  2    -78.318515720097    -78.260896014991    -78.337722288466     -0.000137417584
+  3    -78.318513974876    -78.260943411029    -78.337704162825      0.000001745221
+  4    -78.318514190307    -78.260940824370    -78.337705312286     -0.000000215431
+  5    -78.318514146841    -78.260941179855    -78.337705135836      0.000000043466
+  6    -78.318514145211    -78.260941173231    -78.337705135871      0.000000001630
+SCF converged
+Occupation numbers (alpha): 1 1 1 1 1 1 1 0 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 0 0 0 0 0
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 0 0 0 0 0 0
+Energy of excited-state singlet STA-KS-OEP: -78.26094117323132
+Energy of excited-state triplet STA-KS-OEP: -78.33770513587103
+Singlet Excitation energy (UKS-OEP):    6.7309 eV
+Triplet Excitation energy (UKS-OEP):    4.4586 eV
+Singlet Excitation energy (SS-KS-OEP):  6.6579 eV
+Triplet Excitation energy (SS-KS-OEP):  4.5703 eV
+Singlet Excitation energy (OSS-KS-OEP): 6.5972 eV
+Singlet Excitation energy (STA-KS-OEP): 6.6659 eV
+Triplet Excitation energy (STA-KS-OEP): 4.5770 eV
+Elapsed: 00:02:47  Total: 00:23:27
+
+[8/16] Formaldehyde
+Running ground-state KS calculation
+Energy of standard DFT calculation: -114.425656719557
+
+Running ground-state KS-OEP calculation
+ITER        ENERGY               EDIFF
+  0   -114.425475554719
+  1   -114.425483063941     -0.000007509222
+  2   -114.425481814977      0.000001248965
+  3   -114.425484222875     -0.000002407898
+  4   -114.425484222203      0.000000000672
+SCF converged
+Energy of ground-state KS-OEP calculation: -114.42548422220261
+
+Running excited-state singlet UKS-OEP calculation
+ITER        ENERGY               EDIFF
+  0   -114.098302985317
+  1   -114.298916016055     -0.200613030738
+  2   -114.300561324219     -0.001645308164
+  3   -114.301216671519     -0.000655347300
+  4   -114.301233185584     -0.000016514065
+  5   -114.301233995870     -0.000000810286
+  6   -114.301233947371      0.000000048499
+  7   -114.301233964747     -0.000000017376
+  8   -114.301233957829      0.000000006918
+SCF converged
+Occupation numbers (alpha): 1 1 1 1 1 1 1 0 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 0 0 0 0 0
+Energy of excited-state singlet UKS-OEP: -114.30123395782925
+
+Running excited-state singlet SS-KS-OEP calculation
+ITER        ENERGY               EDIFF
+  0   -114.054550185199
+  1   -114.294891285268     -0.240341100069
+  2   -114.296295747634     -0.001404462366
+  3   -114.296625656618     -0.000329908984
+  4   -114.296629123150     -0.000003466532
+  5   -114.296629453960     -0.000000330810
+  6   -114.296629429100      0.000000024860
+  7   -114.296629424384      0.000000004716
+SCF converged
+Occupation numbers (alpha): 1 1 1 1 1 1 1 0 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 0 0 0 0 0
+Energy of excited-state singlet SS-KS-OEP: -114.29662942438392
+
+Running excited-state triplet UKS-OEP calculation
+ITER        ENERGY               EDIFF
+  0   -114.110925729899
+  1   -114.305006704724     -0.194080974825
+  2   -114.306393815038     -0.001387110314
+  3   -114.306871856864     -0.000478041825
+  4   -114.306884537627     -0.000012680763
+  5   -114.306885362211     -0.000000824584
+  6   -114.306885361429      0.000000000782
+SCF converged
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 0 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 0 0 0 0 0 0 0
+Energy of excited-state triplet UKS-OEP: -114.3068853614293
+
+Running excited-state triplet SS-KS-OEP calculation
+ITER        ENERGY               EDIFF
+  0   -114.068043094040
+  1   -114.302330207558     -0.234287113519
+  2   -114.303579472125     -0.001249264566
+  3   -114.303873711497     -0.000294239372
+  4   -114.303876987217     -0.000003275720
+  5   -114.303877283907     -0.000000296690
+  6   -114.303877264627      0.000000019280
+  7   -114.303877259861      0.000000004766
+SCF converged
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 0 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 0 0 0 0 0 0 0
+Energy of excited-state triplet SS-KS-OEP: -114.30387725986111
+
+Running OSS-KS-OEP calculation
+ITER        ENERGY             ENERGY (T)            EDIFF
+  0   -114.041054510022   -114.056517649661
+  1   -114.287562560442   -114.301609639219     -0.246508050420
+  2   -114.289155766971   -114.303375882185     -0.001593206529
+  3   -114.289530558906   -114.303562807731     -0.000374791935
+  4   -114.289534337087   -114.303569939912     -0.000003778182
+  5   -114.289534728022   -114.303568231843     -0.000000390935
+  6   -114.289534697361   -114.303568140485      0.000000030661
+  7   -114.289534693683   -114.303568085549      0.000000003678
+SCF converged
+Occupation numbers (alpha): 1 1 1 1 1 1 1 0 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 0 0 0 0 0
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 0 0 0 0 0 0
+Energy of excited-state singlet OSS-KS-OEP: -114.28953469368312
+Energy of excited-state triplet OSS-KS-OEP: -114.30356808554939
+
+Running STA-KS-OEP calculation
+ITER  ENERGY (MULTIPLET)    ENERGY (S exci)        ENERGY (T)            EDIFF
+  0   -114.061296230406   -114.049571595949   -114.065204441892
+  1   -114.298596553259   -114.287710545938   -114.302225222366     -0.237300322853
+  2   -114.299919299533   -114.288929221285   -114.303582658949     -0.001322746274
+  3   -114.300230351085   -114.289365621319   -114.303851927673     -0.000311051552
+  4   -114.300233709792   -114.289364554397   -114.303856761591     -0.000003358708
+  5   -114.300234021040   -114.289365773801   -114.303856770120     -0.000000311248
+  6   -114.300233999205   -114.289365779373   -114.303856739150      0.000000021835
+  7   -114.300233994360   -114.289365802861   -114.303856724860      0.000000004845
+SCF converged
+Occupation numbers (alpha): 1 1 1 1 1 1 1 0 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 0 0 0 0 0
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 0 0 0 0 0 0
+Energy of excited-state singlet STA-KS-OEP: -114.28936580286071
+Energy of excited-state triplet STA-KS-OEP: -114.30385672485997
+Singlet Excitation energy (UKS-OEP):    3.5348 eV
+Triplet Excitation energy (UKS-OEP):    3.2272 eV
+Singlet Excitation energy (SS-KS-OEP):  3.7035 eV
+Triplet Excitation energy (SS-KS-OEP):  3.3091 eV
+Singlet Excitation energy (OSS-KS-OEP): 3.6994 eV
+Singlet Excitation energy (STA-KS-OEP): 3.7040 eV
+Triplet Excitation energy (STA-KS-OEP): 3.3097 eV
+Elapsed: 00:02:12  Total: 00:25:40
+
+[9/16] Formamide
+Running ground-state KS calculation
+Energy of standard DFT calculation: -169.78836243262492
+
+Running ground-state KS-OEP calculation
+ITER        ENERGY               EDIFF
+  0   -169.788043250675
+  1   -169.788059414789     -0.000016164113
+  2   -169.788057013595      0.000002401193
+  3   -169.788059383276     -0.000002369680
+  4   -169.788059443984     -0.000000060708
+  5   -169.788059444886     -0.000000000902
+SCF converged
+Energy of ground-state KS-OEP calculation: -169.78805944488568
+
+Running excited-state singlet UKS-OEP calculation
+ITER        ENERGY               EDIFF
+  0   -169.195092765562
+  1   -169.592186773415     -0.397094007852
+  2   -169.593223990793     -0.001037217379
+  3   -169.594798325124     -0.001574334331
+  4   -169.594843469618     -0.000045144494
+  5   -169.594857612911     -0.000014143293
+  6   -169.594856637270      0.000000975641
+  7   -169.594855413079      0.000001224190
+  8   -169.594854630093      0.000000782986
+  9   -169.594854270237      0.000000359856
+ 10   -169.594854235924      0.000000034313
+ 11   -169.594854219014      0.000000016910
+ 12   -169.594854218422      0.000000000592
+SCF converged
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 1 0 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0
+Energy of excited-state singlet UKS-OEP: -169.59485421842186
+
+Running excited-state singlet SS-KS-OEP calculation
+ITER        ENERGY               EDIFF
+  0   -169.090172802253
+  1   -169.587598750574     -0.497425948321
+  2   -169.588817677966     -0.001218927392
+  3   -169.589980553133     -0.001162875167
+  4   -169.590007275576     -0.000026722443
+  5   -169.590020285402     -0.000013009826
+  6   -169.590020146727      0.000000138675
+  7   -169.590020263303     -0.000000116576
+  8   -169.590020216699      0.000000046604
+  9   -169.590020220894     -0.000000004196
+SCF converged
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 0 1 0 1 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0
+Energy of excited-state singlet SS-KS-OEP: -169.59002022089436
+
+Running excited-state triplet UKS-OEP calculation
+ITER        ENERGY               EDIFF
+  0   -169.202184671887
+  1   -169.596513471520     -0.394328799633
+  2   -169.597581251066     -0.001067779546
+  3   -169.598796691618     -0.001215440552
+  4   -169.598846030099     -0.000049338481
+  5   -169.598857905479     -0.000011875380
+  6   -169.598858233161     -0.000000327682
+  7   -169.598858439561     -0.000000206399
+  8   -169.598858411896      0.000000027664
+  9   -169.598858409945      0.000000001951
+SCF converged
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0
+Energy of excited-state triplet UKS-OEP: -169.59885840994542
+
+Running excited-state triplet SS-KS-OEP calculation
+ITER        ENERGY               EDIFF
+  0   -169.104037397298
+  1   -169.593008964074     -0.488971566776
+  2   -169.594120382470     -0.001111418396
+  3   -169.595253299797     -0.001132917327
+  4   -169.595275731901     -0.000022432104
+  5   -169.595286535765     -0.000010803864
+  6   -169.595286437773      0.000000097992
+  7   -169.595286535090     -0.000000097317
+  8   -169.595286478252      0.000000056837
+  9   -169.595286485209     -0.000000006957
+SCF converged
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 1 1 0 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 0 1 0 0 0 0 0 0
+Energy of excited-state triplet SS-KS-OEP: -169.59528648520893
+
+Running OSS-KS-OEP calculation
+ITER        ENERGY             ENERGY (T)            EDIFF
+  0   -169.076027214224   -169.091812378631
+  1   -169.582307176558   -169.592369244178     -0.506279962335
+  2   -169.583647151737   -169.593744144786     -0.001339975178
+  3   -169.584850883065   -169.595036496336     -0.001203731328
+  4   -169.584882888652   -169.594956270230     -0.000032005587
+  5   -169.584898777801   -169.595001908457     -0.000015889148
+  6   -169.584898624901   -169.595001056722      0.000000152900
+  7   -169.584898782397   -169.595000771941     -0.000000157496
+  8   -169.584898752340   -169.595000783183      0.000000030057
+  9   -169.584898752814   -169.595000806605     -0.000000000474
+SCF converged
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 0 1 0 1 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 1 1 0 1 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 0 1 0 0 0 0 0
+Energy of excited-state singlet OSS-KS-OEP: -169.58489875281407
+Energy of excited-state triplet OSS-KS-OEP: -169.5950008066045
+
+Running STA-KS-OEP calculation
+ITER  ENERGY (MULTIPLET)    ENERGY (S exci)        ENERGY (T)            EDIFF
+  0   -169.097132785208   -169.084889756039   -169.101213794931
+  1   -169.590288510085   -169.582373654052   -169.592926795430     -0.493155724877
+  2   -169.591452067910   -169.583570822316   -169.594079149775     -0.001163557825
+  3   -169.592598503300   -169.584645292028   -169.595249573724     -0.001146435390
+  4   -169.592622975067   -169.584742760936   -169.595249713111     -0.000024471767
+  5   -169.592634803040   -169.584735417594   -169.595267931522     -0.000011827973
+  6   -169.592634683983   -169.584735433868   -169.595267767355      0.000000119057
+  7   -169.592634788692   -169.584735909060   -169.595267748570     -0.000000104709
+  8   -169.592634736314   -169.584735900896   -169.595267681453      0.000000052378
+  9   -169.592634741979   -169.584735874490   -169.595267697809     -0.000000005665
+SCF converged
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 0 1 0 1 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 1 1 0 1 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 0 1 0 0 0 0 0
+Energy of excited-state singlet STA-KS-OEP: -169.58473587448958
+Energy of excited-state triplet STA-KS-OEP: -169.5952676978091
+Singlet Excitation energy (UKS-OEP):    5.3663 eV
+Triplet Excitation energy (UKS-OEP):    5.1484 eV
+Singlet Excitation energy (SS-KS-OEP):  5.5322 eV
+Triplet Excitation energy (SS-KS-OEP):  5.2456 eV
+Singlet Excitation energy (OSS-KS-OEP): 5.5283 eV
+Singlet Excitation energy (STA-KS-OEP): 5.5327 eV
+Triplet Excitation energy (STA-KS-OEP): 5.2461 eV
+Elapsed: 00:05:18  Total: 00:30:58
+
+[10/16] Hydrogen sulfide
+Running ground-state KS calculation
+Energy of standard DFT calculation: -399.2373141107118
+
+Running ground-state KS-OEP calculation
+ITER        ENERGY               EDIFF
+  0   -399.236151063005
+  1   -399.236176983880     -0.000025920875
+  2   -399.236174250897      0.000002732982
+  3   -399.236176302376     -0.000002051479
+  4   -399.236176277383      0.000000024993
+  5   -399.236176271817      0.000000005566
+SCF converged
+Energy of ground-state KS-OEP calculation: -399.2361762718173
+
+Running excited-state singlet UKS-OEP calculation
+ITER        ENERGY               EDIFF
+  0   -399.018899711024
+  1   -399.029611653256     -0.010711942231
+  2   -399.030490134644     -0.000878481388
+  3   -399.030556009993     -0.000065875350
+  4   -399.030559452154     -0.000003442161
+  5   -399.030559099725      0.000000352430
+  6   -399.030559102260     -0.000000002535
+SCF converged
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 0 0 1 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 0 0 0 0 0
+Energy of excited-state singlet UKS-OEP: -399.03055910225953
+
+Running excited-state singlet SS-KS-OEP calculation
+ITER        ENERGY               EDIFF
+  0   -399.013701109669
+  1   -399.025478922842     -0.011777813173
+  2   -399.026127178751     -0.000648255908
+  3   -399.026154386436     -0.000027207685
+  4   -399.026156861746     -0.000002475310
+  5   -399.026157104801     -0.000000243055
+  6   -399.026157182475     -0.000000077674
+  7   -399.026157192042     -0.000000009567
+SCF converged
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 0 0 1 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 0 0 0 0 0
+Energy of excited-state singlet SS-KS-OEP: -399.0261571920421
+
+Running excited-state triplet UKS-OEP calculation
+ITER        ENERGY               EDIFF
+  0   -399.023032320866
+  1   -399.034221131903     -0.011188811038
+  2   -399.034955246264     -0.000734114361
+  3   -399.034920575492      0.000034670772
+  4   -399.034803728209      0.000116847283
+  5   -399.034797407962      0.000006320247
+  6   -399.034795954562      0.000001453400
+  7   -399.034794466330      0.000001488233
+  8   -399.034794741429     -0.000000275099
+  9   -399.034794742272     -0.000000000843
+SCF converged
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 0 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0
+Energy of excited-state triplet UKS-OEP: -399.034794742272
+
+Running excited-state triplet SS-KS-OEP calculation
+ITER        ENERGY               EDIFF
+  0   -399.020311758375
+  1   -399.032220337677     -0.011908579302
+  2   -399.032799461313     -0.000579123636
+  3   -399.032827893247     -0.000028431934
+  4   -399.032829798810     -0.000001905563
+  5   -399.032829817059     -0.000000018249
+  6   -399.032829846818     -0.000000029759
+  7   -399.032829853156     -0.000000006338
+SCF converged
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 0 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0
+Energy of excited-state triplet SS-KS-OEP: -399.0328298531561
+
+Running OSS-KS-OEP calculation
+ITER        ENERGY             ENERGY (T)            EDIFF
+  0   -399.007288532174   -399.020103834079
+  1   -399.018898737517   -399.031556621067     -0.011610205343
+  2   -399.019632215515   -399.032431666801     -0.000733477998
+  3   -399.019658485535   -399.032471497064     -0.000026270020
+  4   -399.019661470129   -399.032460132518     -0.000002984594
+  5   -399.019662057091   -399.032462674970     -0.000000586962
+  6   -399.019662212422   -399.032462150457     -0.000000155331
+  7   -399.019662225067   -399.032462187860     -0.000000012645
+  8   -399.019662224376   -399.032462185161      0.000000000691
+SCF converged
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 0 0 1 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 0 0 0 0 0
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 0 1 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 0 0 0 0 0 0
+Energy of excited-state singlet OSS-KS-OEP: -399.0196622243761
+Energy of excited-state triplet OSS-KS-OEP: -399.03246218516057
+
+Running STA-KS-OEP calculation
+ITER  ENERGY (MULTIPLET)    ENERGY (S exci)        ENERGY (T)            EDIFF
+  0   -399.016981384579   -399.006939334585   -399.020328734578
+  1   -399.028829201580   -399.018903193397   -399.032137870975     -0.011847817001
+  2   -399.029440968955   -399.019441209578   -399.032774222081     -0.000611767375
+  3   -399.029468738351   -399.019457532932   -399.032805806825     -0.000027769396
+  4   -399.029470936148   -399.019468172561   -399.032805190677     -0.000002197797
+  5   -399.029471053783   -399.019466851788   -399.032805787781     -0.000000117635
+  6   -399.029471104444   -399.019467159763   -399.032805752671     -0.000000050661
+  7   -399.029471112391   -399.019467161093   -399.032805762824     -0.000000007947
+SCF converged
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 0 0 1 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 0 0 0 0 0
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 0 1 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 0 0 0 0 0 0
+Energy of excited-state singlet STA-KS-OEP: -399.01946716109313
+Energy of excited-state triplet STA-KS-OEP: -399.0328057628241
+Singlet Excitation energy (UKS-OEP):    5.7104 eV
+Triplet Excitation energy (UKS-OEP):    5.4799 eV
+Singlet Excitation energy (SS-KS-OEP):  5.8965 eV
+Triplet Excitation energy (SS-KS-OEP):  5.5333 eV
+Singlet Excitation energy (OSS-KS-OEP): 5.8917 eV
+Singlet Excitation energy (STA-KS-OEP): 5.8970 eV
+Triplet Excitation energy (STA-KS-OEP): 5.5340 eV
+Elapsed: 00:01:39  Total: 00:32:38
+
+[11/16] Ketene
+Running ground-state KS calculation
+Energy of standard DFT calculation: -152.49801777330185
+
+Running ground-state KS-OEP calculation
+ITER        ENERGY               EDIFF
+  0   -152.497762109488
+  1   -152.497774907130     -0.000012797642
+  2   -152.497773280436      0.000001626694
+  3   -152.497774410541     -0.000001130105
+  4   -152.497774435887     -0.000000025346
+  5   -152.497774435800      0.000000000086
+SCF converged
+Energy of ground-state KS-OEP calculation: -152.49777443580015
+
+Running excited-state singlet UKS-OEP calculation
+ITER        ENERGY               EDIFF
+  0   -152.219209274866
+  1   -152.349606112207     -0.130396837341
+  2   -152.361953145084     -0.012347032876
+  3   -152.365184491869     -0.003231346785
+  4   -152.365256939702     -0.000072447834
+  5   -152.365265457699     -0.000008517997
+  6   -152.365266268340     -0.000000810641
+  7   -152.365266286164     -0.000000017824
+  8   -152.365266298903     -0.000000012739
+  9   -152.365266304658     -0.000000005754
+SCF converged
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 0 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0
+Energy of excited-state singlet UKS-OEP: -152.36526630465795
+
+Running excited-state singlet SS-KS-OEP calculation
+ITER        ENERGY               EDIFF
+  0   -152.140704184692
+  1   -152.341404265384     -0.200700080692
+  2   -152.358634918093     -0.017230652709
+  3   -152.360511224067     -0.001876305974
+  4   -152.360598946349     -0.000087722282
+  5   -152.360598193630      0.000000752719
+  6   -152.360598495082     -0.000000301452
+  7   -152.360598512203     -0.000000017121
+  8   -152.360598510057      0.000000002146
+SCF converged
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 0 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0
+Energy of excited-state singlet SS-KS-OEP: -152.36059851005652
+
+Running excited-state triplet UKS-OEP calculation
+ITER        ENERGY               EDIFF
+  0   -152.215843388630
+  1   -152.351716463228     -0.135873074597
+  2   -152.364565851824     -0.012849388596
+  3   -152.366790777130     -0.002224925306
+  4   -152.366852483679     -0.000061706549
+  5   -152.366856871872     -0.000004388193
+  6   -152.366857358699     -0.000000486827
+  7   -152.366857390551     -0.000000031852
+  8   -152.366857396384     -0.000000005833
+SCF converged
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0
+Energy of excited-state triplet UKS-OEP: -152.36685739638415
+
+Running excited-state triplet SS-KS-OEP calculation
+ITER        ENERGY               EDIFF
+  0   -152.163394137163
+  1   -152.345959606298     -0.182565469134
+  2   -152.362490599542     -0.016530993244
+  3   -152.364127069852     -0.001636470309
+  4   -152.364213429061     -0.000086359210
+  5   -152.364212828848      0.000000600213
+  6   -152.364213079045     -0.000000250196
+  7   -152.364213094046     -0.000000015002
+  8   -152.364213092027      0.000000002019
+SCF converged
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0
+Energy of excited-state triplet SS-KS-OEP: -152.36421309202692
+
+Running OSS-KS-OEP calculation
+ITER        ENERGY             ENERGY (T)            EDIFF
+  0   -152.116505865726   -152.123234338085
+  1   -152.336893149615   -152.344051866023     -0.220387283889
+  2   -152.354818946930   -152.361876660541     -0.017925797315
+  3   -152.356964185795   -152.363961183270     -0.002145238866
+  4   -152.357052398820   -152.364082833366     -0.000088213024
+  5   -152.357051768930   -152.364075505919      0.000000629890
+  6   -152.357052115654   -152.364076673073     -0.000000346724
+  7   -152.357052131687   -152.364076676267     -0.000000016034
+  8   -152.357052129736   -152.364076636647      0.000000001951
+SCF converged
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 0 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0
+Energy of excited-state singlet OSS-KS-OEP: -152.3570521297361
+Energy of excited-state triplet OSS-KS-OEP: -152.36407663664724
+
+Running STA-KS-OEP calculation
+ITER  ENERGY (MULTIPLET)    ENERGY (S exci)        ENERGY (T)            EDIFF
+  0   -152.152237867339   -152.147201120253   -152.153916783034
+  1   -152.343676055118   -152.338137697661   -152.345522174270     -0.191438187779
+  2   -152.360557852085   -152.355109598031   -152.362373936769     -0.016881796967
+  3   -152.362310393127   -152.356912957984   -152.364109538175     -0.001752541042
+  4   -152.362397545404   -152.356974497155   -152.364205228154     -0.000087152277
+  5   -152.362396843125   -152.356976217454   -152.364203718349      0.000000702279
+  6   -152.362397119411   -152.356976138088   -152.364204113185     -0.000000276286
+  7   -152.362397135878   -152.356976199250   -152.364204114754     -0.000000016467
+  8   -152.362397133763   -152.356976214032   -152.364204107007      0.000000002115
+SCF converged
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 0 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0
+Energy of excited-state singlet STA-KS-OEP: -152.3569762140323
+Energy of excited-state triplet STA-KS-OEP: -152.36420410700705
+Singlet Excitation energy (UKS-OEP):    3.6490 eV
+Triplet Excitation energy (UKS-OEP):    3.5624 eV
+Singlet Excitation energy (SS-KS-OEP):  3.8311 eV
+Triplet Excitation energy (SS-KS-OEP):  3.6344 eV
+Singlet Excitation energy (OSS-KS-OEP): 3.8293 eV
+Singlet Excitation energy (STA-KS-OEP): 3.8313 eV
+Triplet Excitation energy (STA-KS-OEP): 3.6346 eV
+Elapsed: 00:04:01  Total: 00:36:39
+
+[12/16] Methanimine
+Running ground-state KS calculation
+Energy of standard DFT calculation: -94.55249872746955
+
+Running ground-state KS-OEP calculation
+ITER        ENERGY               EDIFF
+  0    -94.552335389766
+  1    -94.552342694831     -0.000007305064
+  2    -94.552342477468      0.000000217363
+  3    -94.552342447104      0.000000030364
+  4    -94.552342449043     -0.000000001939
+SCF converged
+Energy of ground-state KS-OEP calculation: -94.55234244904315
+
+Running excited-state singlet UKS-OEP calculation
+ITER        ENERGY               EDIFF
+  0    -94.172601226425
+  1    -94.387737452634     -0.215136226209
+  2    -94.388839441399     -0.001101988765
+  3    -94.389430990490     -0.000591549091
+  4    -94.389451700156     -0.000020709666
+  5    -94.389448701453      0.000002998703
+  6    -94.389449569064     -0.000000867611
+  7    -94.389450078791     -0.000000509727
+  8    -94.389450063569      0.000000015222
+  9    -94.389450063111      0.000000000459
+SCF converged
+Occupation numbers (alpha): 1 1 1 1 1 1 1 0 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 0 0 0 0 0
+Energy of excited-state singlet UKS-OEP: -94.38945006311081
+
+Running excited-state singlet SS-KS-OEP calculation
+ITER        ENERGY               EDIFF
+  0    -94.113037126416
+  1    -94.383888191670     -0.270851065253
+  2    -94.384770100282     -0.000881908612
+  3    -94.385147338543     -0.000377238262
+  4    -94.385168347898     -0.000021009355
+  5    -94.385169932906     -0.000001585008
+  6    -94.385170115625     -0.000000182719
+  7    -94.385170118502     -0.000000002877
+SCF converged
+Occupation numbers (alpha): 1 1 1 1 1 1 1 0 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 0 0 0 0 0
+Energy of excited-state singlet SS-KS-OEP: -94.38517011850229
+
+Running excited-state triplet UKS-OEP calculation
+ITER        ENERGY               EDIFF
+  0    -94.199879019574
+  1    -94.396004291861     -0.196125272286
+  2    -94.397047668384     -0.001043376523
+  3    -94.397488366409     -0.000440698025
+  4    -94.397523332750     -0.000034966342
+  5    -94.397524906805     -0.000001574055
+  6    -94.397525026153     -0.000000119347
+  7    -94.397525048803     -0.000000022650
+  8    -94.397525060012     -0.000000011209
+  9    -94.397525059398      0.000000000614
+SCF converged
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 0 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 0 0 0 0 0 0 0
+Energy of excited-state triplet UKS-OEP: -94.39752505939762
+
+Running excited-state triplet SS-KS-OEP calculation
+ITER        ENERGY               EDIFF
+  0    -94.140976686530
+  1    -94.392909653867     -0.251932967337
+  2    -94.393730875363     -0.000821221496
+  3    -94.394048375346     -0.000317499983
+  4    -94.394064577919     -0.000016202574
+  5    -94.394065807041     -0.000001229122
+  6    -94.394065910156     -0.000000103115
+  7    -94.394065908577      0.000000001579
+SCF converged
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 0 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 0 0 0 0 0 0 0
+Energy of excited-state triplet SS-KS-OEP: -94.39406590857729
+
+Running OSS-KS-OEP calculation
+ITER        ENERGY             ENERGY (T)            EDIFF
+  0    -94.084757437669    -94.101023508641
+  1    -94.375054017907    -94.392209770319     -0.290296580238
+  2    -94.376049328644    -94.393305280699     -0.000995310737
+  3    -94.376510178556    -94.393547637870     -0.000460849912
+  4    -94.376532239221    -94.393561423214     -0.000022060665
+  5    -94.376533497028    -94.393556979797     -0.000001257807
+  6    -94.376533539958    -94.393556114216     -0.000000042929
+  7    -94.376533522953    -94.393555140693      0.000000017005
+  8    -94.376533522437    -94.393555315181      0.000000000516
+SCF converged
+Occupation numbers (alpha): 1 1 1 1 1 1 1 0 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 0 0 0 0 0
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 0 0 0 0 0 0
+Energy of excited-state singlet OSS-KS-OEP: -94.37653352243692
+Energy of excited-state triplet OSS-KS-OEP: -94.39355531518117
+
+Running STA-KS-OEP calculation
+ITER  ENERGY (MULTIPLET)    ENERGY (S exci)        ENERGY (T)            EDIFF
+  0    -94.127048591533    -94.114830350411    -94.131121338574
+  1    -94.388373823644    -94.374891043766    -94.392868083603     -0.261325232111
+  2    -94.389219052077    -94.375730740636    -94.393715155891     -0.000845228433
+  3    -94.389564523315    -94.376219060240    -94.394013011006     -0.000345471237
+  4    -94.389582790766    -94.376239913637    -94.394030416476     -0.000018267451
+  5    -94.389584175202    -94.376243862366    -94.394030946147     -0.000001384436
+  6    -94.389584318417    -94.376244074187    -94.394031066493     -0.000000143215
+  7    -94.389584319355    -94.376244028375    -94.394031083015     -0.000000000938
+SCF converged
+Occupation numbers (alpha): 1 1 1 1 1 1 1 0 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 0 0 0 0 0
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 0 0 0 0 0 0
+Energy of excited-state singlet STA-KS-OEP: -94.37624402837466
+Energy of excited-state triplet STA-KS-OEP: -94.39403108301528
+Singlet Excitation energy (UKS-OEP):    4.6523 eV
+Triplet Excitation energy (UKS-OEP):    4.2128 eV
+Singlet Excitation energy (SS-KS-OEP):  4.7911 eV
+Triplet Excitation energy (SS-KS-OEP):  4.3069 eV
+Singlet Excitation energy (OSS-KS-OEP): 4.7840 eV
+Singlet Excitation energy (STA-KS-OEP): 4.7919 eV
+Triplet Excitation energy (STA-KS-OEP): 4.3079 eV
+Elapsed: 00:03:07  Total: 00:39:47
+
+[13/16] Nitrosomethane
+Running ground-state KS calculation
+Energy of standard DFT calculation: -169.68745151489338
+
+Running ground-state KS-OEP calculation
+ITER        ENERGY               EDIFF
+  0   -169.687076013575
+  1   -169.687098449815     -0.000022436239
+  2   -169.687097328192      0.000001121623
+  3   -169.687097273006      0.000000055186
+  4   -169.687097289561     -0.000000016555
+  5   -169.687097294802     -0.000000005241
+SCF converged
+Energy of ground-state KS-OEP calculation: -169.68709729480247
+
+Running excited-state singlet UKS-OEP calculation
+ITER        ENERGY               EDIFF
+  0   -169.587927894168
+  1   -169.636113785052     -0.048185890883
+  2   -169.642102868863     -0.005989083812
+  3   -169.642721262406     -0.000618393542
+  4   -169.642745970329     -0.000024707924
+  5   -169.642747071502     -0.000001101173
+  6   -169.642747187585     -0.000000116083
+  7   -169.642747309890     -0.000000122305
+  8   -169.642747286391      0.000000023499
+  9   -169.642747288809     -0.000000002418
+SCF converged
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 1 0 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0
+Energy of excited-state singlet UKS-OEP: -169.64274728880935
+
+Running excited-state singlet SS-KS-OEP calculation
+ITER        ENERGY               EDIFF
+  0   -169.579983698331
+  1   -169.634820121442     -0.054836423111
+  2   -169.639117925323     -0.004297803882
+  3   -169.639431780270     -0.000313854947
+  4   -169.639440015532     -0.000008235262
+  5   -169.639440190463     -0.000000174931
+  6   -169.639440137859      0.000000052604
+  7   -169.639440158508     -0.000000020649
+  8   -169.639440160801     -0.000000002293
+SCF converged
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 1 0 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0
+Energy of excited-state singlet SS-KS-OEP: -169.63944016080052
+
+Running excited-state triplet UKS-OEP calculation
+ITER        ENERGY               EDIFF
+  0   -169.599352650523
+  1   -169.649297881835     -0.049945231312
+  2   -169.653667082921     -0.004369201086
+  3   -169.654171610654     -0.000504527733
+  4   -169.654187180719     -0.000015570065
+  5   -169.654187663036     -0.000000482317
+  6   -169.654187706870     -0.000000043835
+  7   -169.654187765448     -0.000000058578
+  8   -169.654187748353      0.000000017095
+  9   -169.654187752290     -0.000000003937
+SCF converged
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0
+Energy of excited-state triplet UKS-OEP: -169.65418775228983
+
+Running excited-state triplet SS-KS-OEP calculation
+ITER        ENERGY               EDIFF
+  0   -169.590433008425
+  1   -169.646773236876     -0.056340228451
+  2   -169.650756963185     -0.003983726309
+  3   -169.651091209873     -0.000334246688
+  4   -169.651098530379     -0.000007320506
+  5   -169.651098787373     -0.000000256994
+  6   -169.651098740293      0.000000047080
+  7   -169.651098754003     -0.000000013710
+  8   -169.651098756540     -0.000000002537
+SCF converged
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0
+Energy of excited-state triplet SS-KS-OEP: -169.65109875654025
+
+Running OSS-KS-OEP calculation
+ITER        ENERGY             ENERGY (T)            EDIFF
+  0   -169.569845627233   -169.595039398957
+  1   -169.622941123632   -169.645220957973     -0.053095496399
+  2   -169.627654954862   -169.650414509624     -0.004713831230
+  3   -169.627962925062   -169.650743205444     -0.000307970200
+  4   -169.627972620670   -169.650721610038     -0.000009695608
+  5   -169.627972741961   -169.650721375764     -0.000000121291
+  6   -169.627972722071   -169.650722669625      0.000000019890
+  7   -169.627972738448   -169.650722542399     -0.000000016377
+  8   -169.627972735133   -169.650722701813      0.000000003316
+SCF converged
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 1 0 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0
+Energy of excited-state singlet OSS-KS-OEP: -169.62797273513257
+Energy of excited-state triplet OSS-KS-OEP: -169.65072270181298
+
+Running STA-KS-OEP calculation
+ITER  ENERGY (MULTIPLET)    ENERGY (S exci)        ENERGY (T)            EDIFF
+  0   -169.585168339783   -169.565576872173   -169.591698828987
+  1   -169.640785662902   -169.623620643116   -169.646507336164     -0.055617323119
+  2   -169.644915465563   -169.627410222286   -169.650750546656     -0.004129802661
+  3   -169.645237502947   -169.627723554204   -169.651075485862     -0.000322037384
+  4   -169.645245224567   -169.627750495559   -169.651076800904     -0.000007721620
+  5   -169.645245436181   -169.627753522705   -169.651076074007     -0.000000211614
+  6   -169.645245385222   -169.627751258869   -169.651076760673      0.000000050959
+  7   -169.645245401954   -169.627751396903   -169.651076736970     -0.000000016731
+  8   -169.645245404593   -169.627751361129   -169.651076752414     -0.000000002639
+SCF converged
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 1 0 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0
+Energy of excited-state singlet STA-KS-OEP: -169.62775136112867
+Energy of excited-state triplet STA-KS-OEP: -169.65107675241387
+Singlet Excitation energy (UKS-OEP):    1.5181 eV
+Triplet Excitation energy (UKS-OEP):    0.8955 eV
+Singlet Excitation energy (SS-KS-OEP):  1.6141 eV
+Triplet Excitation energy (SS-KS-OEP):  0.9796 eV
+Singlet Excitation energy (OSS-KS-OEP): 1.6089 eV
+Singlet Excitation energy (STA-KS-OEP): 1.6149 eV
+Triplet Excitation energy (STA-KS-OEP): 0.9802 eV
+Elapsed: 00:04:53  Total: 00:44:40
+
+[14/16] Streptocyanine-C1
+Running ground-state KS calculation
+Energy of standard DFT calculation: -150.27305482333006
+
+Running ground-state KS-OEP calculation
+ITER        ENERGY               EDIFF
+  0   -150.272766719512
+  1   -150.272779531647     -0.000012812134
+  2   -150.272779028591      0.000000503055
+  3   -150.272778953140      0.000000075451
+  4   -150.272778954888     -0.000000001748
+SCF converged
+Energy of ground-state KS-OEP calculation: -150.27277895488768
+
+Running excited-state singlet UKS-OEP calculation
+ITER        ENERGY               EDIFF
+  0   -150.007935631133
+  1   -150.065978511125     -0.058042879992
+  2   -150.066149611097     -0.000171099972
+  3   -150.066214743040     -0.000065131943
+  4   -150.066224334414     -0.000009591374
+  5   -150.066225686474     -0.000001352059
+  6   -150.066225805553     -0.000000119079
+  7   -150.066225802519      0.000000003034
+SCF converged
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 1 0 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0
+Energy of excited-state singlet UKS-OEP: -150.06622580251937
+
+Running excited-state singlet SS-KS-OEP calculation
+ITER        ENERGY               EDIFF
+  0   -149.998549460242
+  1   -150.062666063861     -0.064116603619
+  2   -150.062761413700     -0.000095349839
+  3   -150.062770320604     -0.000008906904
+  4   -150.062770320971     -0.000000000367
+SCF converged
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 1 0 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0
+Energy of excited-state singlet SS-KS-OEP: -150.06277032097063
+
+Running excited-state triplet UKS-OEP calculation
+ITER        ENERGY               EDIFF
+  0   -150.028491191029
+  1   -150.083115928136     -0.054624737107
+  2   -150.083265407242     -0.000149479105
+  3   -150.083296317951     -0.000030910709
+  4   -150.083298128439     -0.000001810489
+  5   -150.083298719580     -0.000000591141
+  6   -150.083298704579      0.000000015002
+  7   -150.083298715843     -0.000000011264
+  8   -150.083298719299     -0.000000003456
+SCF converged
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0
+Energy of excited-state triplet UKS-OEP: -150.08329871929897
+
+Running excited-state triplet SS-KS-OEP calculation
+ITER        ENERGY               EDIFF
+  0   -150.022404479923
+  1   -150.079804162382     -0.057399682459
+  2   -150.079874715346     -0.000070552963
+  3   -150.079880230830     -0.000005515485
+  4   -150.079880587075     -0.000000356245
+  5   -150.079880734102     -0.000000147027
+  6   -150.079880774081     -0.000000039978
+  7   -150.079880765050      0.000000009030
+SCF converged
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0
+Energy of excited-state triplet SS-KS-OEP: -150.07988076505046
+
+Running OSS-KS-OEP calculation
+ITER        ENERGY             ENERGY (T)            EDIFF
+  0   -149.974753354013   -149.997058830485
+  1   -150.046756744592   -150.077530235157     -0.072003390580
+  2   -150.046909391535   -150.077443029910     -0.000152646943
+  3   -150.046928812543   -150.077452480769     -0.000019421008
+  4   -150.046930812088   -150.077388910072     -0.000001999545
+  5   -150.046930953166   -150.077399852331     -0.000000141077
+  6   -150.046930974560   -150.077398273443     -0.000000021394
+  7   -150.046930950612   -150.077398331390      0.000000023947
+  8   -150.046930948745   -150.077398296542      0.000000001868
+SCF converged
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 1 0 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0
+Energy of excited-state singlet OSS-KS-OEP: -150.0469309487448
+Energy of excited-state triplet OSS-KS-OEP: -150.07739829654204
+
+Running STA-KS-OEP calculation
+ITER  ENERGY (MULTIPLET)    ENERGY (S exci)        ENERGY (T)            EDIFF
+  0   -150.010436607393   -149.990744944955   -150.017000494873
+  1   -150.071069557623   -150.045378750849   -150.079633159881     -0.060632950230
+  2   -150.071150175919   -150.045448170859   -150.079717510939     -0.000080618296
+  3   -150.071156848229   -150.045502500520   -150.079708297465     -0.000006672310
+  4   -150.071156926052   -150.045501194710   -150.079708836500     -0.000000077823
+  5   -150.071156979438   -150.045506213055   -150.079707234900     -0.000000053386
+  6   -150.071156993438   -150.045505380858   -150.079707530964     -0.000000014000
+  7   -150.071156980744   -150.045505424837   -150.079707499380      0.000000012694
+  8   -150.071156979656   -150.045505420124   -150.079707499500      0.000000001088
+SCF converged
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 1 0 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0
+Energy of excited-state singlet STA-KS-OEP: -150.04550542012436
+Energy of excited-state triplet STA-KS-OEP: -150.07970749950022
+Singlet Excitation energy (UKS-OEP):    6.0852 eV
+Triplet Excitation energy (UKS-OEP):    5.1560 eV
+Singlet Excitation energy (SS-KS-OEP):  6.1802 eV
+Triplet Excitation energy (SS-KS-OEP):  5.2490 eV
+Singlet Excitation energy (OSS-KS-OEP): 6.1456 eV
+Singlet Excitation energy (STA-KS-OEP): 6.1844 eV
+Triplet Excitation energy (STA-KS-OEP): 5.2537 eV
+Elapsed: 00:06:22  Total: 00:51:02
+
+[15/16] Thioformaldehyde
+Running ground-state KS calculation
+Energy of standard DFT calculation: -437.27530812799444
+
+Running ground-state KS-OEP calculation
+ITER        ENERGY               EDIFF
+  0   -437.274111440896
+  1   -437.274144233952     -0.000032793056
+  2   -437.274137567211      0.000006666741
+  3   -437.274144139559     -0.000006572348
+  4   -437.274144566307     -0.000000426748
+  5   -437.274144595007     -0.000000028700
+  6   -437.274144594183      0.000000000824
+SCF converged
+Energy of ground-state KS-OEP calculation: -437.27414459418344
+
+Running excited-state singlet UKS-OEP calculation
+ITER        ENERGY               EDIFF
+  0   -437.063496768022
+  1   -437.206374913720     -0.142878145698
+  2   -437.206947634790     -0.000572721070
+  3   -437.207190241343     -0.000242606553
+  4   -437.207200037491     -0.000009796148
+  5   -437.207205617213     -0.000005579722
+  6   -437.207205236466      0.000000380747
+  7   -437.207205372660     -0.000000136194
+  8   -437.207205356348      0.000000016312
+  9   -437.207205346331      0.000000010017
+ 10   -437.207205351091     -0.000000004760
+SCF converged
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 1 0 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0
+Energy of excited-state singlet UKS-OEP: -437.2072053510914
+
+Running excited-state singlet SS-KS-OEP calculation
+ITER        ENERGY               EDIFF
+  0   -437.009744655634
+  1   -437.201666731465     -0.191922075832
+  2   -437.202226826519     -0.000560095054
+  3   -437.202391925417     -0.000165098898
+  4   -437.202392288502     -0.000000363084
+  5   -437.202394614550     -0.000002326049
+  6   -437.202394360374      0.000000254177
+  7   -437.202394391491     -0.000000031118
+  8   -437.202394383820      0.000000007672
+SCF converged
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 1 0 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0
+Energy of excited-state singlet SS-KS-OEP: -437.20239438381975
+
+Running excited-state triplet UKS-OEP calculation
+ITER        ENERGY               EDIFF
+  0   -437.071537154502
+  1   -437.209975198467     -0.138438043965
+  2   -437.210581353964     -0.000606155497
+  3   -437.210773182133     -0.000191828169
+  4   -437.210780858309     -0.000007676176
+  5   -437.210786232110     -0.000005373800
+  6   -437.210786028303      0.000000203807
+  7   -437.210786216902     -0.000000188599
+  8   -437.210786182517      0.000000034385
+  9   -437.210786169514      0.000000013003
+ 10   -437.210786174822     -0.000000005308
+SCF converged
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0
+Energy of excited-state triplet UKS-OEP: -437.2107861748224
+
+Running excited-state triplet SS-KS-OEP calculation
+ITER        ENERGY               EDIFF
+  0   -437.027890143209
+  1   -437.207307082567     -0.179416939358
+  2   -437.207893091748     -0.000586009181
+  3   -437.208030114593     -0.000137022845
+  4   -437.208031161972     -0.000001047379
+  5   -437.208033532325     -0.000002370353
+  6   -437.208033324122      0.000000208203
+  7   -437.208033350339     -0.000000026217
+  8   -437.208033347342      0.000000002997
+SCF converged
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0
+Energy of excited-state triplet SS-KS-OEP: -437.2080333473417
+
+Running OSS-KS-OEP calculation
+ITER        ENERGY             ENERGY (T)            EDIFF
+  0   -436.991107049304   -437.001332393901
+  1   -437.196179246273   -437.207316879170     -0.205072196969
+  2   -437.196725344596   -437.207349576884     -0.000546098322
+  3   -437.196924927746   -437.207692182330     -0.000199583150
+  4   -437.196924445172   -437.207689856258      0.000000482574
+  5   -437.196926810926   -437.207689602784     -0.000002365754
+  6   -437.196926531905   -437.207689082428      0.000000279021
+  7   -437.196926565269   -437.207688819000     -0.000000033364
+  8   -437.196926554721   -437.207688920566      0.000000010548
+  9   -437.196926554068   -437.207688924108      0.000000000653
+SCF converged
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 1 0 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0
+Energy of excited-state singlet OSS-KS-OEP: -437.196926554068
+Energy of excited-state triplet OSS-KS-OEP: -437.2076889241075
+
+Running STA-KS-OEP calculation
+ITER  ENERGY (MULTIPLET)    ENERGY (S exci)        ENERGY (T)            EDIFF
+  0   -437.018876455617   -437.011186193863   -437.021439876201
+  1   -437.204467292858   -437.195720038944   -437.207383044163     -0.185590837241
+  2   -437.205038793547   -437.196680903557   -437.207824756877     -0.000571500689
+  3   -437.205189039782   -437.196734379250   -437.208007259959     -0.000150246234
+  4   -437.205189787698   -437.196732195662   -437.208008985043     -0.000000747916
+  5   -437.205192121378   -437.196737675032   -437.208010270160     -0.000002333680
+  6   -437.205191889375   -437.196737169826   -437.208010129224      0.000000232004
+  7   -437.205191917951   -437.196737439754   -437.208010077350     -0.000000028577
+  8   -437.205191912737   -437.196737362834   -437.208010096038      0.000000005214
+SCF converged
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 1 0 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0
+Energy of excited-state singlet STA-KS-OEP: -437.19673736283414
+Energy of excited-state triplet STA-KS-OEP: -437.2080100960379
+Singlet Excitation energy (UKS-OEP):    1.9189 eV
+Triplet Excitation energy (UKS-OEP):    1.7241 eV
+Singlet Excitation energy (SS-KS-OEP):  2.1059 eV
+Triplet Excitation energy (SS-KS-OEP):  1.7990 eV
+Singlet Excitation energy (OSS-KS-OEP): 2.1012 eV
+Singlet Excitation energy (STA-KS-OEP): 2.1064 eV
+Triplet Excitation energy (STA-KS-OEP): 1.7996 eV
+Elapsed: 00:03:15  Total: 00:54:18
+
+[16/16] Water
+Running ground-state KS calculation
+Energy of standard DFT calculation: -76.38634767459195
+
+Running ground-state KS-OEP calculation
+ITER        ENERGY               EDIFF
+  0    -76.386300490206
+  1    -76.386301330959     -0.000000840753
+  2    -76.386301344236     -0.000000013277
+  3    -76.386301338588      0.000000005649
+SCF converged
+Energy of ground-state KS-OEP calculation: -76.3863013385876
+
+Running excited-state singlet UKS-OEP calculation
+ITER        ENERGY               EDIFF
+  0    -75.990592975507
+  1    -76.118764537055     -0.128171561548
+  2    -76.119264402823     -0.000499865768
+  3    -76.119303939000     -0.000039536177
+  4    -76.119305344113     -0.000001405113
+  5    -76.119305503337     -0.000000159224
+  6    -76.119305481943      0.000000021394
+  7    -76.119305499725     -0.000000017782
+  8    -76.119305494909      0.000000004816
+SCF converged
+Occupation numbers (alpha): 1 1 1 1 0 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 0 0 0 0 0
+Energy of excited-state singlet UKS-OEP: -76.1193054949088
+
+Running excited-state singlet SS-KS-OEP calculation
+ITER        ENERGY               EDIFF
+  0    -75.982187994606
+  1    -76.115627936035     -0.133439941428
+  2    -76.115989081800     -0.000361145766
+  3    -76.116033959778     -0.000044877978
+  4    -76.116037388396     -0.000003428618
+  5    -76.116037654870     -0.000000266473
+  6    -76.116037833266     -0.000000178396
+  7    -76.116037848401     -0.000000015135
+  8    -76.116037847394      0.000000001007
+SCF converged
+Occupation numbers (alpha): 1 1 1 1 0 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 0 0 0 0 0
+Energy of excited-state singlet SS-KS-OEP: -76.11603784739403
+
+Running excited-state triplet UKS-OEP calculation
+ITER        ENERGY               EDIFF
+  0    -75.995562134077
+  1    -76.125543048632     -0.129980914555
+  2    -76.125866188694     -0.000323140062
+  3    -76.125898754115     -0.000032565421
+  4    -76.125897841900      0.000000912215
+  5    -76.125897353417      0.000000488483
+  6    -76.125897227027      0.000000126390
+  7    -76.125897249819     -0.000000022792
+  8    -76.125897240673      0.000000009147
+SCF converged
+Occupation numbers (alpha): 1 1 1 1 1 1 0 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 0 0 0 0 0 0 0
+Energy of excited-state triplet UKS-OEP: -76.1258972406726
+
+Running excited-state triplet SS-KS-OEP calculation
+ITER        ENERGY               EDIFF
+  0    -75.988804494243
+  1    -76.122981794485     -0.134177300243
+  2    -76.123284078978     -0.000302284493
+  3    -76.123319553818     -0.000035474839
+  4    -76.123323149699     -0.000003595881
+  5    -76.123323435200     -0.000000285502
+  6    -76.123323496315     -0.000000061114
+  7    -76.123323503993     -0.000000007678
+SCF converged
+Occupation numbers (alpha): 1 1 1 1 1 1 0 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 0 0 0 0 0 0 0
+Energy of excited-state triplet SS-KS-OEP: -76.12332350399274
+
+Running OSS-KS-OEP calculation
+ITER        ENERGY             ENERGY (T)            EDIFF
+  0    -75.976122132194    -75.992185292999
+  1    -76.108726921415    -76.122071088270     -0.132604789221
+  2    -76.109156788490    -76.122111594046     -0.000429867074
+  3    -76.109211008676    -76.122228754024     -0.000054220187
+  4    -76.109213395493    -76.122220045396     -0.000002386817
+  5    -76.109213909326    -76.122219372083     -0.000000513832
+  6    -76.109214293986    -76.122219867029     -0.000000384660
+  7    -76.109214312476    -76.122219848436     -0.000000018491
+  8    -76.109214312866    -76.122219844050     -0.000000000390
+SCF converged
+Occupation numbers (alpha): 1 1 1 1 0 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 0 0 0 0 0
+Occupation numbers (alpha): 1 1 1 1 1 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 0 0 0 0 0 0
+Energy of excited-state singlet OSS-KS-OEP: -76.10921431286621
+Energy of excited-state triplet OSS-KS-OEP: -76.12221984405025
+
+Running STA-KS-OEP calculation
+ITER  ENERGY (MULTIPLET)    ENERGY (S exci)        ENERGY (T)            EDIFF
+  0    -75.985427075250    -75.972441318575    -75.989755660808
+  1    -76.119246755327    -76.108166225829    -76.122940265160     -0.133819680077
+  2    -76.119577280123    -76.108803471467    -76.123168549675     -0.000330524796
+  3    -76.119617293264    -76.108804880524    -76.123221430844     -0.000040013141
+  4    -76.119620967045    -76.108812470322    -76.123223799286     -0.000003673781
+  5    -76.119621220027    -76.108812899293    -76.123223993605     -0.000000252982
+  6    -76.119621329331    -76.108812985200    -76.123224110708     -0.000000109303
+  7    -76.119621340334    -76.108812999196    -76.123224120714     -0.000000011004
+  8    -76.119621339279    -76.108813000713    -76.123224118801      0.000000001055
+SCF converged
+Occupation numbers (alpha): 1 1 1 1 0 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 0 0 0 0 0
+Occupation numbers (alpha): 1 1 1 1 1 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 0 0 0 0 0 0
+Energy of excited-state singlet STA-KS-OEP: -76.10881300071289
+Energy of excited-state triplet STA-KS-OEP: -76.12322411880095
+Singlet Excitation energy (UKS-OEP):    7.4447 eV
+Triplet Excitation energy (UKS-OEP):    7.0860 eV
+Singlet Excitation energy (SS-KS-OEP):  7.5525 eV
+Triplet Excitation energy (SS-KS-OEP):  7.1560 eV
+Singlet Excitation energy (OSS-KS-OEP): 7.5399 eV
+Singlet Excitation energy (STA-KS-OEP): 7.5508 eV
+Triplet Excitation energy (STA-KS-OEP): 7.1587 eV
+Elapsed: 00:01:30  Total: 00:55:49
+
+SUMMARY
+
+SINGLET EXCITATIONS:
+Acetaldehyde                    3.91  4.08  4.07  4.08  4.31
+Ammonia                         6.43  6.58  6.57  6.57  6.66
+Carbon monoxide                 7.53  7.52  7.48  7.54  8.48
+Cyclopropene                    5.88  5.80  5.74  5.81  6.78
+Diazomethane                    2.93  3.08  3.08  3.08  3.13
+Dinitrogen                      8.48  8.55  8.55  8.55  9.33
+Ethylene                        6.73  6.66  6.60  6.67  7.89
+Formaldehyde                    3.53  3.70  3.70  3.70  3.97
+Formamide                       5.37  5.53  5.53  5.53  5.63
+Hydrogen sulfide                5.71  5.90  5.89  5.90  6.10
+Ketene                          3.65  3.83  3.83  3.83  3.86
+Methanimine                     4.65  4.79  4.78  4.79  5.21
+Nitrosomethane                  1.52  1.61  1.61  1.61  1.95
+Streptocyanine-C1               6.09  6.18  6.15  6.18  7.12
+Thioformaldehyde                1.92  2.11  2.10  2.11  2.20
+Water                           7.44  7.55  7.54  7.55  7.70
+MAE (UKS-OEP)    = 0.53
+MAE (SS-KS-OEP)  = 0.43
+MAE (OSS-KS-OEP) = 0.44
+MAE (STA-KS-OEP) = 0.43
+
+TRIPLET EXCITATIONS:
+Acetaldehyde                    3.64  3.73  3.73  3.73  3.98
+Ammonia                         6.14  6.22  6.22  6.22  6.37
+Carbon monoxide                 5.93  6.06  6.06  6.06  6.28
+Cyclopropene                    4.08  4.21  4.21  4.22  4.38
+Diazomethane                    2.75  2.84  2.84  2.84  2.80
+Dinitrogen                      7.51  7.56  7.56  7.56  8.03
+Ethylene                        4.46  4.57  4.57  4.58  4.54
+Formaldehyde                    3.23  3.31  3.31  3.31  3.58
+Formamide                       5.15  5.25  5.25  5.25  5.37
+Hydrogen sulfide                5.48  5.53  5.53  5.53  5.74
+Ketene                          3.56  3.63  3.63  3.63  3.77
+Methanimine                     4.21  4.31  4.31  4.31  4.64
+Nitrosomethane                  0.90  0.98  0.98  0.98  1.16
+Streptocyanine-C1               5.16  5.25  5.25  5.25  5.52
+Thioformaldehyde                1.72  1.80  1.80  1.80  1.94
+Water                           7.09  7.16  7.16  7.16  7.33
+MAE (UKS-OEP)    = 0.28
+MAE (SS-KS-OEP)  = 0.20
+MAE (OSS-KS-OEP) = 0.20
+MAE (STA-KS-OEP) = 0.20
+
+SINGLET-TRIPLET GAPS:
+Acetaldehyde                    0.27  0.35  0.34  0.35  0.33
+Ammonia                         0.29  0.36  0.35  0.35  0.29
+Carbon monoxide                 1.59  1.46  1.42  1.47  2.20
+Cyclopropene                    1.80  1.59  1.53  1.59  2.40
+Diazomethane                    0.18  0.24  0.24  0.24  0.33
+Dinitrogen                      0.96  0.99  0.98  0.99  1.30
+Ethylene                        2.27  2.09  2.03  2.09  3.35
+Formaldehyde                    0.31  0.39  0.39  0.39  0.39
+Formamide                       0.22  0.29  0.28  0.29  0.26
+Hydrogen sulfide                0.23  0.36  0.36  0.36  0.36
+Ketene                          0.09  0.20  0.19  0.20  0.09
+Methanimine                     0.44  0.48  0.48  0.48  0.57
+Nitrosomethane                  0.62  0.63  0.63  0.63  0.79
+Streptocyanine-C1               0.93  0.93  0.90  0.93  1.60
+Thioformaldehyde                0.19  0.31  0.30  0.31  0.26
+Water                           0.36  0.40  0.38  0.39  0.37
+MAE (UKS-OEP)    = 0.26
+MAE (SS-KS-OEP)  = 0.28
+MAE (OSS-KS-OEP) = 0.29
+MAE (STA-KS-OEP) = 0.27

@@ -1,0 +1,636 @@
+YAML-config at configs/quest1_higher/r2SCAN0.yaml was found. Using it.
+
+CONFIG
+  basis: aug-cc-pVQZ
+  auxbasis: aug-cc-pV5Z-RIFIT
+  xc: r2SCAN0
+  excitations: {'Cyclopropene': {'B1': [-1, 1]}, 'Diazomethane': {'B1': [0, 2], 'A1': [0, 3]}, 'Ethylene': {'B3u': [0, 2], 'B1g': [0, 3]}, 'Formaldehyde': {'A1_pi': [-1, 1], 'B2_3s': [0, 2], 'B2_3p': [0, 4], 'A1_3p': [0, 3]}, 'Formamide': {"A'": [-1, 1]}, 'Hydrogen sulfide': {'B1': [0, 1]}, 'Ketene': {'B1': [0, 2], 'A2_3p': [0, 4]}, 'Thioformaldehyde': {'B2': [0, 2], 'A1': [-1, 1]}, 'Water': {'A2': [0, 2], 'A1': [-1, 1]}}
+  grid_level: 3
+  frac_occ: False
+  systems: ['Cyclopropene', 'Diazomethane', 'Ethylene', 'Formaldehyde', 'Formamide', 'Hydrogen sulfide', 'Ketene', 'Thioformaldehyde', 'Water']
+
+[1/17] Cyclopropene B1
+Energy of ground-state singlet: -116.58088898346574
+Energy of excited-state singlet (UKS): -116.35936542268101
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 0 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0
+Energy of excited-state triplet (UKS): -116.36338720489155
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0
+Energy of excited-state singlet (pa-SS-KS): -116.3491782704487
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 0 1 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0
+Energy of excited-state triplet (pa-SS-KS): -116.35525701123652
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 0 1 0 0 0 0 0
+Energy of excited-state singlet (pa-OSS-KS): -116.34304489085432
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 0 1 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 0 1 0 0 0 0 0
+Energy of excited-state singlet (pa-STA-KS): -116.34337134837881
+Energy of excited-state triplet (pa-STA-KS): -116.35517524602454
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 0 1 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 0 1 0 0 0 0 0
+Singlet Excitation energy (UKS):       6.1374 eV
+Triplet Excitation energy (UKS):       5.9185 eV
+Singlet Excitation energy (pa-SS-KS):  6.4706 eV
+Triplet Excitation energy (pa-SS-KS):  6.1398 eV
+Singlet Excitation energy (pa-OSS-KS): 6.4721 eV
+Singlet Excitation energy (pa-STA-KS): 6.4632 eV
+Triplet Excitation energy (pa-STA-KS): 6.1420 eV
+Elapsed: 00:03:38  Total: 00:03:38
+
+[2/17] Diazomethane B1
+Energy of ground-state singlet: -148.69458922696126
+Energy of excited-state singlet (UKS): -148.49980312527177
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 0 0 1 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0
+Energy of excited-state triplet (UKS): -148.50276700167456
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 1 0 0 1 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0
+Energy of excited-state singlet (pa-SS-KS): -148.4902502763035
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 0 0 0 1 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0
+Energy of excited-state triplet (pa-SS-KS): -148.49135667630154
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 1 0 0 1 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0
+Energy of excited-state singlet (pa-OSS-KS): -148.48740140666902
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 0 0 0 1 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 1 0 0 1 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0
+Energy of excited-state singlet (pa-STA-KS): -148.48778444007544
+Energy of excited-state triplet (pa-STA-KS): -148.49198626857392
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 0 0 0 1 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 1 0 0 1 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0
+Singlet Excitation energy (UKS):       5.3811 eV
+Triplet Excitation energy (UKS):       5.2198 eV
+Singlet Excitation energy (pa-SS-KS):  5.5905 eV
+Triplet Excitation energy (pa-SS-KS):  5.5302 eV
+Singlet Excitation energy (pa-OSS-KS): 5.6379 eV
+Singlet Excitation energy (pa-STA-KS): 5.6274 eV
+Triplet Excitation energy (pa-STA-KS): 5.5131 eV
+Elapsed: 00:02:55  Total: 00:06:33
+
+[3/17] Diazomethane A1
+Energy of ground-state singlet: -148.69458922696117
+Energy of excited-state singlet (UKS): -148.51774184495656
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 0 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0
+Energy of excited-state triplet (UKS): -148.56526925056104
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0
+Energy of excited-state singlet (pa-SS-KS): -148.50842250659986
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 0 0 1 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0
+Energy of excited-state triplet (pa-SS-KS): -148.54890673087667
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 1 0 1 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0
+Energy of excited-state singlet (pa-OSS-KS): -148.46740378508662
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 0 0 1 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 1 0 1 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0
+Energy of excited-state singlet (pa-STA-KS): -148.4669679020218
+Energy of excited-state triplet (pa-STA-KS): -148.54932497490068
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 0 0 1 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 1 0 1 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0
+Singlet Excitation energy (UKS):       6.1056 eV
+Triplet Excitation energy (UKS):       3.5190 eV
+Singlet Excitation energy (pa-SS-KS):  6.1675 eV
+Triplet Excitation energy (pa-SS-KS):  3.9642 eV
+Singlet Excitation energy (pa-OSS-KS): 6.1820 eV
+Singlet Excitation energy (pa-STA-KS): 6.1939 eV
+Triplet Excitation energy (pa-STA-KS): 3.9528 eV
+Elapsed: 00:02:30  Total: 00:09:03
+
+[4/17] Ethylene B3u
+Energy of ground-state singlet: -78.55821640595786
+Energy of excited-state singlet (UKS): -78.30209596297726
+Occupation numbers (alpha): 1 1 1 1 1 1 1 0 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 0 0 0 0 0
+Energy of excited-state triplet (UKS): -78.30364765649121
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 0 1 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 0 0 0 0 0 0
+Energy of excited-state singlet (pa-SS-KS): -78.29703954470142
+Occupation numbers (alpha): 1 1 1 1 1 1 1 0 0 1 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 0 0 0 0 0
+Energy of excited-state triplet (pa-SS-KS): -78.29721614032316
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 0 1 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 0 0 0 0 0 0
+Energy of excited-state singlet (pa-OSS-KS): -78.29592562983112
+Occupation numbers (alpha): 1 1 1 1 1 1 1 0 0 1 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 0 0 0 0 0
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 0 1 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 0 0 0 0 0 0
+Energy of excited-state singlet (pa-STA-KS): -78.29540611603463
+Energy of excited-state triplet (pa-STA-KS): -78.29782226899314
+Occupation numbers (alpha): 1 1 1 1 1 1 1 0 0 1 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 0 0 0 0 0
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 0 1 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 0 0 0 0 0 0
+Singlet Excitation energy (UKS):       7.0116 eV
+Triplet Excitation energy (UKS):       6.9272 eV
+Singlet Excitation energy (pa-SS-KS):  7.1118 eV
+Triplet Excitation energy (pa-SS-KS):  7.1022 eV
+Singlet Excitation energy (pa-OSS-KS): 7.1373 eV
+Singlet Excitation energy (pa-STA-KS): 7.1514 eV
+Triplet Excitation energy (pa-STA-KS): 7.0857 eV
+Elapsed: 00:02:06  Total: 00:11:10
+
+[5/17] Ethylene B1g
+Energy of ground-state singlet: -78.55821640595809
+Energy of excited-state singlet (UKS): -78.27745607295952
+Occupation numbers (alpha): 1 1 1 1 1 1 1 0 0 1 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 0 0 0 0 0
+Energy of excited-state triplet (UKS): -78.28000727869964
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 0 1 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 0 0 0 0 0 0
+Energy of excited-state singlet (pa-SS-KS): -78.27234651248997
+Occupation numbers (alpha): 1 1 1 1 1 1 1 0 0 0 1 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 0 0 0 0 0
+Energy of excited-state triplet (pa-SS-KS): -78.2726344639223
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 0 0 1 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 0 0 0 0 0 0
+Energy of excited-state singlet (pa-OSS-KS): -78.2711824520839
+Occupation numbers (alpha): 1 1 1 1 1 1 1 0 0 0 1 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 0 0 0 0 0
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 0 0 1 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 0 0 0 0 0 0
+Energy of excited-state singlet (pa-STA-KS): -78.27011799782407
+Energy of excited-state triplet (pa-STA-KS): -78.27338968178967
+Occupation numbers (alpha): 1 1 1 1 1 1 1 0 0 0 1 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 0 0 0 0 0
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 0 0 1 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 0 0 0 0 0 0
+Singlet Excitation energy (UKS):       7.7093 eV
+Triplet Excitation energy (UKS):       7.5705 eV
+Singlet Excitation energy (pa-SS-KS):  7.7868 eV
+Triplet Excitation energy (pa-SS-KS):  7.7711 eV
+Singlet Excitation energy (pa-OSS-KS): 7.8106 eV
+Singlet Excitation energy (pa-STA-KS): 7.8396 eV
+Triplet Excitation energy (pa-STA-KS): 7.7505 eV
+Elapsed: 00:02:07  Total: 00:13:17
+
+[6/17] Formaldehyde A1_pi
+Energy of ground-state singlet: -114.47236232740863
+Energy of excited-state singlet (UKS): -114.19176837229992
+Occupation numbers (alpha): 1 1 1 1 1 1 0 1 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 0 0 0 0 0
+Energy of excited-state triplet (UKS): -114.2744744402315
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 0 0 0 0 0 0
+Energy of excited-state singlet (pa-SS-KS): -114.19215117904236
+Occupation numbers (alpha): 1 1 1 1 1 1 0 1 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 0 0 0 0 0
+Energy of excited-state triplet (pa-SS-KS): -114.2600787881816
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 0 1 0 0 0 0 0
+Energy of excited-state singlet (pa-OSS-KS): -114.12360594197966
+Occupation numbers (alpha): 1 1 1 1 1 1 0 1 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 0 0 0 0 0
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 0 1 0 0 0 0 0
+Energy of excited-state singlet (pa-STA-KS): -114.12343026699088
+Energy of excited-state triplet (pa-STA-KS): -114.26044201174571
+Occupation numbers (alpha): 1 1 1 1 1 1 0 1 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 0 0 0 0 0
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 0 1 0 0 0 0 0
+Singlet Excitation energy (UKS):       9.8859 eV
+Triplet Excitation energy (UKS):       5.3848 eV
+Singlet Excitation energy (pa-SS-KS):  9.4733 eV
+Triplet Excitation energy (pa-SS-KS):  5.7765 eV
+Singlet Excitation energy (pa-OSS-KS): 9.4901 eV
+Singlet Excitation energy (pa-STA-KS): 9.4949 eV
+Triplet Excitation energy (pa-STA-KS): 5.7666 eV
+Elapsed: 00:01:28  Total: 00:14:46
+
+[7/17] Formaldehyde B2_3s
+Energy of ground-state singlet: -114.47236232740875
+Energy of excited-state singlet (UKS): -114.21907099026677
+Occupation numbers (alpha): 1 1 1 1 1 1 1 0 0 1 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 0 0 0 0 0
+Energy of excited-state triplet (UKS): -114.22163464238065
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 0 1 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 0 0 0 0 0 0
+Energy of excited-state singlet (pa-SS-KS): -114.20633449372741
+Occupation numbers (alpha): 1 1 1 1 1 1 1 0 0 1 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 0 0 0 0 0
+Energy of excited-state triplet (pa-SS-KS): -114.20825356661805
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 0 1 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 0 0 0 0 0 0
+Energy of excited-state singlet (pa-OSS-KS): -114.20338024989931
+Occupation numbers (alpha): 1 1 1 1 1 1 1 0 0 1 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 0 0 0 0 0
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 0 1 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 0 0 0 0 0 0
+Energy of excited-state singlet (pa-STA-KS): -114.20264405875898
+Energy of excited-state triplet (pa-STA-KS): -114.20900017174628
+Occupation numbers (alpha): 1 1 1 1 1 1 1 0 0 1 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 0 0 0 0 0
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 0 1 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 0 0 0 0 0 0
+Singlet Excitation energy (UKS):       6.9622 eV
+Triplet Excitation energy (UKS):       6.8227 eV
+Singlet Excitation energy (pa-SS-KS):  7.2912 eV
+Triplet Excitation energy (pa-SS-KS):  7.1868 eV
+Singlet Excitation energy (pa-OSS-KS): 7.3194 eV
+Singlet Excitation energy (pa-STA-KS): 7.3394 eV
+Triplet Excitation energy (pa-STA-KS): 7.1665 eV
+Elapsed: 00:01:58  Total: 00:16:44
+
+[8/17] Formaldehyde B2_3p
+Energy of ground-state singlet: -114.47236232740892
+Energy of excited-state singlet (UKS): -114.1883483565901
+Occupation numbers (alpha): 1 1 1 1 1 1 1 0 0 1 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 0 0 0 0 0
+Energy of excited-state triplet (UKS): -114.1907241099131
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 0 1 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 0 0 0 0 0 0
+Energy of excited-state singlet (pa-SS-KS): -114.17627599130273
+Occupation numbers (alpha): 1 1 1 1 1 1 1 0 0 0 1 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 0 0 0 0 0
+Energy of excited-state triplet (pa-SS-KS): -114.17818887790048
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 0 0 1 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 0 0 0 0 0 0
+Energy of excited-state singlet (pa-OSS-KS): -114.17416463456317
+Occupation numbers (alpha): 1 1 1 1 1 1 1 0 0 0 1 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 0 0 0 0 0
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 0 0 1 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 0 0 0 0 0 0
+Energy of excited-state singlet (pa-STA-KS): -114.17368702573927
+Energy of excited-state triplet (pa-STA-KS): -114.17845105426869
+Occupation numbers (alpha): 1 1 1 1 1 1 1 0 0 0 1 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 0 0 0 0 0
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 0 0 1 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 0 0 0 0 0 0
+Singlet Excitation energy (UKS):       7.7931 eV
+Triplet Excitation energy (UKS):       7.6638 eV
+Singlet Excitation energy (pa-SS-KS):  8.1090 eV
+Triplet Excitation energy (pa-SS-KS):  8.0049 eV
+Singlet Excitation energy (pa-OSS-KS): 8.1144 eV
+Singlet Excitation energy (pa-STA-KS): 8.1274 eV
+Triplet Excitation energy (pa-STA-KS): 7.9977 eV
+Elapsed: 00:02:45  Total: 00:19:29
+
+[9/17] Formaldehyde A1_3p
+Energy of ground-state singlet: -114.4723623274088
+Energy of excited-state singlet (UKS): -114.18629512968167
+Occupation numbers (alpha): 1 1 1 1 1 1 1 0 0 1 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 0 0 0 0 0
+Energy of excited-state triplet (UKS): -114.18772739365491
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 0 1 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 0 0 0 0 0 0
+Energy of excited-state singlet (pa-SS-KS): -114.17320668979295
+Occupation numbers (alpha): 1 1 1 1 1 1 1 0 0 0 1 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 0 0 0 0 0
+Energy of excited-state triplet (pa-SS-KS): -114.17396955234736
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 0 0 1 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 0 0 0 0 0 0
+Energy of excited-state singlet (pa-OSS-KS): -114.1715951833745
+Occupation numbers (alpha): 1 1 1 1 1 1 1 0 0 0 1 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 0 0 0 0 0
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 0 0 1 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 0 0 0 0 0 0
+Energy of excited-state singlet (pa-STA-KS): -114.1708501333097
+Energy of excited-state triplet (pa-STA-KS): -114.17461688874221
+Occupation numbers (alpha): 1 1 1 1 1 1 1 0 0 0 1 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 0 0 0 0 0
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 0 0 1 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 0 0 0 0 0 0
+Singlet Excitation energy (UKS):       7.8233 eV
+Triplet Excitation energy (UKS):       7.7453 eV
+Singlet Excitation energy (pa-SS-KS):  8.1612 eV
+Triplet Excitation energy (pa-SS-KS):  8.1197 eV
+Singlet Excitation energy (pa-OSS-KS): 8.1843 eV
+Singlet Excitation energy (pa-STA-KS): 8.2046 eV
+Triplet Excitation energy (pa-STA-KS): 8.1021 eV
+Elapsed: 00:01:50  Total: 00:21:20
+
+[10/17] Formamide A'
+Energy of ground-state singlet: -169.85952793255433
+Energy of excited-state singlet (UKS): -169.618624614863
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 1 0 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0
+Energy of excited-state triplet (UKS): -169.622493205877
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0
+Energy of excited-state singlet (pa-SS-KS): -169.60419211654045
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 1 0 0 1 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0
+Energy of excited-state triplet (pa-SS-KS): -169.60591498822714
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 1 1 0 1 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0
+Energy of excited-state singlet (pa-OSS-KS): -169.60213877006743
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 1 0 0 1 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 1 1 0 1 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0
+Energy of excited-state singlet (pa-STA-KS): -169.60167981585425
+Energy of excited-state triplet (pa-STA-KS): -169.60623137231738
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 1 0 0 1 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 1 1 0 1 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0
+Singlet Excitation energy (UKS):       6.6606 eV
+Triplet Excitation energy (UKS):       6.4500 eV
+Singlet Excitation energy (pa-SS-KS):  6.9949 eV
+Triplet Excitation energy (pa-SS-KS):  6.9012 eV
+Singlet Excitation energy (pa-OSS-KS): 7.0039 eV
+Singlet Excitation energy (pa-STA-KS): 7.0164 eV
+Triplet Excitation energy (pa-STA-KS): 6.8926 eV
+Elapsed: 00:03:07  Total: 00:24:27
+
+[11/17] Hydrogen sulfide B1
+Energy of ground-state singlet: -399.38019279215007
+Energy of excited-state singlet (UKS): -399.1616144976364
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 0 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 0 0 0 0 0
+Energy of excited-state triplet (UKS): -399.1715037368328
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 0 0 0 0 0 0
+Energy of excited-state singlet (pa-SS-KS): -399.15488739970874
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 0 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 0 0 0 0 0
+Energy of excited-state triplet (pa-SS-KS): -399.16219867882563
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 0 0 0 0 0 0
+Energy of excited-state singlet (pa-OSS-KS): -399.14712835182485
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 0 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 0 0 0 0 0
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 0 0 0 0 0 0
+Energy of excited-state singlet (pa-STA-KS): -399.1467515932759
+Energy of excited-state triplet (pa-STA-KS): -399.16254006380905
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 0 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 0 0 0 0 0
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 0 0 0 0 0 0
+Singlet Excitation energy (UKS):       6.2169 eV
+Triplet Excitation energy (UKS):       5.6787 eV
+Singlet Excitation energy (pa-SS-KS):  6.3298 eV
+Triplet Excitation energy (pa-SS-KS):  5.9319 eV
+Singlet Excitation energy (pa-OSS-KS): 6.3420 eV
+Singlet Excitation energy (pa-STA-KS): 6.3523 eV
+Triplet Excitation energy (pa-STA-KS): 5.9226 eV
+Elapsed: 00:01:10  Total: 00:25:38
+
+[12/17] Ketene B1
+Energy of ground-state singlet: -152.56260332090275
+Energy of excited-state singlet (UKS): -152.3472822677421
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 0 0 1 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0
+Energy of excited-state triplet (UKS): -152.35092092710826
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 1 0 1 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0
+Energy of excited-state singlet (pa-SS-KS): -152.34005428573244
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 0 0 1 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0
+Energy of excited-state triplet (pa-SS-KS): -152.34242570688684
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 1 0 1 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0
+Energy of excited-state singlet (pa-OSS-KS): -152.3360948628634
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 0 0 1 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 1 0 1 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0
+Energy of excited-state singlet (pa-STA-KS): -152.33662033605893
+Energy of excited-state triplet (pa-STA-KS): -152.34293216700578
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 0 0 1 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 1 0 1 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0
+Singlet Excitation energy (UKS):       5.9582 eV
+Triplet Excitation energy (UKS):       5.7602 eV
+Singlet Excitation energy (pa-SS-KS):  6.1204 eV
+Triplet Excitation energy (pa-SS-KS):  5.9913 eV
+Singlet Excitation energy (pa-OSS-KS): 6.1636 eV
+Singlet Excitation energy (pa-STA-KS): 6.1493 eV
+Triplet Excitation energy (pa-STA-KS): 5.9776 eV
+Elapsed: 00:02:42  Total: 00:28:20
+
+[13/17] Ketene A2_3p
+Energy of ground-state singlet: -152.56260332090253
+Energy of excited-state singlet (UKS): -152.30072398554228
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 0 0 0 1 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0
+Energy of excited-state triplet (UKS): -152.3017609416156
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 1 0 0 0 1 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0
+Energy of excited-state singlet (pa-SS-KS): -152.29352297917183
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 0 0 0 0 1 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0
+Energy of excited-state triplet (pa-SS-KS): -152.29289490890804
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 1 0 0 0 1 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0
+Energy of excited-state singlet (pa-OSS-KS): -152.29297107880654
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 0 0 0 0 1 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 1 0 0 0 1 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0
+Energy of excited-state singlet (pa-STA-KS): -152.29224092267773
+Energy of excited-state triplet (pa-STA-KS): -152.29369533535305
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 0 0 0 0 1 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 1 0 0 0 1 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0
+Singlet Excitation energy (UKS):       7.1543 eV
+Triplet Excitation energy (UKS):       7.0979 eV
+Singlet Excitation energy (pa-SS-KS):  7.3050 eV
+Triplet Excitation energy (pa-SS-KS):  7.3391 eV
+Singlet Excitation energy (pa-OSS-KS): 7.3371 eV
+Singlet Excitation energy (pa-STA-KS): 7.3569 eV
+Triplet Excitation energy (pa-STA-KS): 7.3174 eV
+Elapsed: 00:03:06  Total: 00:31:27
+
+[14/17] Thioformaldehyde B2
+Energy of ground-state singlet: -437.4342973277164
+Energy of excited-state singlet (UKS): -437.22673938299295
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 1 0 0 1 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0
+Energy of excited-state triplet (UKS): -437.23127831294266
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 1 1 0 1 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0
+Energy of excited-state singlet (pa-SS-KS): -437.21840779765614
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 1 0 0 1 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0
+Energy of excited-state triplet (pa-SS-KS): -437.22290465021706
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 1 1 0 1 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0
+Energy of excited-state singlet (pa-OSS-KS): -437.21359230729354
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 1 0 0 1 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 1 1 0 1 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0
+Energy of excited-state singlet (pa-STA-KS): -437.21342753831607
+Energy of excited-state triplet (pa-STA-KS): -437.2231182228152
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 1 0 0 1 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 1 1 0 1 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0
+Singlet Excitation energy (UKS):       5.7715 eV
+Triplet Excitation energy (UKS):       5.5244 eV
+Singlet Excitation energy (pa-SS-KS):  5.9970 eV
+Triplet Excitation energy (pa-SS-KS):  5.7523 eV
+Singlet Excitation energy (pa-OSS-KS): 6.0057 eV
+Singlet Excitation energy (pa-STA-KS): 6.0102 eV
+Triplet Excitation energy (pa-STA-KS): 5.7465 eV
+Elapsed: 00:02:03  Total: 00:33:31
+
+[15/17] Thioformaldehyde A1
+Energy of ground-state singlet: -437.4342973277169
+Energy of excited-state singlet (UKS): -437.26398679684405
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 0 1 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0
+Energy of excited-state triplet (UKS): -437.32962976176213
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0
+Energy of excited-state singlet (pa-SS-KS): -437.2614886142504
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 0 1 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0
+Energy of excited-state triplet (pa-SS-KS): -437.31859464246486
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 0 1 0 0 0 0 0
+Energy of excited-state singlet (pa-OSS-KS): -437.2029539158641
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 0 1 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 0 1 0 0 0 0 0
+Energy of excited-state singlet (pa-STA-KS): -437.20430648103695
+Energy of excited-state triplet (pa-STA-KS): -437.31884588089713
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 0 1 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0
+Occupation numbers (alpha): 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 1 1 1 1 1 0 1 0 0 0 0 0
+Singlet Excitation energy (UKS):       6.4206 eV
+Triplet Excitation energy (UKS):       2.8482 eV
+Singlet Excitation energy (pa-SS-KS):  6.2563 eV
+Triplet Excitation energy (pa-SS-KS):  3.1484 eV
+Singlet Excitation energy (pa-OSS-KS): 6.2952 eV
+Singlet Excitation energy (pa-STA-KS): 6.2584 eV
+Triplet Excitation energy (pa-STA-KS): 3.1416 eV
+Elapsed: 00:01:26  Total: 00:34:57
+
+[16/17] Water A2
+Energy of ground-state singlet: -76.41634966621413
+Energy of excited-state singlet (UKS): -76.09486969393808
+Occupation numbers (alpha): 1 1 1 1 0 0 1 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 0 0 0 0 0
+Energy of excited-state triplet (UKS): -76.0976242191993
+Occupation numbers (alpha): 1 1 1 1 1 0 1 0 0 0
+Occupation numbers (beta) : 1 1 1 1 0 0 0 0 0 0
+Energy of excited-state singlet (pa-SS-KS): -76.08489155337388
+Occupation numbers (alpha): 1 1 1 1 0 0 1 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 0 0 0 0 0
+Energy of excited-state triplet (pa-SS-KS): -76.08519836670698
+Occupation numbers (alpha): 1 1 1 1 1 0 1 0 0 0
+Occupation numbers (beta) : 1 1 1 1 0 0 0 0 0 0
+Energy of excited-state singlet (pa-OSS-KS): -76.08362847130545
+Occupation numbers (alpha): 1 1 1 1 0 0 1 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 0 0 0 0 0
+Occupation numbers (alpha): 1 1 1 1 1 0 1 0 0 0
+Occupation numbers (beta) : 1 1 1 1 0 0 0 0 0 0
+Energy of excited-state singlet (pa-STA-KS): -76.08231215611755
+Energy of excited-state triplet (pa-STA-KS): -76.08610094042845
+Occupation numbers (alpha): 1 1 1 1 0 0 1 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 0 0 0 0 0
+Occupation numbers (alpha): 1 1 1 1 1 0 1 0 0 0
+Occupation numbers (beta) : 1 1 1 1 0 0 0 0 0 0
+Singlet Excitation energy (UKS):       8.8229 eV
+Triplet Excitation energy (UKS):       8.6730 eV
+Singlet Excitation energy (pa-SS-KS):  9.0278 eV
+Triplet Excitation energy (pa-SS-KS):  9.0111 eV
+Singlet Excitation energy (pa-OSS-KS): 9.0538 eV
+Singlet Excitation energy (pa-STA-KS): 9.0896 eV
+Triplet Excitation energy (pa-STA-KS): 8.9865 eV
+Elapsed: 00:01:05  Total: 00:36:03
+
+[17/17] Water A1
+Energy of ground-state singlet: -76.41634966621419
+Energy of excited-state singlet (UKS): -76.06867728082307
+Occupation numbers (alpha): 1 1 1 1 0 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 0 0 0 0 0
+Energy of excited-state triplet (UKS): -76.07963730903128
+Occupation numbers (alpha): 1 1 1 1 1 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 0 0 0 0 0 0
+Energy of excited-state singlet (pa-SS-KS): -76.05949339499031
+Occupation numbers (alpha): 1 1 1 0 1 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 0 0 0 0 0
+Energy of excited-state triplet (pa-SS-KS): -76.06892975716917
+Occupation numbers (alpha): 1 1 1 1 1 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 0 1 0 0 0 0 0
+Energy of excited-state singlet (pa-OSS-KS): -76.04978694066172
+Occupation numbers (alpha): 1 1 1 0 1 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 0 0 0 0 0
+Occupation numbers (alpha): 1 1 1 1 1 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 0 1 0 0 0 0 0
+Energy of excited-state singlet (pa-STA-KS): -76.04961540327413
+Energy of excited-state triplet (pa-STA-KS): -76.06912098980528
+Occupation numbers (alpha): 1 1 1 0 1 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 1 1 0 0 0 0 0
+Occupation numbers (alpha): 1 1 1 1 1 1 0 0 0 0
+Occupation numbers (beta) : 1 1 1 0 1 0 0 0 0 0
+Singlet Excitation energy (UKS):       9.7589 eV
+Triplet Excitation energy (UKS):       9.1624 eV
+Singlet Excitation energy (pa-SS-KS):  9.9673 eV
+Triplet Excitation energy (pa-SS-KS):  9.4538 eV
+Singlet Excitation energy (pa-OSS-KS): 9.9747 eV
+Singlet Excitation energy (pa-STA-KS): 9.9794 eV
+Triplet Excitation energy (pa-STA-KS): 9.4486 eV
+Elapsed: 00:01:00  Total: 00:37:03
+
+SUMMARY
+
+SINGLET EXCITATIONS:
+Cyclopropene                    B1        6.14  6.47  6.47  6.46  6.68
+Diazomethane                    B1        5.38  5.59  5.64  5.63  5.59
+Diazomethane                    A1        6.11  6.17  6.18  6.19  5.89
+Ethylene                        B3u       7.01  7.11  7.14  7.15  7.43
+Ethylene                        B1g       7.71  7.79  7.81  7.84  8.10
+Formaldehyde                    A1_pi     9.89  9.47  9.49  9.49  9.26
+Formaldehyde                    B2_3s     6.96  7.29  7.32  7.34  7.30
+Formaldehyde                    B2_3p     7.79  8.11  8.11  8.13  8.14
+Formaldehyde                    A1_3p     7.82  8.16  8.18  8.20  8.27
+Formamide                       A'        6.66  6.99  7.00  7.02  7.64
+Hydrogen sulfide                B1        6.22  6.33  6.34  6.35  6.29
+Ketene                          B1        5.96  6.12  6.16  6.15  6.06
+Ketene                          A2_3p     7.15  7.30  7.34  7.36  7.19
+Thioformaldehyde                B2        5.77  6.00  6.01  6.01  5.99
+Thioformaldehyde                A1        6.42  6.26  6.30  6.26  6.34
+Water                           A2        8.82  9.03  9.05  9.09  9.47
+Water                           A1        9.76  9.97  9.97  9.98  9.97
+MAE (UKS)       = 0.35
+MAE (pa-SS-KS)  = 0.17
+MAE (pa-OSS-KS) = 0.17
+MAE (pa-STA-KS) = 0.17
+
+TRIPLET EXCITATIONS:
+Cyclopropene                    B1        5.92  6.14  6.14  6.14  6.45
+Diazomethane                    B1        5.22  5.53  5.53  5.51  5.40
+Diazomethane                    A1        3.52  3.96  3.96  3.95  4.05
+Ethylene                        B3u       6.93  7.10  7.10  7.09  7.28
+Ethylene                        B1g       7.57  7.77  7.77  7.75  8.00
+Formaldehyde                    A1_pi     5.38  5.78  5.78  5.77  6.07
+Formaldehyde                    B2_3s     6.82  7.19  7.19  7.17  7.14
+Formaldehyde                    B2_3p     7.66  8.00  8.00  8.00  7.96
+Formaldehyde                    A1_3p     7.75  8.12  8.12  8.10  8.15
+Formamide                       A'        6.45  6.90  6.90  6.89  5.81
+Hydrogen sulfide                B1        5.68  5.93  5.93  5.92  5.94
+Ketene                          B1        5.76  5.99  5.99  5.98  5.85
+Ketene                          A2_3p     7.10  7.34  7.34  7.32  7.14
+Thioformaldehyde                B2        5.52  5.75  5.75  5.75  5.76
+Thioformaldehyde                A1        2.85  3.15  3.15  3.14  3.44
+Water                           A2        8.67  9.01  9.01  8.99  9.30
+Water                           A1        9.16  9.45  9.45  9.45  9.59
+MAE (UKS)       = 0.39
+MAE (pa-SS-KS)  = 0.21
+MAE (pa-OSS-KS) = 0.21
+MAE (pa-STA-KS) = 0.21

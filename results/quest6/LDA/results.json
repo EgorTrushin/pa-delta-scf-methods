@@ -1,0 +1,252 @@
+{
+    "Aminobenzonitrile": {
+        "A1": {
+            "excitation": "$2\\text{A}_1 (\\pi \\rightarrow \\pi^*)$",
+            "TBE S": 5.09,
+            "UKS S": 3.977475868601998,
+            "pa-SS-KS S": 3.9832432850917185,
+            "pa-OSS-KS S": 3.9834587748639296,
+            "pa-STA-KS S": 3.983439394900056
+        }
+    },
+    "Aniline": {
+        "A1": {
+            "excitation": "$2\\text{A}_1 (\\pi \\rightarrow \\pi^*)$",
+            "TBE S": 5.48,
+            "UKS S": 4.641515268299829,
+            "pa-SS-KS S": 4.641461857811501,
+            "pa-OSS-KS S": 4.642325725214161,
+            "pa-STA-KS S": 4.641911853310845
+        }
+    },
+    "Azulene": {
+        "A1": {
+            "excitation": "$2\\text{A}_1 (\\pi \\rightarrow \\pi^*)$",
+            "TBE S": 3.84,
+            "UKS S": 3.320963094899221,
+            "pa-SS-KS S": 3.297842027817552,
+            "pa-OSS-KS S": 3.297773537782179,
+            "pa-STA-KS S": 3.2980501716907753
+        },
+        "B2": {
+            "excitation": "$2\\text{B}_2 (\\pi \\rightarrow \\pi^*)$",
+            "TBE S": 4.49,
+            "UKS S": 4.166828236700532,
+            "pa-SS-KS S": 4.215225818893296,
+            "pa-OSS-KS S": 4.215323726974705,
+            "pa-STA-KS S": 4.215204081128001
+        }
+    },
+    "Benzonitrile": {
+        "A2": {
+            "excitation": "$1\\text{A}_2 (\\pi_\\text{CN} \\rightarrow \\pi^*)$",
+            "TBE S": 7.05,
+            "UKS S": 6.807091772508198,
+            "pa-SS-KS S": 6.832355061103824,
+            "pa-OSS-KS S": 6.83249423440692,
+            "pa-STA-KS S": 6.83223156265427
+        }
+    },
+    "Benzothiadiazole": {
+        "B2": {
+            "excitation": "$1\\text{B}_2 (\\pi \\rightarrow \\pi^*)$",
+            "TBE S": 4.28,
+            "UKS S": 3.403938223819623,
+            "pa-SS-KS S": 3.3853755230752203,
+            "pa-OSS-KS S": 3.3854998751914405,
+            "pa-STA-KS S": 3.3855129848160628
+        }
+    },
+    "Dimethylaminobenzonitrile": {
+        "A1": {
+            "excitation": "$2\\text{A}_1 (\\pi \\rightarrow \\pi^*)$",
+            "TBE S": 4.86,
+            "UKS S": 3.780436923497927,
+            "pa-SS-KS S": 3.7936758995329964,
+            "pa-OSS-KS S": 3.7937319100282494,
+            "pa-STA-KS S": 3.7938391340764666
+        }
+    },
+    "Dimethylaniline": {
+        "B2": {
+            "excitation": "$1\\text{B}_2 (\\pi \\rightarrow \\pi^*)$",
+            "TBE S": 4.4,
+            "UKS S": 3.9907596366212195,
+            "pa-SS-KS S": 4.033967357290362,
+            "pa-OSS-KS S": 4.034111395582089,
+            "pa-STA-KS S": 4.034178875137326
+        },
+        "A1": {
+            "excitation": "$2\\text{A}_1 (\\pi \\rightarrow \\pi^*)$",
+            "TBE S": 5.4,
+            "UKS S": 4.468662263480894,
+            "pa-SS-KS S": 4.477179464667867,
+            "pa-OSS-KS S": 4.477366036981369,
+            "pa-STA-KS S": 4.477554009080144
+        }
+    },
+    "Hydrogen chloride": {
+        "Pi": {
+            "excitation": "$1\\Pi (n \\rightarrow \\sigma^*)$",
+            "TBE S": 7.88,
+            "UKS S": 7.816237834699559,
+            "pa-SS-KS S": 7.8660463316429485,
+            "pa-OSS-KS S": 7.866885655992835,
+            "pa-STA-KS S": 7.866317630993349
+        }
+    },
+    "Nitroaniline": {
+        "A1": {
+            "excitation": "$2\\text{A}_1 (\\pi \\rightarrow \\pi^*)$",
+            "TBE S": 4.39,
+            "UKS S": 3.4928753733689137,
+            "pa-SS-KS S": 3.5131674889511446,
+            "pa-OSS-KS S": 3.5137220588429496,
+            "pa-STA-KS S": 3.5132149022198504
+        }
+    },
+    "Nitrobenzene": {
+        "A1": {
+            "excitation": "$2\\text{A}_1 (\\pi \\rightarrow \\pi^*)$",
+            "TBE S": 5.39,
+            "UKS S": 4.465756464249095,
+            "pa-SS-KS S": 4.453549418124845,
+            "pa-OSS-KS S": 4.455259233639369,
+            "pa-STA-KS S": 4.4536825232385455
+        }
+    },
+    "Nitrodimethylaniline": {
+        "A1": {
+            "excitation": "$2\\text{A}_1 (\\pi \\rightarrow \\pi^*)$",
+            "TBE S": 4.13,
+            "UKS S": 3.2473137592341743,
+            "pa-SS-KS S": 3.274401219330394,
+            "pa-OSS-KS S": 3.274664382278268,
+            "pa-STA-KS S": 3.274398937061774
+        }
+    },
+    "Nitropyridine N-Oxide": {
+        "A1": {
+            "excitation": "$2\\text{A}_1 (\\pi \\rightarrow \\pi^*)$",
+            "TBE S": 4.1,
+            "UKS S": 3.0595529452600556,
+            "pa-SS-KS S": 3.0797001862728957,
+            "pa-OSS-KS S": 3.0800597105936043,
+            "pa-STA-KS S": 3.0797699226489796
+        }
+    },
+    "N-Phenylpyrrole": {
+        "B2": {
+            "excitation": "$2\\text{B}_2 (\\pi \\rightarrow \\pi^*)$",
+            "TBE S": 5.32,
+            "UKS S": 4.4149195486012935,
+            "pa-SS-KS S": 4.560040124884591,
+            "pa-OSS-KS S": 4.672185052168595,
+            "pa-STA-KS S": 4.606144082350272
+        },
+        "A1": {
+            "excitation": "$3\\text{A}_1 (\\pi \\rightarrow \\pi^*)$",
+            "TBE S": 5.86,
+            "UKS S": 5.845830888113994,
+            "pa-SS-KS S": 5.852120898929759,
+            "pa-OSS-KS S": 5.852043538387345,
+            "pa-STA-KS S": 5.85220942701967
+        }
+    },
+    "Phthalazine": {
+        "A2": {
+            "excitation": "$1\\text{A}_2 (n \\rightarrow \\pi^*)$",
+            "TBE S": 3.91,
+            "UKS S": 3.114519841767955,
+            "pa-SS-KS S": 3.1751522869259596,
+            "pa-OSS-KS S": 3.175220708039508,
+            "pa-STA-KS S": 3.175102279101214
+        },
+        "B1": {
+            "excitation": "$1\\text{B}_1 (n \\rightarrow \\pi^*)$",
+            "TBE S": 4.31,
+            "UKS S": 3.603650374522527,
+            "pa-SS-KS S": 3.603218460287536,
+            "pa-OSS-KS S": 3.6034143919459964,
+            "pa-STA-KS S": 3.603014797226957
+        }
+    },
+    "Quinoxaline": {
+        "B2": {
+            "excitation": "$1\\text{B}_2 (\\pi \\rightarrow \\pi^*)$",
+            "TBE S": 4.63,
+            "UKS S": 3.7784204948258755,
+            "pa-SS-KS S": 3.7624544566994085,
+            "pa-OSS-KS S": 3.7630376416495785,
+            "pa-STA-KS S": 3.7624818012531245
+        },
+        "A1": {
+            "excitation": "$3\\text{A}_1 (\\pi \\rightarrow \\pi^*)$",
+            "TBE S": 5.65,
+            "UKS S": 4.745384639146137,
+            "pa-SS-KS S": 4.802343344011201,
+            "pa-OSS-KS S": 4.802617823654155,
+            "pa-STA-KS S": 4.802256982694269
+        },
+        "B1": {
+            "excitation": "$2\\text{B}_1 (n \\rightarrow \\pi^*)$",
+            "TBE S": 6.22,
+            "UKS S": 5.154689467609242,
+            "pa-SS-KS S": 5.190675304525308,
+            "pa-OSS-KS S": 5.190667482533944,
+            "pa-STA-KS S": 5.1906577984344455
+        }
+    },
+    "Twisted DMABN": {
+        "A2": {
+            "excitation": "$1\\text{A}_2 (n \\rightarrow \\pi^*)$",
+            "TBE S": 4.12,
+            "UKS S": 3.6112809200026676,
+            "pa-SS-KS S": 3.690255645251022,
+            "pa-OSS-KS S": 3.6902659689879913,
+            "pa-STA-KS S": 3.6902622323169774
+        },
+        "B1": {
+            "excitation": "$1\\text{B}_1 (n \\rightarrow \\pi^*)$",
+            "TBE S": 4.75,
+            "UKS S": 4.260185707007642,
+            "pa-SS-KS S": 4.324517541224204,
+            "pa-OSS-KS S": 4.324517115810823,
+            "pa-STA-KS S": 4.324507945514417
+        }
+    },
+    "Twisted PP": {
+        "B2": {
+            "excitation": "$2\\text{B}_2 (\\pi \\rightarrow \\pi^*)$",
+            "TBE S": 5.58,
+            "UKS S": 5.416682504528314,
+            "pa-SS-KS S": 5.452185184419018,
+            "pa-OSS-KS S": 5.452241803625243,
+            "pa-STA-KS S": 5.452265983083606
+        },
+        "A1": {
+            "excitation": "$2\\text{A}_1 (\\pi \\rightarrow \\pi^*)$",
+            "TBE S": 5.65,
+            "UKS S": 5.708200193896175,
+            "pa-SS-KS S": 5.735411911111021,
+            "pa-OSS-KS S": 5.735447391945066,
+            "pa-STA-KS S": 5.735414131727725
+        },
+        "A2": {
+            "excitation": "$1\\text{A}_2 (\\pi \\rightarrow \\pi^*)$",
+            "TBE S": 5.95,
+            "UKS S": 5.48791334656785,
+            "pa-SS-KS S": 5.530038771227971,
+            "pa-OSS-KS S": 5.530034828332859,
+            "pa-STA-KS S": 5.5300713142487465
+        },
+        "B1": {
+            "excitation": "$1\\text{B}_1 (\\pi \\rightarrow \\pi^*)$",
+            "TBE S": 6.17,
+            "UKS S": 5.55584952660351,
+            "pa-SS-KS S": 5.568580773227137,
+            "pa-OSS-KS S": 5.568920309024585,
+            "pa-STA-KS S": 5.568403888391321
+        }
+    }
+}
