@@ -62,6 +62,14 @@ sets/                     # Molecular geometries and reference energies
   quest6.py               # QUEST6 dataset
 
 configs/                  # Calculation configuration files (YAML)
+
+results/                  # Calculation outputs and parsed results
+  quest1_lowest/          # QUEST1 lowest excited states
+  quest1_higher/          # QUEST1 higher excited states
+  quest6/                 # QUEST6 dataset
+
+csv/                      # Excitation energy and MAE tables (CSV)
+
 examples.py               # Standard KS examples: H₂O and N₂
 examples_oep.py           # OEP examples: H₂O and N₂
 pa-delta-scf-methods.ipynb      # Analysis notebook
