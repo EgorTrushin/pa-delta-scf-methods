@@ -21,6 +21,7 @@ from calc_quest1_lowest import (
     eval_and_print_maes,
     pyscf_atom_input,
     HA_TO_EV,
+    fmt_time,
 )
 
 
@@ -176,8 +177,8 @@ def calc_quest1(config):
             results[system][excitation]["pa-STA-KS S"] = exc_s
             results[system][excitation]["pa-STA-KS T"] = exc_t
 
-            elapsed_exc = time.strftime('%H:%M:%S', time.gmtime(time.time() - t_exc))
-            elapsed_total = time.strftime('%H:%M:%S', time.gmtime(time.time() - t_total))
+            elapsed_exc = fmt_time(time.time() - t_exc)
+            elapsed_total = fmt_time(time.time() - t_total)
             print(f"Elapsed: {elapsed_exc}  Total: {elapsed_total}", flush=True)
 
     with open("results.json", "w", encoding="utf-8") as file_obj:

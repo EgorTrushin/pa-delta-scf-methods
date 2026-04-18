@@ -20,6 +20,11 @@ from methods.pa_STA_KS import pa_STA_KS
 HA_TO_EV = 27.2114
 
 
+def fmt_time(seconds):
+    s = int(seconds)
+    return f"{s // 3600:02d}:{s % 3600 // 60:02d}:{s % 60:02d}"
+
+
 def pyscf_atom_input(mol_dict):
     """Return atom list for PySCF mol.atom from a molecule dictionary.
 
@@ -329,8 +334,8 @@ def calc_quest1(config):
         results[system]["pa-STA-KS S"] = exc_s
         results[system]["pa-STA-KS T"] = exc_t
 
-        elapsed_mol = time.strftime('%H:%M:%S', time.gmtime(time.time() - t_mol))
-        elapsed_total = time.strftime('%H:%M:%S', time.gmtime(time.time() - t_total))
+        elapsed_mol = fmt_time(time.time() - t_mol)
+        elapsed_total = fmt_time(time.time() - t_total)
         print(f"Elapsed: {elapsed_mol}  Total: {elapsed_total}", flush=True)
 
     with open("results.json", "w", encoding="utf-8") as file_obj:

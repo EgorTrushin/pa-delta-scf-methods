@@ -19,7 +19,7 @@ from methods_oep.osdftoep_occ import OSDFTOEP_occ
 from methods_oep.osdftoep_oss_occ import OSDFTOEP_OSS_occ
 from methods_oep.osdftoep_sta_occ import OSDFTOEP_STA_occ
 from sets.quest1_lowest import systems, reference
-from calc_quest1_lowest import pyscf_atom_input, HA_TO_EV
+from calc_quest1_lowest import pyscf_atom_input, HA_TO_EV, fmt_time
 
 
 def eval_and_print_maes(uks, ss, oss, sta, ref_):
@@ -265,8 +265,8 @@ def calc_quest1(config):
         results[system]["STA-KS-OEP S"] = exc_s
         results[system]["STA-KS-OEP T"] = exc_t
 
-        elapsed_mol   = time.strftime('%H:%M:%S', time.gmtime(time.time() - t_mol))
-        elapsed_total = time.strftime('%H:%M:%S', time.gmtime(time.time() - t_total))
+        elapsed_mol   = fmt_time(time.time() - t_mol)
+        elapsed_total = fmt_time(time.time() - t_total)
         print(f"Elapsed: {elapsed_mol}  Total: {elapsed_total}", flush=True)
 
     with open("results.json", "w", encoding="utf-8") as file_obj:
