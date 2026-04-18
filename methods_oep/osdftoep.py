@@ -113,6 +113,49 @@ class OSDFTOEP(OSEXXOEP):
 
             self.ip = [E_nm1_x_a - E_n_x, E_nm1_x_b - E_n_x]
 
+    def eval_state(self, dm):
+        """Evaluates DFT energy and potentials for a given density matrix.
+
+        Returns (e_xc, vj_ao, E_Coul, vxnl_ao, E_x, omega, alpha, hyb).
+        vxnl_ao is the combined XC + hybrid-exchange potential used as nonlocal reference.
+        """
+        ni = dft.numint.NumInt()
+        _, e_xc, vxc = ni.nr_uks(self.mf.mol, self.mf.grids, self.mf.xc, dm)
+
+        if dft.libxc.is_hybrid_xc(self.mf.xc):
+            omega, alpha, hyb = ni.rsh_and_hybrid_coeff(self.mf.xc)
+            if omega == 0:
+                vj_ao, vxnl_ao = self.mf.get_jk(self.mf.mol, dm)
+            elif alpha == 0:  # LR=0, only SR exchange
+                vj_ao = self.mf.get_j(self.mf.mol, dm)
+                vxnl_ao = self.mf.get_k(self.mf.mol, dm, omega=-omega)
+            else:
+                sys.exit("Not implemented case for hybrid functionals")
+            E_x = -0.5 * np.einsum("ij,ji->", vxnl_ao[0], dm[0])
+            E_x += -0.5 * np.einsum("ij,ji->", vxnl_ao[1], dm[1])
+            vxnl_ao *= -1.0
+        else:
+            vj_ao = self.mf.get_j(dm=dm)
+            E_x, omega, alpha, hyb = 0., 0, 0, 0.
+
+        vj_ao = vj_ao[0] + vj_ao[1]
+        E_Coul = np.einsum("ij,ji->", vj_ao, dm[0] + dm[1]).real * 0.5
+
+        if dft.libxc.is_hybrid_xc(self.mf.xc):
+            vxnl_ao = vxc + hyb * vxnl_ao
+        else:
+            vxnl_ao = vxc
+
+        return e_xc, vj_ao, E_Coul, vxnl_ao, E_x, omega, alpha, hyb
+
+    def swap_orbitals(self, mo_coeff, mo_energy, occ):
+        """Reorders orbitals so that occupied ones come first (in-place)."""
+        for spin in range(2):
+            ind = np.argsort(-occ[spin], kind='stable')
+            for i in range(mo_coeff.shape[1]):
+                mo_coeff[spin, i, :] = mo_coeff[spin, i, ind]
+            mo_energy[spin, :] = mo_energy[spin, ind]
+
     def get_v_ref_w_homo(self, zII, ints_3c, mo_coeff, nelec, vxnl_ao, ip):
         r"""
         Constructs the Fermi-Amaldi reference potential with HOMO condition.

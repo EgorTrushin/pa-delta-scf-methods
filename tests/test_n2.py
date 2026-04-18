@@ -23,19 +23,19 @@ def test_answer():
     mf_sta = sta(mf, frac_occ=True, excitation=[0, 1])
 
     exc_s = (2 * mf_mixed_singlet.e_tot - mf_triplet.e_tot - mf.e_tot) * 27.2114
-    assert abs(exc_s - 8.540397689983) < 1e-5
+    assert abs(exc_s - 8.62339924200173) < 1e-5
     exc_t = (mf_triplet.e_tot - mf.e_tot) * 27.2114
-    assert abs(exc_t - 7.520114652480) < 1e-5
+    assert abs(exc_t - 7.545847067336742) < 1e-5
 
     exc_s = (2 * mf_mixed_singlet_sa.e_tot - mf_triplet_sa.e_tot - mf.e_tot) * 27.2114
-    assert abs(exc_s - 8.593867059309) < 1e-5
+    assert abs(exc_s - 8.680210335840487) < 1e-5
     exc_t = (mf_triplet_sa.e_tot - mf.e_tot) * 27.2114
-    assert abs(exc_t - 7.566432852719) < 1e-5
+    assert abs(exc_t - 7.592725507759413) < 1e-5
 
     exc_s = (mf_oss.e_tot - mf.e_tot) * 27.2114
-    assert abs(exc_s - 8.594623420907) < 1e-5
+    assert abs(exc_s - 8.681032837260531) < 1e-5
 
     exc_s = (mf_sta.e_tot_oss - mf.e_tot) * 27.2114
-    assert abs(exc_s - 8.593298441215) < 1e-5
+    assert abs(exc_s - 8.679681955706847) < 1e-5
     exc_t = (mf_sta.e_tot_t - mf.e_tot) * 27.2114
-    assert abs(exc_t - 7.566494790052) < 1e-5
+    assert abs(exc_t - 7.592763866082729) < 1e-5

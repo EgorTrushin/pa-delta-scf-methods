@@ -15,9 +15,9 @@ class pa_SS_KS(UKS):
         """
         occ = self.mom.get_occ(self.mf.mo_coeff, mo_energy)
         dm = self.mf.make_rdm1(self.mf.mo_coeff, occ)
-        vxc, vj, exc = self.eval_dft(dm)
+        vxc, vj, exc, e_x_nl = self.eval_dft(dm)
 
         vxc[0, :, :] = 0.5 * (vxc[0, :, :] + vxc[1, :, :])
         vxc[1, :, :] = vxc[0, :, :]
 
-        return vxc, vj, dm, exc
+        return vxc, vj, dm, exc, e_x_nl

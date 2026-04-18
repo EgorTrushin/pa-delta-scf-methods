@@ -33,8 +33,9 @@ class OSDFTOEP_STA_swap(OSDFTOEP):
         mf = deepcopy(mf)
         mf.mo_coeff3 = mf.mo_coeff.copy()
         mf.mo_energy3 = mf.mo_energy.copy()
-        self.mom = MOM(mf.mo_coeff.copy(), occ, mf.get_ovlp(), frac_occ=False)
-        self.mom3 = MOM(mf.mo_coeff.copy(), occ3, mf.get_ovlp(), frac_occ=False)
+        self.frac_occ = space_sym
+        self.mom = MOM(mf.mo_coeff.copy(), occ, mf.get_ovlp(), frac_occ=self.frac_occ)
+        self.mom3 = MOM(mf.mo_coeff.copy(), occ3, mf.get_ovlp(), frac_occ=self.frac_occ)
         super().__init__(mf, oep_basis, vh_via_OEP=vh_via_OEP, space_sym=space_sym)
 
     def run(self, maxit=50, thr_fai_oep=5e-2, linear_mixing=-1.0, e_conv_thr=1e-8):
@@ -193,64 +194,13 @@ class OSDFTOEP_STA_swap(OSDFTOEP):
     def get_energies_and_potentials(self):
         """Determines energy contributions and potentials. Swap orbitals in the end."""
 
-        self.occ = self.mom.get_occ(self.mf.mo_coeff)
+        self.occ = self.mom.get_occ(self.mf.mo_coeff, self.mf.mo_energy if self.frac_occ else None)
         dm = self.mf.make_rdm1(self.mf.mo_coeff, self.occ)
-        self.occ3 = self.mom3.get_occ(self.mf.mo_coeff3)
+        self.occ3 = self.mom3.get_occ(self.mf.mo_coeff3, self.mf.mo_energy if self.frac_occ else None)
         dm3 = self.mf.make_rdm1(self.mf.mo_coeff3, self.occ3)
 
-        ni = dft.numint.NumInt()
-        _, e_xc, vxc = ni.nr_uks(self.mf.mol, self.mf.grids, self.mf.xc, dm)
-
-        if dft.libxc.is_hybrid_xc(self.mf.xc):
-            omega, alpha, hyb = ni.rsh_and_hybrid_coeff(self.mf.xc)
-            if omega == 0:
-                self.vj_ao, self.vxnl_ao = self.mf.get_jk(self.mf.mol, dm)
-            elif alpha == 0:  # LR=0, only SR exchange
-                self.vj_ao = self.mf.get_j(self.mf.mol, dm)
-                self.vxnl_ao = self.mf.get_k(self.mf.mol, dm, omega=-omega)
-            else:
-                sys.exit("Not implemented case for hybrid functionals")
-
-            self.E_x = -0.5 * np.einsum("ij,ji->", self.vxnl_ao[0], dm[0])
-            self.E_x += -0.5 * np.einsum("ij,ji->", self.vxnl_ao[1], dm[1])
-            self.vxnl_ao *= -1.0
-        else:
-            self.vj_ao = self.mf.get_j(dm=dm)
-
-        self.vj_ao = self.vj_ao[0] + self.vj_ao[1]
-        self.E_Coul = np.einsum("ij,ji->", self.vj_ao, dm[0] + dm[1]).real * 0.5
-
-        if dft.libxc.is_hybrid_xc(self.mf.xc):
-            self.vxnl_ao = vxc + hyb * self.vxnl_ao
-        else:
-            self.vxnl_ao = vxc
-
-        ni = dft.numint.NumInt()
-        _, e_xc3, vxc3 = ni.nr_uks(self.mf.mol, self.mf.grids, self.mf.xc, dm3)
-
-        if dft.libxc.is_hybrid_xc(self.mf.xc):
-            omega, alpha, hyb = ni.rsh_and_hybrid_coeff(self.mf.xc)
-            if omega == 0:
-                self.vj_ao3, self.vxnl_ao3 = self.mf.get_jk(self.mf.mol, dm3)
-            elif alpha == 0:  # LR=0, only SR exchange
-                self.vj_ao3 = self.mf.get_j(self.mf.mol, dm3)
-                self.vxnl_ao3 = self.mf.get_k(self.mf.mol, dm3, omega=-omega)
-            else:
-                sys.exit("Not implemented case for hybrid functionals")
-
-            self.E_x3 = -0.5 * np.einsum("ij,ji->", self.vxnl_ao3[0], dm3[0])
-            self.E_x3 += -0.5 * np.einsum("ij,ji->", self.vxnl_ao3[1], dm3[1])
-            self.vxnl_ao3 *= -1.0
-        else:
-            self.vj_ao3 = self.mf.get_j(dm=dm3)
-
-        self.vj_ao3 = self.vj_ao3[0] + self.vj_ao3[1]
-        self.E_Coul3 = np.einsum("ij,ji->", self.vj_ao3, dm3[0] + dm3[1]).real * 0.5
-
-        if dft.libxc.is_hybrid_xc(self.mf.xc):
-            self.vxnl_ao3 = vxc3 + hyb * self.vxnl_ao3
-        else:
-            self.vxnl_ao3 = vxc3
+        e_xc, self.vj_ao, self.E_Coul, self.vxnl_ao, self.E_x, omega, alpha, hyb = self.eval_state(dm)
+        e_xc3, self.vj_ao3, self.E_Coul3, self.vxnl_ao3, self.E_x3, _, _, _ = self.eval_state(dm3)
 
         h1e = self.mf.get_hcore()
         e1 = 2.0 * np.einsum("ij,ji->", h1e, dm[0] + dm[1]) - np.einsum("ij,ji->", h1e, dm3[0] + dm3[1])
@@ -268,25 +218,55 @@ class OSDFTOEP_STA_swap(OSDFTOEP):
         if dft.libxc.is_hybrid_xc(self.mf.xc):
             self.e_multiplet += hyb * 0.5 * (self.E_x + self.E_x3)
 
-        # Swap orbitals (singlet)
-        ind = np.argsort(-self.occ[0], kind='stable')
-        for i in range(self.mf.mo_coeff.shape[1]):
-            self.mf.mo_coeff[0, i, :] = self.mf.mo_coeff[0, i, ind]
-        self.mf.mo_energy[0, :] = self.mf.mo_energy[0, ind]
-        ind = np.argsort(-self.occ[1], kind='stable')
-        for i in range(self.mf.mo_coeff.shape[1]):
-            self.mf.mo_coeff[1, i, :] = self.mf.mo_coeff[1, i, ind]
-        self.mf.mo_energy[1, :] = self.mf.mo_energy[1, ind]
+        if self.frac_occ:
+            nocc = np.count_nonzero(self.occ)
+            if nocc > sum(self.mf.nelec) and dft.libxc.is_hybrid_xc(self.mf.xc):
 
-        # Swap orbitals (triplet)
-        ind = np.argsort(-self.occ3[0], kind='stable')
-        for i in range(self.mf.mo_coeff3.shape[1]):
-            self.mf.mo_coeff3[0, i, :] = self.mf.mo_coeff3[0, i, ind]
-        self.mf.mo_energy3[0, :] = self.mf.mo_energy3[0, ind]
-        ind = np.argsort(-self.occ3[1], kind='stable')
-        for i in range(self.mf.mo_coeff3.shape[1]):
-            self.mf.mo_coeff3[1, i, :] = self.mf.mo_coeff3[1, i, ind]
-        self.mf.mo_energy3[1, :] = self.mf.mo_energy3[1, ind]
+                occ_p = self.mom.get_occ(self.mf.mo_coeff)
+                dm_p = self.mf.make_rdm1(self.mf.mo_coeff, occ_p)
+                if omega == 0:
+                    vj_ao_p, vxnl_ao_p = self.mf.get_jk(self.mf.mol, dm_p)
+                elif alpha == 0:  # LR=0, only SR exchange
+                    vj_ao_p = self.mf.get_j(self.mf.mol, dm_p)
+                    vxnl_ao_p = self.mf.get_k(self.mf.mol, dm_p, omega=-omega)
+                else:
+                    sys.exit("Not implemented case for hybrid functionals")
+
+                self.E_x_p = -0.5 * np.einsum("ij,ji->", vxnl_ao_p[0], dm_p[0])
+                self.E_x_p += -0.5 * np.einsum("ij,ji->", vxnl_ao_p[1], dm_p[1])
+                
+                vj_ao_p = vj_ao_p[0] + vj_ao_p[1]
+                E_Coul_p = np.einsum("ij,ji->", vj_ao_p, dm_p[0] + dm_p[1]).real * 0.5
+                self.E_Coul = (1 - hyb) * self.E_Coul + hyb * E_Coul_p
+
+                occ_p = self.mom3.get_occ(self.mf.mo_coeff)
+                dm3_p = self.mf.make_rdm1(self.mf.mo_coeff, occ_p)
+                if omega == 0:
+                    vj_ao_p, vxnl_ao_p = self.mf.get_jk(self.mf.mol, dm3_p)
+                elif alpha == 0:  # LR=0, only SR exchange
+                    vj_ao_p = self.mf.get_j(self.mf.mol, dm3_p)
+                    vxnl_ao_p = self.mf.get_k(self.mf.mol, dm3_p, omega=-omega)
+                else:
+                    sys.exit("Not implemented case for hybrid functionals")
+
+                self.E_x3_p = -0.5 * np.einsum("ij,ji->", vxnl_ao_p[0], dm3_p[0])
+                self.E_x3_p += -0.5 * np.einsum("ij,ji->", vxnl_ao_p[1], dm3_p[1])
+                
+                vj_ao_p = vj_ao_p[0] + vj_ao_p[1]
+                E_Coul3_p = np.einsum("ij,ji->", vj_ao_p, dm3_p[0] + dm3_p[1]).real * 0.5
+                self.E_Coul3 = (1 - hyb) * self.E_Coul3 + hyb * E_Coul3_p
+
+                e1 = 2.0 * np.einsum("ij,ji->", h1e, dm_p[0] + dm_p[1]) - np.einsum("ij,ji->", h1e, dm3_p[0] + dm3_p[1])
+                self.e_tot = e1 + 2 * self.E_Coul - self.E_Coul3 + 2 * e_xc - e_xc3 + self.mf.energy_nuc() + hyb * (2 * self.E_x_p - self.E_x3_p)
+
+                e1 = np.einsum("ij,ji->", h1e, dm3_p[0] + dm3_p[1])
+                self.e_tot3 = e1 + self.E_Coul3 + e_xc3 + self.mf.energy_nuc() + hyb * self.E_x3_p
+
+                e1 = 0.5 * np.einsum("ij,ji->", h1e, dm_p[0] + dm_p[1]) + 0.5 * np.einsum("ij,ji->", h1e, dm3_p[0] + dm3_p[1])
+                self.e_multiplet = e1 + 0.5 * (self.E_Coul + self.E_Coul3) + 0.5 * (e_xc + e_xc3) + self.mf.energy_nuc() + 0.5 * hyb * (self.E_x_p + self.E_x3_p)
+
+        self.swap_orbitals(self.mf.mo_coeff, self.mf.mo_energy, self.occ)
+        self.swap_orbitals(self.mf.mo_coeff3, self.mf.mo_energy3, self.occ3)
 
     def get_W_spin_sym(self, W3, ints_3c_a, ints_3c_b, nelec, thr_fai_oep):
         r"""
@@ -334,7 +314,13 @@ class OSDFTOEP_STA_swap(OSDFTOEP):
 
     def print_occ_numbers(self, nplus=5):
         """Prints occupation numbers."""
-        print("Occupation numbers (alpha):", *map(int, self.occ[0, : self.mf.nelec[0] + nplus]))
-        print("Occupation numbers (beta) :", *map(int, self.occ[1, : self.mf.nelec[0] + nplus]))
-        print("Occupation numbers (alpha):", *map(int, self.occ3[0, : self.mf.nelec[0] + nplus]))
-        print("Occupation numbers (beta) :", *map(int, self.occ3[1, : self.mf.nelec[0] + nplus]))
+        if self.frac_occ:
+            print("Occupation numbers (alpha):", *self.occ[0, : self.mf.nelec[0] + nplus])
+            print("Occupation numbers (beta) :", *self.occ[1, : self.mf.nelec[0] + nplus])
+            print("Occupation numbers (alpha):", *self.occ3[0, : self.mf.nelec[0] + nplus])
+            print("Occupation numbers (beta) :", *self.occ3[1, : self.mf.nelec[0] + nplus])
+        else:
+            print("Occupation numbers (alpha):", *map(int, self.occ[0, : self.mf.nelec[0] + nplus]))
+            print("Occupation numbers (beta) :", *map(int, self.occ[1, : self.mf.nelec[0] + nplus]))
+            print("Occupation numbers (alpha):", *map(int, self.occ3[0, : self.mf.nelec[0] + nplus]))
+            print("Occupation numbers (beta) :", *map(int, self.occ3[1, : self.mf.nelec[0] + nplus]))

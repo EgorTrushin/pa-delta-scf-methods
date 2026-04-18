@@ -63,7 +63,7 @@ class UKS:
 
         for itr in range(maxit):
 
-            vxc, vj, dm, e_xc = self.get_fock_ingredients(self.mf.mo_energy if self.frac_occ else None)
+            vxc, vj, dm, e_xc, e_x_nl = self.get_fock_ingredients(self.mf.mo_energy if self.frac_occ else None)
 
             fock = h1e + vj + vxc
 
@@ -79,10 +79,13 @@ class UKS:
 
             if self.frac_occ:
                 nocc = np.count_nonzero(self.get_reference_mom().get_occ(self.mf.mo_coeff, self.mf.mo_energy))
-                if nocc > sum(self.mf.nelec):
-                    _, vj, dm, e_xc = self.get_fock_ingredients()
-
-            self.compute_energies(h1e, dm, vj, e_xc)
+                if nocc > sum(self.mf.nelec) and dft.libxc.is_hybrid_xc(self.mf.xc):
+                    _, vj_p, dm_p, _, e_x_nl_p = self.get_fock_ingredients()
+                    self.compute_energies(h1e, dm, vj, e_xc, dm_p, vj_p, e_x_nl, e_x_nl_p)
+                else:
+                    self.compute_energies(h1e, dm, vj, e_xc)
+            else:
+                self.compute_energies(h1e, dm, vj, e_xc)
 
             if verb:
                 self.log_iteration(itr)
@@ -112,11 +115,20 @@ class UKS:
         """Returns the list of MOMs used in the calculation."""
         return [self.mom]
 
-    def compute_energies(self, h1e, dm, vj, e_xc):
-        """Computes and stores total energy."""
+    def single_energy(self, h1e, dm, vj, e_xc, dm_p=None, vj_p=None, e_x_nl=0., e_x_nl_p=0.):
+        """Returns total energy for a single state."""
         e1 = np.einsum("ij,ji->", h1e, dm[0] + dm[1])
         e_coul = 0.5 * np.einsum("ij,ji->", vj, dm[0] + dm[1])
-        self.e_tot = e1 + e_coul + e_xc + self.mf.energy_nuc()
+        if dm_p is not None:
+            hyb = dft.libxc.hybrid_coeff(self.mf.xc)
+            e_coul_p = 0.5 * np.einsum("ij,ji->", vj_p, dm_p[0] + dm_p[1])
+            e_coul = (1 - hyb) * e_coul + hyb * e_coul_p
+            return e1 + e_coul + (e_xc - e_x_nl) + e_x_nl_p + self.mf.energy_nuc()
+        return e1 + e_coul + e_xc + self.mf.energy_nuc()
+
+    def compute_energies(self, h1e, dm, vj, e_xc, dm_p=None, vj_p=None, e_x_nl=None, e_x_nl_p=None):
+        """Computes and stores total energy."""
+        self.e_tot = self.single_energy(h1e, dm, vj, e_xc, dm_p, vj_p, e_x_nl or 0., e_x_nl_p or 0.)
 
     def log_iteration(self, itr):
         """Logs per-iteration energy."""
@@ -126,9 +138,9 @@ class UKS:
         """Constructs ingredients required for calculation."""
         occ = self.mom.get_occ(self.mf.mo_coeff, mo_energy)
         dm = self.mf.make_rdm1(self.mf.mo_coeff, occ)
-        vxc, vj, exc = self.eval_dft(dm)
+        vxc, vj, exc, ex_nl = self.eval_dft(dm)
 
-        return vxc, vj, dm, exc
+        return vxc, vj, dm, exc, ex_nl
 
     def eval_dft(self, dm):
         """Evaluates vj, vxc, and exc for a given density matrix.
@@ -154,6 +166,8 @@ class UKS:
             hf_energy += -0.5 * np.einsum("ij,ji->", vk[1], dm[1])
         else:
             vj = self.mf.get_j(dm=dm)
+            hf_energy = 0.
+            hyb = 0.
 
         vj = vj[0] + vj[1]
 
@@ -161,7 +175,7 @@ class UKS:
             vxc -= hyb * vk
             exc += hyb * hf_energy
 
-        return vxc, vj, exc
+        return vxc, vj, exc, hyb*hf_energy
 
     def print_occ_numbers(self, nplus=5):
         """Prints occupation numbers."""
