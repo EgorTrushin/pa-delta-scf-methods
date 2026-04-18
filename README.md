@@ -2,7 +2,7 @@
 
 This repository contains codebase for the following publication:
 
-E. Trushin, O. Bertleff, and A. Görling. Potential-averaged $\Delta$SCF methods: underlying formalism and evaluation of accuracy of excitation energies
+E. Trushin, O. Bertleff, and A. Görling. Potential-averaged ΔSCF methods: underlying formalism and evaluation of accuracy of excitation energies
 
 This publication is going to be submitted to XXX.
 
