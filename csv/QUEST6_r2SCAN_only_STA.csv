@@ -1,26 +1,26 @@
 ,excitation,pa-STA-KS S,TBE S
-Aminobenzonitrile,$2\text{A}_1 (\pi \rightarrow \pi^*)$,4.380730139170751,5.09
-Aniline,$2\text{A}_1 (\pi \rightarrow \pi^*)$,5.143776292788721,5.48
-Azulene,$2\text{A}_1 (\pi \rightarrow \pi^*)$,3.657968967633474,3.84
-Azulene,$2\text{B}_2 (\pi \rightarrow \pi^*)$,4.419070020366254,4.49
-Benzonitrile,$1\text{A}_2 (\pi_\text{CN} \rightarrow \pi^*)$,6.713812392534024,7.05
-Benzothiadiazole,$1\text{B}_2 (\pi \rightarrow \pi^*)$,3.7130662139195976,4.28
-Dimethylaminobenzonitrile,$2\text{A}_1 (\pi \rightarrow \pi^*)$,4.145683181312852,4.86
-Dimethylaniline,$1\text{B}_2 (\pi \rightarrow \pi^*)$,4.318621951607032,4.4
-Dimethylaniline,$2\text{A}_1 (\pi \rightarrow \pi^*)$,4.917551235900413,5.4
-Hydrogen chloride,$1\Pi (n \rightarrow \sigma^*)$,7.887365419510175,7.88
-Nitroaniline,$2\text{A}_1 (\pi \rightarrow \pi^*)$,3.815631160822089,4.39
-Nitrobenzene,$2\text{A}_1 (\pi \rightarrow \pi^*)$,4.845998378768354,5.39
-Nitrodimethylaniline,$2\text{A}_1 (\pi \rightarrow \pi^*)$,3.539205149135727,4.13
-Nitropyridine N-Oxide,$2\text{A}_1 (\pi \rightarrow \pi^*)$,3.3701547956297864,4.1
-N-Phenylpyrrole,$3\text{A}_1 (\pi \rightarrow \pi^*)$,5.967382715967312,5.86
-Phthalazine,$1\text{A}_2 (n \rightarrow \pi^*)$,3.4454433217906146,3.91
-Phthalazine,$1\text{B}_1 (n \rightarrow \pi^*)$,3.885439484249899,4.31
-Quinoxaline,$1\text{B}_2 (\pi \rightarrow \pi^*)$,4.128810226829701,4.63
-Quinoxaline,$3\text{A}_1 (\pi \rightarrow \pi^*)$,5.045164723803528,5.65
-Quinoxaline,$2\text{B}_1 (n \rightarrow \pi^*)$,5.543411308150497,6.22
-Twisted DMABN,$1\text{B}_1 (n \rightarrow \pi^*)$,4.499238041526121,4.75
-Twisted PP,$2\text{B}_2 (\pi \rightarrow \pi^*)$,5.441485051756531,5.58
-Twisted PP,$2\text{A}_1 (\pi \rightarrow \pi^*)$,5.785312067357261,5.65
-Twisted PP,$1\text{A}_2 (\pi \rightarrow \pi^*)$,5.680701484851726,5.95
-Twisted PP,$1\text{B}_1 (\pi \rightarrow \pi^*)$,5.877763768360012,6.17
+Aminobenzonitrile,$2\text{A}_1 (\pi \rightarrow \pi^*)$,4.380730139124347,5.09
+Aniline,$2\text{A}_1 (\pi \rightarrow \pi^*)$,5.1437762927732535,5.48
+Azulene,$2\text{A}_1 (\pi \rightarrow \pi^*)$,3.657968967568509,3.84
+Azulene,$2\text{B}_2 (\pi \rightarrow \pi^*)$,4.419070020409564,4.49
+Benzonitrile,$1\text{A}_2 (\pi_\text{CN} \rightarrow \pi^*)$,6.7138123924845265,7.05
+Benzothiadiazole,$1\text{B}_2 (\pi \rightarrow \pi^*)$,3.7130662138639132,4.28
+Dimethylaminobenzonitrile,$2\text{A}_1 (\pi \rightarrow \pi^*)$,4.14568318116436,4.86
+Dimethylaniline,$1\text{B}_2 (\pi \rightarrow \pi^*)$,4.318621951538973,4.4
+Dimethylaniline,$2\text{A}_1 (\pi \rightarrow \pi^*)$,4.917551235974659,5.4
+Hydrogen chloride,$1\Pi (n \rightarrow \sigma^*)$,8.048490160002942,7.88
+Nitroaniline,$2\text{A}_1 (\pi \rightarrow \pi^*)$,3.8156311529829625,4.39
+Nitrobenzene,$2\text{A}_1 (\pi \rightarrow \pi^*)$,4.845998378644611,5.39
+Nitrodimethylaniline,$2\text{A}_1 (\pi \rightarrow \pi^*)$,3.5392051609346336,4.13
+Nitropyridine N-Oxide,$2\text{A}_1 (\pi \rightarrow \pi^*)$,3.370154736814681,4.1
+N-Phenylpyrrole,$3\text{A}_1 (\pi \rightarrow \pi^*)$,5.967382715871412,5.86
+Phthalazine,$1\text{A}_2 (n \rightarrow \pi^*)$,3.4454433217503984,3.91
+Phthalazine,$1\text{B}_1 (n \rightarrow \pi^*)$,3.8854394841756537,4.31
+Quinoxaline,$1\text{B}_2 (\pi \rightarrow \pi^*)$,4.1288102266873965,4.63
+Quinoxaline,$3\text{A}_1 (\pi \rightarrow \pi^*)$,5.0451647238251836,5.65
+Quinoxaline,$2\text{B}_1 (n \rightarrow \pi^*)$,5.543411308125748,6.22
+Twisted DMABN,$1\text{B}_1 (n \rightarrow \pi^*)$,4.499238041674613,4.75
+Twisted PP,$2\text{B}_2 (\pi \rightarrow \pi^*)$,5.441487286309803,5.58
+Twisted PP,$2\text{A}_1 (\pi \rightarrow \pi^*)$,5.785312067388197,5.65
+Twisted PP,$1\text{A}_2 (\pi \rightarrow \pi^*)$,5.680701484935253,5.95
+Twisted PP,$1\text{B}_1 (\pi \rightarrow \pi^*)$,5.8777637683754795,6.17
