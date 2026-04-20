@@ -78,6 +78,7 @@ examples.py               # Standard KS examples: H₂O and N₂
 examples_oep.py           # OEP examples: H₂O and N₂
 pa-delta-scf-methods.ipynb      # Analysis notebook
 supplementary-material.ipynb    # Supplementary material notebook
+graphical_abstracts.py          # Script to generate the graphical abstract
 ```
 
 ## Installation
