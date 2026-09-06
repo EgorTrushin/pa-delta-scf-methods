@@ -1,13 +1,14 @@
 #!/usr/bin/env python3
 """Spin-unrestricted DFT calculations for excited-states."""
 
-import sys
-import scipy
-import numpy as np
 import logging
-
+import sys
 from copy import deepcopy
+
+import numpy as np
+import scipy
 from pyscf import dft, lib
+
 from .mom import MOM
 
 
@@ -62,7 +63,6 @@ class UKS:
         sovlp = self.mf.get_ovlp()
 
         for itr in range(maxit):
-
             vxc, vj, dm, e_xc, e_x_nl = self.get_fock_ingredients(self.mf.mo_energy if self.frac_occ else None)
 
             fock = h1e + vj + vxc
@@ -115,7 +115,7 @@ class UKS:
         """Returns the list of MOMs used in the calculation."""
         return [self.mom]
 
-    def single_energy(self, h1e, dm, vj, e_xc, dm_p=None, vj_p=None, e_x_nl=0., e_x_nl_p=0.):
+    def single_energy(self, h1e, dm, vj, e_xc, dm_p=None, vj_p=None, e_x_nl=0.0, e_x_nl_p=0.0):
         """Returns total energy for a single state."""
         e1 = np.einsum("ij,ji->", h1e, dm[0] + dm[1])
         e_coul = 0.5 * np.einsum("ij,ji->", vj, dm[0] + dm[1])
@@ -128,7 +128,7 @@ class UKS:
 
     def compute_energies(self, h1e, dm, vj, e_xc, dm_p=None, vj_p=None, e_x_nl=None, e_x_nl_p=None):
         """Computes and stores total energy."""
-        self.e_tot = self.single_energy(h1e, dm, vj, e_xc, dm_p, vj_p, e_x_nl or 0., e_x_nl_p or 0.)
+        self.e_tot = self.single_energy(h1e, dm, vj, e_xc, dm_p, vj_p, e_x_nl or 0.0, e_x_nl_p or 0.0)
 
     def log_iteration(self, itr):
         """Logs per-iteration energy."""
@@ -166,8 +166,8 @@ class UKS:
             hf_energy += -0.5 * np.einsum("ij,ji->", vk[1], dm[1])
         else:
             vj = self.mf.get_j(dm=dm)
-            hf_energy = 0.
-            hyb = 0.
+            hf_energy = 0.0
+            hyb = 0.0
 
         vj = vj[0] + vj[1]
 
@@ -175,7 +175,7 @@ class UKS:
             vxc -= hyb * vk
             exc += hyb * hf_energy
 
-        return vxc, vj, exc, hyb*hf_energy
+        return vxc, vj, exc, hyb * hf_energy
 
     def print_occ_numbers(self, nplus=5):
         """Prints occupation numbers."""

@@ -1,7 +1,7 @@
 from methods_oep.dftoep import DFTOEP
-from methods_oep.osdftoep_swap import OSDFTOEP_swap
 from methods_oep.osdftoep_oss_swap import OSDFTOEP_OSS_swap
 from methods_oep.osdftoep_sta_swap import OSDFTOEP_STA_swap
+from methods_oep.osdftoep_swap import OSDFTOEP_swap
 
 
 def ground_state_oep(mf_rks, oep_basis, space_sym=False):

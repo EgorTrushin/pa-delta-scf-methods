@@ -1,7 +1,7 @@
-from methods.UKS import UKS
-from methods.pa_SS_KS import pa_SS_KS
 from methods.pa_OSS_KS import pa_OSS_KS
+from methods.pa_SS_KS import pa_SS_KS
 from methods.pa_STA_KS import pa_STA_KS
+from methods.UKS import UKS
 
 
 def excited_state_singlet(mf_gs, frac_occ, excitation):

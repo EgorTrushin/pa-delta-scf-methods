@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 
 import sys
-import scipy
+
 import numpy as np
-from copy import deepcopy
+import scipy
 from pyscf import dft, lib
+
 from .osdftoep_sta_swap import OSDFTOEP_STA_swap
 
 
@@ -118,17 +119,16 @@ class OSDFTOEP_OSS_swap(OSDFTOEP_STA_swap):
                     fock_old_b = F_b.copy()
             else:
                 S = self.mf.get_ovlp()
-                D_a = self.mf.mo_coeff[0][:, :self.nelec[0]] @ self.mf.mo_coeff[0][:, :self.nelec[0]].T
-                D_b = self.mf.mo_coeff[1][:, :self.nelec[1]] @ self.mf.mo_coeff[1][:, :self.nelec[1]].T
+                D_a = self.mf.mo_coeff[0][:, : self.nelec[0]] @ self.mf.mo_coeff[0][:, : self.nelec[0]].T
+                D_b = self.mf.mo_coeff[1][:, : self.nelec[1]] @ self.mf.mo_coeff[1][:, : self.nelec[1]].T
                 e_a = F_a @ D_a @ S - S @ D_a @ F_a
                 e_b = F_b @ D_b @ S - S @ D_b @ F_b
                 nao = F_a.shape[0]
                 F_combined = adiis.update(
-                    np.concatenate([F_a.ravel(), F_b.ravel()]),
-                    xerr=np.concatenate([e_a.ravel(), e_b.ravel()])
+                    np.concatenate([F_a.ravel(), F_b.ravel()]), xerr=np.concatenate([e_a.ravel(), e_b.ravel()])
                 )
-                F_a = F_combined[:nao * nao].reshape(nao, nao)
-                F_b = F_combined[nao * nao:].reshape(nao, nao)
+                F_a = F_combined[: nao * nao].reshape(nao, nao)
+                F_b = F_combined[nao * nao :].reshape(nao, nao)
 
             S = self.mf.get_ovlp()
             mo_energy, mo_coeff = scipy.linalg.eigh(F_a, S)
@@ -186,7 +186,6 @@ class OSDFTOEP_OSS_swap(OSDFTOEP_STA_swap):
         if self.frac_occ:
             nocc = np.count_nonzero(self.occ)
             if nocc > sum(self.mf.nelec) and dft.libxc.is_hybrid_xc(self.mf.xc):
-
                 occ_p = self.mom.get_occ(self.mf.mo_coeff)
                 dm_p = self.mf.make_rdm1(self.mf.mo_coeff, occ_p)
                 if omega == 0:
@@ -199,7 +198,7 @@ class OSDFTOEP_OSS_swap(OSDFTOEP_STA_swap):
 
                 self.E_x_p = -0.5 * np.einsum("ij,ji->", vxnl_ao_p[0], dm_p[0])
                 self.E_x_p += -0.5 * np.einsum("ij,ji->", vxnl_ao_p[1], dm_p[1])
-                
+
                 vj_ao_p = vj_ao_p[0] + vj_ao_p[1]
                 E_Coul_p = np.einsum("ij,ji->", vj_ao_p, dm_p[0] + dm_p[1]).real * 0.5
                 self.E_Coul = (1 - hyb) * self.E_Coul + hyb * E_Coul_p
@@ -216,13 +215,21 @@ class OSDFTOEP_OSS_swap(OSDFTOEP_STA_swap):
 
                 self.E_x3_p = -0.5 * np.einsum("ij,ji->", vxnl_ao_p[0], dm3_p[0])
                 self.E_x3_p += -0.5 * np.einsum("ij,ji->", vxnl_ao_p[1], dm3_p[1])
-                
+
                 vj_ao_p = vj_ao_p[0] + vj_ao_p[1]
                 E_Coul3_p = np.einsum("ij,ji->", vj_ao_p, dm3_p[0] + dm3_p[1]).real * 0.5
                 self.E_Coul3 = (1 - hyb) * self.E_Coul3 + hyb * E_Coul3_p
 
                 e1 = 2.0 * np.einsum("ij,ji->", h1e, dm_p[0] + dm_p[1]) - np.einsum("ij,ji->", h1e, dm3_p[0] + dm3_p[1])
-                self.e_tot = e1 + 2 * self.E_Coul - self.E_Coul3 + 2 * e_xc - e_xc3 + self.mf.energy_nuc() + hyb * (2 * self.E_x_p - self.E_x3_p)
+                self.e_tot = (
+                    e1
+                    + 2 * self.E_Coul
+                    - self.E_Coul3
+                    + 2 * e_xc
+                    - e_xc3
+                    + self.mf.energy_nuc()
+                    + hyb * (2 * self.E_x_p - self.E_x3_p)
+                )
 
                 e1 = np.einsum("ij,ji->", h1e, dm3_p[0] + dm3_p[1])
                 self.e_tot3 = e1 + self.E_Coul3 + e_xc3 + self.mf.energy_nuc() + hyb * self.E_x3_p

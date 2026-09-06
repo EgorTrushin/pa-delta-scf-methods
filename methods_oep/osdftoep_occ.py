@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
 
 import sys
-import scipy
+
 import numpy as np
+import scipy
 from pyscf import dft, lib
-from .osdftoep import OSDFTOEP
+
 from .mom import MOM
+from .osdftoep import OSDFTOEP
 
 
 class OSDFTOEP_occ(OSDFTOEP):
@@ -138,11 +140,10 @@ class OSDFTOEP_occ(OSDFTOEP):
                 e_b = F_b @ dm[1] @ S - S @ dm[1] @ F_b
                 nao = F_a.shape[0]
                 F_combined = adiis.update(
-                    np.concatenate([F_a.ravel(), F_b.ravel()]),
-                    xerr=np.concatenate([e_a.ravel(), e_b.ravel()])
+                    np.concatenate([F_a.ravel(), F_b.ravel()]), xerr=np.concatenate([e_a.ravel(), e_b.ravel()])
                 )
-                F_a = F_combined[:nao * nao].reshape(nao, nao)
-                F_b = F_combined[nao * nao:].reshape(nao, nao)
+                F_a = F_combined[: nao * nao].reshape(nao, nao)
+                F_b = F_combined[nao * nao :].reshape(nao, nao)
 
             S = self.mf.get_ovlp()
             mo_energy, mo_coeff = scipy.linalg.eigh(F_a, S)
@@ -203,12 +204,11 @@ class OSDFTOEP_occ(OSDFTOEP):
 
                 self.E_x = -0.5 * np.einsum("ij,ji->", vxnl_ao_p[0], dm_p[0])
                 self.E_x += -0.5 * np.einsum("ij,ji->", vxnl_ao_p[1], dm_p[1])
-                
+
                 vj_ao_p = vj_ao_p[0] + vj_ao_p[1]
                 E_Coul_p = np.einsum("ij,ji->", vj_ao_p, dm_p[0] + dm_p[1]).real * 0.5
                 self.E_Coul = (1 - hyb) * self.E_Coul + hyb * E_Coul_p
                 self.e_tot = e1 + self.E_Coul + e_xc + self.mf.energy_nuc() + hyb * self.E_x
-                
 
     def get_X0(self, ints_3c, mo_energy, trans_mat, occ):
         """Constructs response matrix with occupation numbers."""
@@ -335,4 +335,3 @@ class OSDFTOEP_occ(OSDFTOEP):
         else:
             print("Occupation numbers (alpha):", *map(int, self.occ[0, : self.mf.nelec[0] + nplus]))
             print("Occupation numbers (beta) :", *map(int, self.occ[1, : self.mf.nelec[0] + nplus]))
-

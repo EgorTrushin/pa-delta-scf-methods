@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
 
 import sys
-import scipy
+
 import numpy as np
+import scipy
 from pyscf import dft, lib
+
 from .osdftoep_sta_occ import OSDFTOEP_STA_occ
 
 
@@ -108,11 +110,10 @@ class OSDFTOEP_OSS_occ(OSDFTOEP_STA_occ):
                 e_b = F_b @ dm[1] @ S - S @ dm[1] @ F_b
                 nao = F_a.shape[0]
                 F_combined = adiis.update(
-                    np.concatenate([F_a.ravel(), F_b.ravel()]),
-                    xerr=np.concatenate([e_a.ravel(), e_b.ravel()])
+                    np.concatenate([F_a.ravel(), F_b.ravel()]), xerr=np.concatenate([e_a.ravel(), e_b.ravel()])
                 )
-                F_a = F_combined[:nao * nao].reshape(nao, nao)
-                F_b = F_combined[nao * nao:].reshape(nao, nao)
+                F_a = F_combined[: nao * nao].reshape(nao, nao)
+                F_b = F_combined[nao * nao :].reshape(nao, nao)
 
             S = self.mf.get_ovlp()
             mo_energy, mo_coeff = scipy.linalg.eigh(F_a, S)
@@ -169,7 +170,6 @@ class OSDFTOEP_OSS_occ(OSDFTOEP_STA_occ):
         if self.frac_occ:
             nocc = np.count_nonzero(self.occ)
             if nocc > sum(self.mf.nelec) and dft.libxc.is_hybrid_xc(self.mf.xc):
-
                 occ_p = self.mom.get_occ(self.mf.mo_coeff)
                 dm_p = self.mf.make_rdm1(self.mf.mo_coeff, occ_p)
                 if omega == 0:
@@ -182,7 +182,7 @@ class OSDFTOEP_OSS_occ(OSDFTOEP_STA_occ):
 
                 self.E_x_p = -0.5 * np.einsum("ij,ji->", vxnl_ao_p[0], dm_p[0])
                 self.E_x_p += -0.5 * np.einsum("ij,ji->", vxnl_ao_p[1], dm_p[1])
-                
+
                 vj_ao_p = vj_ao_p[0] + vj_ao_p[1]
                 E_Coul_p = np.einsum("ij,ji->", vj_ao_p, dm_p[0] + dm_p[1]).real * 0.5
                 self.E_Coul = (1 - hyb) * self.E_Coul + hyb * E_Coul_p
@@ -199,13 +199,21 @@ class OSDFTOEP_OSS_occ(OSDFTOEP_STA_occ):
 
                 self.E_x3_p = -0.5 * np.einsum("ij,ji->", vxnl_ao_p[0], dm3_p[0])
                 self.E_x3_p += -0.5 * np.einsum("ij,ji->", vxnl_ao_p[1], dm3_p[1])
-                
+
                 vj_ao_p = vj_ao_p[0] + vj_ao_p[1]
                 E_Coul3_p = np.einsum("ij,ji->", vj_ao_p, dm3_p[0] + dm3_p[1]).real * 0.5
                 self.E_Coul3 = (1 - hyb) * self.E_Coul3 + hyb * E_Coul3_p
 
                 e1 = 2.0 * np.einsum("ij,ji->", h1e, dm_p[0] + dm_p[1]) - np.einsum("ij,ji->", h1e, dm3_p[0] + dm3_p[1])
-                self.e_tot = e1 + 2 * self.E_Coul - self.E_Coul3 + 2 * e_xc - e_xc3 + self.mf.energy_nuc() + hyb * (2 * self.E_x_p - self.E_x3_p)
+                self.e_tot = (
+                    e1
+                    + 2 * self.E_Coul
+                    - self.E_Coul3
+                    + 2 * e_xc
+                    - e_xc3
+                    + self.mf.energy_nuc()
+                    + hyb * (2 * self.E_x_p - self.E_x3_p)
+                )
 
                 e1 = np.einsum("ij,ji->", h1e, dm3_p[0] + dm3_p[1])
                 self.e_tot3 = e1 + self.E_Coul3 + e_xc3 + self.mf.energy_nuc() + hyb * self.E_x3_p

@@ -1,6 +1,13 @@
+from helpers_oep_swap import (
+    ground_state_oep,
+    oss_oep,
+    ss_ks_oep_singlet,
+    ss_ks_oep_triplet,
+    sta_oep,
+    uks_oep_singlet,
+    uks_oep_triplet,
+)
 from pyscf import dft, gto
-from helpers_oep_swap import ground_state_oep, uks_oep_singlet, uks_oep_triplet
-from helpers_oep_swap import ss_ks_oep_singlet, ss_ks_oep_triplet, oss_oep, sta_oep
 
 HA_TO_EV = 27.2114
 OEP_BASIS = "aug-cc-pVDZ-RIFIT"
@@ -41,6 +48,7 @@ def test_answer():
     exc_t = (mf_sta.e_tot3 - E_GS) * HA_TO_EV
     assert abs(exc_s - 7.677585187566519) < 1e-6
     assert abs(exc_t - 7.208264401436549) < 1e-6
+
 
 if __name__ == "__main__":
     test_answer()

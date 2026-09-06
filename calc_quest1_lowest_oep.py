@@ -5,21 +5,23 @@ Uses UKS-OEP, SS-KS-OEP, OSS-KS-OEP, and STA-KS-OEP methods.
 """
 
 import argparse
-import os
 import json
+import os
 import time
-import yaml
+
 import numpy as np
+import yaml
 from pyscf import dft, gto
+
+from calc_quest1_lowest import HA_TO_EV, fmt_time, pyscf_atom_input
 from methods_oep.dftoep import DFTOEP
-from methods_oep.osdftoep_swap import OSDFTOEP_swap
-from methods_oep.osdftoep_oss_swap import OSDFTOEP_OSS_swap
-from methods_oep.osdftoep_sta_swap import OSDFTOEP_STA_swap
 from methods_oep.osdftoep_occ import OSDFTOEP_occ
 from methods_oep.osdftoep_oss_occ import OSDFTOEP_OSS_occ
+from methods_oep.osdftoep_oss_swap import OSDFTOEP_OSS_swap
 from methods_oep.osdftoep_sta_occ import OSDFTOEP_STA_occ
-from sets.quest1_lowest import systems, reference
-from calc_quest1_lowest import pyscf_atom_input, HA_TO_EV, fmt_time
+from methods_oep.osdftoep_sta_swap import OSDFTOEP_STA_swap
+from methods_oep.osdftoep_swap import OSDFTOEP_swap
+from sets.quest1_lowest import reference, systems
 
 
 def eval_and_print_maes(uks, ss, oss, sta, ref_):
@@ -32,15 +34,15 @@ def eval_and_print_maes(uks, ss, oss, sta, ref_):
         sta: list of STA-KS-OEP excitation energies in eV.
         ref_: list of TBE reference values in eV.
     """
-    uks  = np.array(uks)
-    ss   = np.array(ss)
-    oss  = np.array(oss)
-    sta  = np.array(sta)
+    uks = np.array(uks)
+    ss = np.array(ss)
+    oss = np.array(oss)
+    sta = np.array(sta)
     ref_ = np.array(ref_)
     print(f"MAE (UKS-OEP)    = {np.mean(np.abs(uks - ref_)):.2f}")
-    print(f"MAE (SS-KS-OEP)  = {np.mean(np.abs(ss  - ref_)):.2f}")
-    print(f"MAE (OSS-KS-OEP) = {np.mean(np.abs(oss  - ref_)):.2f}")
-    print(f"MAE (STA-KS-OEP) = {np.mean(np.abs(sta  - ref_)):.2f}")
+    print(f"MAE (SS-KS-OEP)  = {np.mean(np.abs(ss - ref_)):.2f}")
+    print(f"MAE (OSS-KS-OEP) = {np.mean(np.abs(oss - ref_)):.2f}")
+    print(f"MAE (STA-KS-OEP) = {np.mean(np.abs(sta - ref_)):.2f}")
 
 
 def print_summary(res):
@@ -66,8 +68,8 @@ def print_summary(res):
             calc_oss.append(res[system]["OSS-KS-OEP S"])
             calc_sta.append(res[system]["STA-KS-OEP S"])
             ref.append(res[system]["TBE S"])
-            e     = res[system]["UKS-OEP S"]
-            e_ss  = res[system]["SS-KS-OEP S"]
+            e = res[system]["UKS-OEP S"]
+            e_ss = res[system]["SS-KS-OEP S"]
             e_oss = res[system]["OSS-KS-OEP S"]
             e_sta = res[system]["STA-KS-OEP S"]
             e_ref = res[system]["TBE S"]
@@ -84,8 +86,8 @@ def print_summary(res):
             calc_oss.append(res[system]["OSS-KS-OEP T"])
             calc_sta.append(res[system]["STA-KS-OEP T"])
             ref.append(res[system]["TBE T"])
-            e     = res[system]["UKS-OEP T"]
-            e_ss  = res[system]["SS-KS-OEP T"]
+            e = res[system]["UKS-OEP T"]
+            e_ss = res[system]["SS-KS-OEP T"]
             e_oss = res[system]["OSS-KS-OEP T"]
             e_sta = res[system]["STA-KS-OEP T"]
             e_ref = res[system]["TBE T"]
@@ -97,11 +99,11 @@ def print_summary(res):
     calc, calc_ss, calc_oss, calc_sta, ref = [], [], [], [], []
     for system, _ in res.items():
         if res[system]["TBE S"] is not None and res[system]["TBE T"] is not None:
-            st     = res[system]["UKS-OEP S"]     - res[system]["UKS-OEP T"]
-            st_ss  = res[system]["SS-KS-OEP S"]   - res[system]["SS-KS-OEP T"]
-            st_oss = res[system]["OSS-KS-OEP S"]  - res[system]["OSS-KS-OEP T"]
-            st_sta = res[system]["STA-KS-OEP S"]  - res[system]["STA-KS-OEP T"]
-            st_ref = res[system]["TBE S"]          - res[system]["TBE T"]
+            st = res[system]["UKS-OEP S"] - res[system]["UKS-OEP T"]
+            st_ss = res[system]["SS-KS-OEP S"] - res[system]["SS-KS-OEP T"]
+            st_oss = res[system]["OSS-KS-OEP S"] - res[system]["OSS-KS-OEP T"]
+            st_sta = res[system]["STA-KS-OEP S"] - res[system]["STA-KS-OEP T"]
+            st_ref = res[system]["TBE S"] - res[system]["TBE T"]
             print(f"{system:30}  {st:.2f}  {st_ss:.2f}  {st_oss:.2f}  {st_sta:.2f}  {st_ref:.2f}")
             calc.append(st)
             calc_ss.append(st_ss)
@@ -190,8 +192,8 @@ def calc_quest1(config):
         occ3[0][mf.nelec[0] + exci[1] - 1] = 1
 
         cls_single = OSDFTOEP_swap if config["swap"] else OSDFTOEP_occ
-        cls_pair   = OSDFTOEP_OSS_swap if config["swap"] else OSDFTOEP_OSS_occ
-        cls_sta    = OSDFTOEP_STA_swap if config["swap"] else OSDFTOEP_STA_occ
+        cls_pair = OSDFTOEP_OSS_swap if config["swap"] else OSDFTOEP_OSS_occ
+        cls_sta = OSDFTOEP_STA_swap if config["swap"] else OSDFTOEP_STA_occ
 
         print("\nRunning excited-state singlet UKS-OEP calculation")
         mf_oep2 = cls_single(mf, config["oep_basis"], occ, spin_sym=False, space_sym=config["space_sym"])
@@ -265,7 +267,7 @@ def calc_quest1(config):
         results[system]["STA-KS-OEP S"] = exc_s
         results[system]["STA-KS-OEP T"] = exc_t
 
-        elapsed_mol   = fmt_time(time.time() - t_mol)
+        elapsed_mol = fmt_time(time.time() - t_mol)
         elapsed_total = fmt_time(time.time() - t_total)
         print(f"Elapsed: {elapsed_mol}  Total: {elapsed_total}", flush=True)
 

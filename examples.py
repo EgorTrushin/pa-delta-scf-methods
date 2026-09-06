@@ -12,10 +12,11 @@ Excitation energies are reported in eV relative to the ground state.
 """
 
 from pyscf import dft, gto
-from methods.UKS import UKS
-from methods.pa_SS_KS import pa_SS_KS
+
 from methods.pa_OSS_KS import pa_OSS_KS
+from methods.pa_SS_KS import pa_SS_KS
 from methods.pa_STA_KS import pa_STA_KS
+from methods.UKS import UKS
 
 HA_TO_EV = 27.2114
 

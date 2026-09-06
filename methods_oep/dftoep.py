@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
 
 import sys
-import scipy
-import numpy as np
 from copy import deepcopy
+
+import numpy as np
+import scipy
 from pyscf import dft
+
 from .exxoep import EXXOEP
 
 
@@ -131,12 +133,12 @@ class DFTOEP(EXXOEP):
                 print("Warning! z*vrest_oep =", np.dot(z, vrest_oep))
             if abs((mo_coeff.T @ vrest_ao @ mo_coeff)[nelec - 1, nelec - 1]) > 1e-12:
                 print("Warning!")
-                print(f"v(HOMO) =  {(mo_coeff.T@vrest_ao@mo_coeff)[nelec-1, nelec-1]:.5f}  (VrestL)")
+                print(f"v(HOMO) =  {(mo_coeff.T @ vrest_ao @ mo_coeff)[nelec - 1, nelec - 1]:.5f}  (VrestL)")
             v_aux = mo_coeff.T @ (self.mf.get_hcore() + self.vj_ao) @ mo_coeff
             if (
                 abs(-v_aux[nelec - 1, nelec - 1] - self.ip - (mo_coeff.T @ vref_ao @ mo_coeff)[nelec - 1, nelec - 1])
                 > 1e-12
             ):
                 print("Warning!")
-                print(f"v(HOMO) =  {-v_aux[nelec - 1, nelec - 1]-self.ip:.5f}  (VxNL)")
-                print(f"v(HOMO) =  {(mo_coeff.T@vref_ao@mo_coeff)[nelec-1, nelec-1]:.5f}  (Vref)")
+                print(f"v(HOMO) =  {-v_aux[nelec - 1, nelec - 1] - self.ip:.5f}  (VxNL)")
+                print(f"v(HOMO) =  {(mo_coeff.T @ vref_ao @ mo_coeff)[nelec - 1, nelec - 1]:.5f}  (Vref)")

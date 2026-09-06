@@ -2,10 +2,12 @@
 
 import sys
 from copy import deepcopy
+
 import numpy as np
 from pyscf import dft
-from .osdftoep import OSDFTOEP
+
 from .mom import MOM
+from .osdftoep import OSDFTOEP
 
 
 class OSDFTOEP_swap(OSDFTOEP):
@@ -64,7 +66,7 @@ class OSDFTOEP_swap(OSDFTOEP):
 
                 self.E_x = -0.5 * np.einsum("ij,ji->", vxnl_ao_p[0], dm_p[0])
                 self.E_x += -0.5 * np.einsum("ij,ji->", vxnl_ao_p[1], dm_p[1])
-                
+
                 vj_ao_p = vj_ao_p[0] + vj_ao_p[1]
                 E_Coul_p = np.einsum("ij,ji->", vj_ao_p, dm_p[0] + dm_p[1]).real * 0.5
                 self.E_Coul = (1 - hyb) * self.E_Coul + hyb * E_Coul_p

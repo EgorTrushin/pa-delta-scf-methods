@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Potential-averaged open-shell singlet DFT calculations for excited-states."""
 
-from .UKS import UKS
 from .pa_STA_KS import pa_STA_KS
+from .UKS import UKS
 
 
 class pa_OSS_KS(pa_STA_KS):

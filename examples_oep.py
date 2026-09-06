@@ -14,13 +14,14 @@ Excitation energies are reported in eV relative to the OEP ground state.
 """
 
 from pyscf import dft, gto
+
 from methods_oep.dftoep import DFTOEP
-from methods_oep.osdftoep_swap import OSDFTOEP_swap
-from methods_oep.osdftoep_oss_swap import OSDFTOEP_OSS_swap
-from methods_oep.osdftoep_sta_swap import OSDFTOEP_STA_swap
 from methods_oep.osdftoep_occ import OSDFTOEP_occ
 from methods_oep.osdftoep_oss_occ import OSDFTOEP_OSS_occ
+from methods_oep.osdftoep_oss_swap import OSDFTOEP_OSS_swap
 from methods_oep.osdftoep_sta_occ import OSDFTOEP_STA_occ
+from methods_oep.osdftoep_sta_swap import OSDFTOEP_STA_swap
+from methods_oep.osdftoep_swap import OSDFTOEP_swap
 
 HA_TO_EV = 27.2114
 OEP_BASIS = "aug-cc-pVDZ-RIFIT"

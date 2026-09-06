@@ -5,17 +5,19 @@ Uses UKS, pa-SS-KS, pa-OSS-KS, and pa-STA-KS methods.
 """
 
 import argparse
-import time
-import os
 import json
-import yaml
+import os
+import time
+
 import numpy as np
-from pyscf import gto, dft
-from sets.quest1_lowest import systems, reference
-from methods.UKS import UKS
-from methods.pa_SS_KS import pa_SS_KS
+import yaml
+from pyscf import dft, gto
+
 from methods.pa_OSS_KS import pa_OSS_KS
+from methods.pa_SS_KS import pa_SS_KS
 from methods.pa_STA_KS import pa_STA_KS
+from methods.UKS import UKS
+from sets.quest1_lowest import reference, systems
 
 HA_TO_EV = 27.2114
 
@@ -37,6 +39,7 @@ def pyscf_atom_input(mol_dict):
     for i, _ in enumerate(atoms):
         atom_input.append([atoms[i], tuple(xyz[i])])
     return atom_input
+
 
 def run_singlet(mf_gs, frac_occ, excitation, cls):
     """Run an open-shell singlet excited-state calculation.

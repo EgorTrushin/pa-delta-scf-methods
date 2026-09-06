@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
 
 import sys
-import scipy
-import numpy as np
 from copy import deepcopy
+
+import numpy as np
+import scipy
 from pyscf import dft
+
 from .osexxoep import OSEXXOEP
 
 
@@ -136,7 +138,7 @@ class OSDFTOEP(OSEXXOEP):
             vxnl_ao *= -1.0
         else:
             vj_ao = self.mf.get_j(dm=dm)
-            E_x, omega, alpha, hyb = 0., 0, 0, 0.
+            E_x, omega, alpha, hyb = 0.0, 0, 0, 0.0
 
         vj_ao = vj_ao[0] + vj_ao[1]
         E_Coul = np.einsum("ij,ji->", vj_ao, dm[0] + dm[1]).real * 0.5
@@ -151,7 +153,7 @@ class OSDFTOEP(OSEXXOEP):
     def swap_orbitals(self, mo_coeff, mo_energy, occ):
         """Reorders orbitals so that occupied ones come first (in-place)."""
         for spin in range(2):
-            ind = np.argsort(-occ[spin], kind='stable')
+            ind = np.argsort(-occ[spin], kind="stable")
             for i in range(mo_coeff.shape[1]):
                 mo_coeff[spin, i, :] = mo_coeff[spin, i, ind]
             mo_energy[spin, :] = mo_energy[spin, ind]
@@ -218,9 +220,9 @@ class OSDFTOEP(OSEXXOEP):
                 print("Warning! z*vrest_oep =", np.dot(z, vrest_oep))
             if abs((mo_coeff.T @ vrest_ao @ mo_coeff)[nelec - 1, nelec - 1]) > 1e-12:
                 print("Warning!")
-                print(f"v(HOMO) =  {(mo_coeff.T@vrest_ao@mo_coeff)[nelec-1, nelec-1]:.5f}  (VrestL)")
+                print(f"v(HOMO) =  {(mo_coeff.T @ vrest_ao @ mo_coeff)[nelec - 1, nelec - 1]:.5f}  (VrestL)")
             v_aux = mo_coeff.T @ (self.mf.get_hcore() + self.vj_ao) @ mo_coeff
             if abs(-v_aux[nelec - 1, nelec - 1] - ip - (mo_coeff.T @ vref_ao @ mo_coeff)[nelec - 1, nelec - 1]) > 1e-12:
                 print("Warning!")
-                print(f"v(HOMO) =  {-v_aux[nelec - 1, nelec - 1]-ip:.5f}  (VxNL)")
-                print(f"v(HOMO) =  {(mo_coeff.T@vref_ao@mo_coeff)[nelec-1, nelec-1]:.5f}  (Vref)")
+                print(f"v(HOMO) =  {-v_aux[nelec - 1, nelec - 1] - ip:.5f}  (VxNL)")
+                print(f"v(HOMO) =  {(mo_coeff.T @ vref_ao @ mo_coeff)[nelec - 1, nelec - 1]:.5f}  (Vref)")

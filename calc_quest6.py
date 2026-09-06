@@ -5,24 +5,26 @@ Uses UKS, pa-SS-KS, pa-OSS-KS, and pa-STA-KS methods.
 """
 
 import argparse
-import os
 import json
+import os
 import time
+
 import yaml
-from pyscf import gto, dft
-from sets.quest6 import systems, reference
-from methods.UKS import UKS
-from methods.pa_SS_KS import pa_SS_KS
+from pyscf import dft, gto
+
 from calc_quest1_lowest import (
-    run_singlet,
-    run_triplet,
-    run_oss,
-    run_sta,
-    eval_and_print_maes,
-    pyscf_atom_input,
     HA_TO_EV,
+    eval_and_print_maes,
     fmt_time,
+    pyscf_atom_input,
+    run_oss,
+    run_singlet,
+    run_sta,
+    run_triplet,
 )
+from methods.pa_SS_KS import pa_SS_KS
+from methods.UKS import UKS
+from sets.quest6 import reference, systems
 
 
 def print_summary(res):
@@ -158,33 +160,25 @@ base_config = {
     "basis": "cc-pVDZ",
     "auxbasis": "aug-cc-pV5Z-RIFIT",
     "xc": "PBE",
-    "excitations": {"Aminobenzonitrile": {"A1":[0, 1]},
-                   "Aniline": {"A1":[0, 3]},
-                   "Azulene": {"A1":[0, 2],
-                               "B2":[-1, 2]},
-                   "Benzonitrile": {"A2":[-2, 1]},
-                   "Benzothiadiazole": {"B2":[0, 1]},
-                   "Dimethylaminobenzonitrile": {"A1":[0, 1]},
-                   "Dimethylaniline": {"B2":[0, 1],
-                                       "A1":[0, 3]},
-                   "Hydrogen chloride": {"Pi":[0, 1]},
-                   "Nitroaniline": {"A1":[0, 1]},
-                   "Nitrobenzene": {"A1":[-2, 1]},
-                   "Nitrodimethylaniline": {"A1":[0, 1]},
-                   "Nitropyridine N-Oxide": {"A1":[0, 1]},
-                   "N-Phenylpyrrole": {"B2":[0, 1],
-                                       "A1":[0, 2]},
-                   "Phthalazine": {"A2":[0, 1],
-                                   "B1":[0, 2]},
-                   "Quinoxaline": {"B2":[-1, 1],
-                                   "A1":[-1, 2],
-                                   "B1":[0, 3]},
-                   "Twisted DMABN": {"A2":[0, 1],
-                                     "B1":[0, 2]},
-                   "Twisted PP": {"B2":[0, 1],
-                                  "A1":[0, 2],
-                                  "A2":[-1, 1],
-                                  "B1":[-1, 2]}},
+    "excitations": {
+        "Aminobenzonitrile": {"A1": [0, 1]},
+        "Aniline": {"A1": [0, 3]},
+        "Azulene": {"A1": [0, 2], "B2": [-1, 2]},
+        "Benzonitrile": {"A2": [-2, 1]},
+        "Benzothiadiazole": {"B2": [0, 1]},
+        "Dimethylaminobenzonitrile": {"A1": [0, 1]},
+        "Dimethylaniline": {"B2": [0, 1], "A1": [0, 3]},
+        "Hydrogen chloride": {"Pi": [0, 1]},
+        "Nitroaniline": {"A1": [0, 1]},
+        "Nitrobenzene": {"A1": [-2, 1]},
+        "Nitrodimethylaniline": {"A1": [0, 1]},
+        "Nitropyridine N-Oxide": {"A1": [0, 1]},
+        "N-Phenylpyrrole": {"B2": [0, 1], "A1": [0, 2]},
+        "Phthalazine": {"A2": [0, 1], "B1": [0, 2]},
+        "Quinoxaline": {"B2": [-1, 1], "A1": [-1, 2], "B1": [0, 3]},
+        "Twisted DMABN": {"A2": [0, 1], "B1": [0, 2]},
+        "Twisted PP": {"B2": [0, 1], "A1": [0, 2], "A2": [-1, 1], "B1": [-1, 2]},
+    },
     "grid_level": 3,
     "frac_occ": True,
     "systems": None,

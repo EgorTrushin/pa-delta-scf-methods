@@ -2,9 +2,11 @@
 """DFT calculations for excited-states with potential-averaged state-averaged KS method."""
 
 from copy import deepcopy
+
 from pyscf import dft
-from .UKS import UKS
+
 from .mom import MOM
+from .UKS import UKS
 
 
 class pa_STA_KS(UKS):
@@ -60,8 +62,8 @@ class pa_STA_KS(UKS):
 
     def compute_energies(self, h1e, dm, vj, e_xc, dm_p=None, vj_p=None, e_x_nl=None, e_x_nl_p=None):
         """Computes and stores state-averaged, OSS, and triplet energies."""
-        e_x_nl = e_x_nl or 0.
-        e_x_nl_p = e_x_nl_p or 0.
+        e_x_nl = e_x_nl or 0.0
+        e_x_nl_p = e_x_nl_p or 0.0
 
         self.e_tot = self.single_energy(h1e, dm, vj, e_xc, dm_p, vj_p, e_x_nl, e_x_nl_p)
 
@@ -71,14 +73,13 @@ class pa_STA_KS(UKS):
         e_x_nl_oss = 2 * self.e_x_nl1 - self.e_x_nl3
         dm_oss_p = 2 * self.dm1_p - self.dm3_p if dm_p is not None else None
         vj_oss_p = 2 * self.vj1_p - self.vj3_p if dm_p is not None else None
-        e_x_nl_oss_p = 2 * self.e_x_nl1_p - self.e_x_nl3_p if dm_p is not None else 0.
+        e_x_nl_oss_p = 2 * self.e_x_nl1_p - self.e_x_nl3_p if dm_p is not None else 0.0
         self.e_tot_oss = self.single_energy(h1e, dm_oss, vj_oss, e_xc_oss, dm_oss_p, vj_oss_p, e_x_nl_oss, e_x_nl_oss_p)
 
         dm3_p = self.dm3_p if dm_p is not None else None
         vj3_p = self.vj3_p if dm_p is not None else None
-        e_x_nl3_p = self.e_x_nl3_p if dm_p is not None else 0.
+        e_x_nl3_p = self.e_x_nl3_p if dm_p is not None else 0.0
         self.e_tot_t = self.single_energy(h1e, self.dm3, self.vj3, self.e_xc3, dm3_p, vj3_p, self.e_x_nl3, e_x_nl3_p)
-
 
     def log_iteration(self, itr):
         """Logs per-iteration state-averaged, OSS, and triplet energies."""

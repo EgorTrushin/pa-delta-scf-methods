@@ -5,24 +5,26 @@ Uses UKS, pa-SS-KS, pa-OSS-KS, and pa-STA-KS methods.
 """
 
 import argparse
-import os
 import json
+import os
 import time
+
 import yaml
-from pyscf import gto, dft
-from sets.quest1_higher import systems, reference
-from methods.UKS import UKS
-from methods.pa_SS_KS import pa_SS_KS
+from pyscf import dft, gto
+
 from calc_quest1_lowest import (
-    run_singlet,
-    run_triplet,
-    run_oss,
-    run_sta,
-    eval_and_print_maes,
-    pyscf_atom_input,
     HA_TO_EV,
+    eval_and_print_maes,
     fmt_time,
+    pyscf_atom_input,
+    run_oss,
+    run_singlet,
+    run_sta,
+    run_triplet,
 )
+from methods.pa_SS_KS import pa_SS_KS
+from methods.UKS import UKS
+from sets.quest1_higher import reference, systems
 
 
 def print_summary(res):

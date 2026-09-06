@@ -1,6 +1,13 @@
+from helpers_oep_swap import (
+    ground_state_oep,
+    oss_oep,
+    ss_ks_oep_singlet,
+    ss_ks_oep_triplet,
+    sta_oep,
+    uks_oep_singlet,
+    uks_oep_triplet,
+)
 from pyscf import dft, gto
-from helpers_oep_swap import ground_state_oep, uks_oep_singlet, uks_oep_triplet
-from helpers_oep_swap import ss_ks_oep_singlet, ss_ks_oep_triplet, oss_oep, sta_oep
 
 HA_TO_EV = 27.2114
 OEP_BASIS = "aug-cc-pVDZ-RIFIT"
