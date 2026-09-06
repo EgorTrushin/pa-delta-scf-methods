@@ -104,6 +104,7 @@ and triplet excitation energies of H₂O with the UKS method:
 
 ```python
 from pyscf import dft, gto
+from pyscf.data.nist import HARTREE2EV
 from methods.UKS import UKS
 
 # Ground-state calculation
@@ -131,9 +132,8 @@ mf_t = UKS(mf, occ_t, frac_occ=False)
 mf_t.run(verb=False)
 
 # Excitation energies (Hartree -> eV)
-HA_TO_EV = 27.2114
-exc_s = (2 * mf_s.e_tot - mf_t.e_tot - mf.e_tot) * HA_TO_EV
-exc_t = (mf_t.e_tot - mf.e_tot) * HA_TO_EV
+exc_s = (2 * mf_s.e_tot - mf_t.e_tot - mf.e_tot) * HARTREE2EV
+exc_t = (mf_t.e_tot - mf.e_tot) * HARTREE2EV
 print(f"S1 = {exc_s:.4f} eV")
 print(f"T1 = {exc_t:.4f} eV")
 ```
@@ -143,6 +143,7 @@ triplet simultaneously, extracting both excitation energies in a single SCF:
 
 ```python
 from pyscf import dft, gto
+from pyscf.data.nist import HARTREE2EV
 from methods.pa_STA_KS import pa_STA_KS
 
 # Ground-state calculation
@@ -167,9 +168,8 @@ mf_sta = pa_STA_KS(mf, occ_s, occ_t, frac_occ=False)
 mf_sta.run(verb=False)
 
 # Excitation energies (Hartree -> eV)
-HA_TO_EV = 27.2114
-exc_s = (mf_sta.e_tot_oss - mf.e_tot) * HA_TO_EV
-exc_t = (mf_sta.e_tot_t - mf.e_tot) * HA_TO_EV
+exc_s = (mf_sta.e_tot_oss - mf.e_tot) * HARTREE2EV
+exc_t = (mf_sta.e_tot_t - mf.e_tot) * HARTREE2EV
 print(f"S1 = {exc_s:.4f} eV")
 print(f"T1 = {exc_t:.4f} eV")
 ```
@@ -184,6 +184,7 @@ shows the UKS-OEP workflow for H₂O using the orbital-swap implementation:
 
 ```python
 from pyscf import dft, gto
+from pyscf.data.nist import HARTREE2EV
 from methods_oep.dftoep import DFTOEP
 from methods_oep.osdftoep_swap import OSDFTOEP_swap
 
@@ -217,9 +218,8 @@ mf_t = OSDFTOEP_swap(mf, "aug-cc-pVDZ-RIFIT", occ_t, spin_sym=False)
 mf_t.run(maxit=50, thr_fai_oep=0.05)
 
 # Excitation energies (Hartree -> eV)
-HA_TO_EV = 27.2114
-exc_s = (2 * mf_s.e_tot - mf_t.e_tot - e_gs) * HA_TO_EV
-exc_t = (mf_t.e_tot - e_gs) * HA_TO_EV
+exc_s = (2 * mf_s.e_tot - mf_t.e_tot - e_gs) * HARTREE2EV
+exc_t = (mf_t.e_tot - e_gs) * HARTREE2EV
 print(f"S1 = {exc_s:.4f} eV")
 print(f"T1 = {exc_t:.4f} eV")
 ```
@@ -228,6 +228,7 @@ The STA-KS-OEP method extracts both excitation energies in a single SCF:
 
 ```python
 from pyscf import dft, gto
+from pyscf.data.nist import HARTREE2EV
 from methods_oep.dftoep import DFTOEP
 from methods_oep.osdftoep_sta_swap import OSDFTOEP_STA_swap
 
@@ -258,9 +259,8 @@ mf_sta = OSDFTOEP_STA_swap(mf, "aug-cc-pVDZ-RIFIT", occ_s, occ_t)
 mf_sta.run(maxit=50, thr_fai_oep=0.05)
 
 # Excitation energies (Hartree -> eV)
-HA_TO_EV = 27.2114
-exc_s = (mf_sta.e_tot - e_gs) * HA_TO_EV
-exc_t = (mf_sta.e_tot3 - e_gs) * HA_TO_EV
+exc_s = (mf_sta.e_tot - e_gs) * HARTREE2EV
+exc_t = (mf_sta.e_tot3 - e_gs) * HARTREE2EV
 print(f"S1 = {exc_s:.4f} eV")
 print(f"T1 = {exc_t:.4f} eV")
 ```

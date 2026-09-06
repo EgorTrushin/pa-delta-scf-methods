@@ -12,8 +12,9 @@ import time
 import numpy as np
 import yaml
 from pyscf import dft, gto
+from pyscf.data.nist import HARTREE2EV
 
-from calc_quest1_lowest import HA_TO_EV, fmt_time, pyscf_atom_input
+from calc_quest1_lowest import fmt_time, pyscf_atom_input
 from methods_oep.dftoep import DFTOEP
 from methods_oep.osdftoep_occ import OSDFTOEP_occ
 from methods_oep.osdftoep_oss_occ import OSDFTOEP_OSS_occ
@@ -241,27 +242,27 @@ def calc_quest1(config):
         print("Energy of excited-state singlet STA-KS-OEP:", E_SINGLET_STA)
         print("Energy of excited-state triplet STA-KS-OEP:", E_TRIPLET_STA)
 
-        exc_s = (2 * E_SINGLET - E_TRIPLET - E_GS) * HA_TO_EV
-        exc_t = (E_TRIPLET - E_GS) * HA_TO_EV
+        exc_s = (2 * E_SINGLET - E_TRIPLET - E_GS) * HARTREE2EV
+        exc_t = (E_TRIPLET - E_GS) * HARTREE2EV
         print(f"Singlet Excitation energy (UKS-OEP):    {exc_s:.4f} eV")
         print(f"Triplet Excitation energy (UKS-OEP):    {exc_t:.4f} eV")
         results[system]["UKS-OEP S"] = exc_s
         results[system]["UKS-OEP T"] = exc_t
 
-        exc_s = (2 * E_SINGLET_SS - E_TRIPLET_SS - E_GS) * HA_TO_EV
-        exc_t = (E_TRIPLET_SS - E_GS) * HA_TO_EV
+        exc_s = (2 * E_SINGLET_SS - E_TRIPLET_SS - E_GS) * HARTREE2EV
+        exc_t = (E_TRIPLET_SS - E_GS) * HARTREE2EV
         print(f"Singlet Excitation energy (SS-KS-OEP):  {exc_s:.4f} eV")
         print(f"Triplet Excitation energy (SS-KS-OEP):  {exc_t:.4f} eV")
         results[system]["SS-KS-OEP S"] = exc_s
         results[system]["SS-KS-OEP T"] = exc_t
 
-        exc_s = (E_SINGLET_OSS - E_GS) * HA_TO_EV
+        exc_s = (E_SINGLET_OSS - E_GS) * HARTREE2EV
         print(f"Singlet Excitation energy (OSS-KS-OEP): {exc_s:.4f} eV")
         results[system]["OSS-KS-OEP S"] = exc_s
         results[system]["OSS-KS-OEP T"] = exc_t  # from previous SS-KS-OEP triplet calculation
 
-        exc_s = (E_SINGLET_STA - E_GS) * HA_TO_EV
-        exc_t = (E_TRIPLET_STA - E_GS) * HA_TO_EV
+        exc_s = (E_SINGLET_STA - E_GS) * HARTREE2EV
+        exc_t = (E_TRIPLET_STA - E_GS) * HARTREE2EV
         print(f"Singlet Excitation energy (STA-KS-OEP): {exc_s:.4f} eV")
         print(f"Triplet Excitation energy (STA-KS-OEP): {exc_t:.4f} eV")
         results[system]["STA-KS-OEP S"] = exc_s

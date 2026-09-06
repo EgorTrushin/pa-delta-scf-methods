@@ -14,6 +14,7 @@ Excitation energies are reported in eV relative to the OEP ground state.
 """
 
 from pyscf import dft, gto
+from pyscf.data.nist import HARTREE2EV
 
 from methods_oep.dftoep import DFTOEP
 from methods_oep.osdftoep_occ import OSDFTOEP_occ
@@ -23,7 +24,6 @@ from methods_oep.osdftoep_sta_occ import OSDFTOEP_STA_occ
 from methods_oep.osdftoep_sta_swap import OSDFTOEP_STA_swap
 from methods_oep.osdftoep_swap import OSDFTOEP_swap
 
-HA_TO_EV = 27.2114
 OEP_BASIS = "aug-cc-pVDZ-RIFIT"
 
 
@@ -198,15 +198,15 @@ def print_results(label, e_gs, mf_s=None, mf_t=None, mf_oss=None, mf_sta=None):
     """
     print(f"\n  {label}")
     if mf_s is not None and mf_t is not None:
-        exc_s = (2 * mf_s.e_tot - mf_t.e_tot - e_gs) * HA_TO_EV
-        exc_t = (mf_t.e_tot - e_gs) * HA_TO_EV
+        exc_s = (2 * mf_s.e_tot - mf_t.e_tot - e_gs) * HARTREE2EV
+        exc_t = (mf_t.e_tot - e_gs) * HARTREE2EV
         print(f"    S1 = {exc_s:.4f} eV    T1 = {exc_t:.4f} eV")
     if mf_oss is not None:
-        exc_s = (mf_oss.e_tot - e_gs) * HA_TO_EV
+        exc_s = (mf_oss.e_tot - e_gs) * HARTREE2EV
         print(f"    S1 = {exc_s:.4f} eV")
     if mf_sta is not None:
-        exc_s = (mf_sta.e_tot - e_gs) * HA_TO_EV
-        exc_t = (mf_sta.e_tot3 - e_gs) * HA_TO_EV
+        exc_s = (mf_sta.e_tot - e_gs) * HARTREE2EV
+        exc_t = (mf_sta.e_tot3 - e_gs) * HARTREE2EV
         print(f"    S1 = {exc_s:.4f} eV    T1 = {exc_t:.4f} eV")
 
 

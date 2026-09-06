@@ -11,9 +11,9 @@ import time
 
 import yaml
 from pyscf import dft, gto
+from pyscf.data.nist import HARTREE2EV
 
 from calc_quest1_lowest import (
-    HA_TO_EV,
     eval_and_print_maes,
     fmt_time,
     pyscf_atom_input,
@@ -130,19 +130,19 @@ def calc_quest6(config):
 
             mf_sta = run_sta(mf, config["frac_occ"], exci)
 
-            exc_s = (2 * mf_mixed_singlet.e_tot - mf_triplet.e_tot - mf.e_tot) * HA_TO_EV
+            exc_s = (2 * mf_mixed_singlet.e_tot - mf_triplet.e_tot - mf.e_tot) * HARTREE2EV
             print(f"Singlet Excitation energy (UKS):       {exc_s:.4f} eV")
             results[system][excitation]["UKS S"] = exc_s
 
-            exc_s = (2 * mf_mixed_singlet_sa.e_tot - mf_triplet_sa.e_tot - mf.e_tot) * HA_TO_EV
+            exc_s = (2 * mf_mixed_singlet_sa.e_tot - mf_triplet_sa.e_tot - mf.e_tot) * HARTREE2EV
             print(f"Singlet Excitation energy (pa-SS-KS):  {exc_s:.4f} eV")
             results[system][excitation]["pa-SS-KS S"] = exc_s
 
-            exc_s = (mf_oss.e_tot - mf.e_tot) * HA_TO_EV
+            exc_s = (mf_oss.e_tot - mf.e_tot) * HARTREE2EV
             print(f"Singlet Excitation energy (pa-OSS-KS): {exc_s:.4f} eV")
             results[system][excitation]["pa-OSS-KS S"] = exc_s
 
-            exc_s = (mf_sta.e_tot_oss - mf.e_tot) * HA_TO_EV
+            exc_s = (mf_sta.e_tot_oss - mf.e_tot) * HARTREE2EV
             print(f"Singlet Excitation energy (pa-STA-KS): {exc_s:.4f} eV")
             results[system][excitation]["pa-STA-KS S"] = exc_s
 

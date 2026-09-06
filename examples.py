@@ -12,13 +12,12 @@ Excitation energies are reported in eV relative to the ground state.
 """
 
 from pyscf import dft, gto
+from pyscf.data.nist import HARTREE2EV
 
 from methods.pa_OSS_KS import pa_OSS_KS
 from methods.pa_SS_KS import pa_SS_KS
 from methods.pa_STA_KS import pa_STA_KS
 from methods.UKS import UKS
-
-HA_TO_EV = 27.2114
 
 
 def make_occ_singlet(mf, excitation):
@@ -146,15 +145,15 @@ def print_results(label, e_gs, mf_s=None, mf_t=None, mf_oss=None, mf_sta=None):
     """
     print(f"\n  {label}")
     if mf_s is not None and mf_t is not None:
-        exc_s = (2 * mf_s.e_tot - mf_t.e_tot - e_gs) * HA_TO_EV
-        exc_t = (mf_t.e_tot - e_gs) * HA_TO_EV
+        exc_s = (2 * mf_s.e_tot - mf_t.e_tot - e_gs) * HARTREE2EV
+        exc_t = (mf_t.e_tot - e_gs) * HARTREE2EV
         print(f"    S1 = {exc_s:.4f} eV    T1 = {exc_t:.4f} eV")
     if mf_oss is not None:
-        exc_s = (mf_oss.e_tot - e_gs) * HA_TO_EV
+        exc_s = (mf_oss.e_tot - e_gs) * HARTREE2EV
         print(f"    S1 = {exc_s:.4f} eV")
     if mf_sta is not None:
-        exc_s = (mf_sta.e_tot_oss - e_gs) * HA_TO_EV
-        exc_t = (mf_sta.e_tot_t - e_gs) * HA_TO_EV
+        exc_s = (mf_sta.e_tot_oss - e_gs) * HARTREE2EV
+        exc_t = (mf_sta.e_tot_t - e_gs) * HARTREE2EV
         print(f"    S1 = {exc_s:.4f} eV    T1 = {exc_t:.4f} eV")
 
 

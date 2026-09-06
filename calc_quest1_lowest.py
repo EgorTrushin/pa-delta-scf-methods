@@ -12,14 +12,13 @@ import time
 import numpy as np
 import yaml
 from pyscf import dft, gto
+from pyscf.data.nist import HARTREE2EV
 
 from methods.pa_OSS_KS import pa_OSS_KS
 from methods.pa_SS_KS import pa_SS_KS
 from methods.pa_STA_KS import pa_STA_KS
 from methods.UKS import UKS
 from sets.quest1_lowest import reference, systems
-
-HA_TO_EV = 27.2114
 
 
 def fmt_time(seconds):
@@ -311,27 +310,27 @@ def calc_quest1(config):
 
         mf_sta = run_sta(mf, config["frac_occ"], exci)
 
-        exc_s = (2 * mf_mixed_singlet.e_tot - mf_triplet.e_tot - mf.e_tot) * HA_TO_EV
-        exc_t = (mf_triplet.e_tot - mf.e_tot) * HA_TO_EV
+        exc_s = (2 * mf_mixed_singlet.e_tot - mf_triplet.e_tot - mf.e_tot) * HARTREE2EV
+        exc_t = (mf_triplet.e_tot - mf.e_tot) * HARTREE2EV
         print(f"Singlet Excitation energy (UKS):    {exc_s:.4f} eV")
         print(f"Triplet Excitation energy (UKS):    {exc_t:.4f} eV")
         results[system]["UKS S"] = exc_s
         results[system]["UKS T"] = exc_t
 
-        exc_s = (2 * mf_mixed_singlet_sa.e_tot - mf_triplet_sa.e_tot - mf.e_tot) * HA_TO_EV
-        exc_t = (mf_triplet_sa.e_tot - mf.e_tot) * HA_TO_EV
+        exc_s = (2 * mf_mixed_singlet_sa.e_tot - mf_triplet_sa.e_tot - mf.e_tot) * HARTREE2EV
+        exc_t = (mf_triplet_sa.e_tot - mf.e_tot) * HARTREE2EV
         print(f"Singlet Excitation energy (pa-SS-KS):  {exc_s:.4f} eV")
         print(f"Triplet Excitation energy (pa-SS-KS):  {exc_t:.4f} eV")
         results[system]["pa-SS-KS S"] = exc_s
         results[system]["pa-SS-KS T"] = exc_t
 
-        exc_s = (mf_oss.e_tot - mf.e_tot) * HA_TO_EV
+        exc_s = (mf_oss.e_tot - mf.e_tot) * HARTREE2EV
         print(f"Singlet Excitation energy (pa-OSS-KS): {exc_s:.4f} eV")
         results[system]["pa-OSS-KS S"] = exc_s
         results[system]["pa-OSS-KS T"] = exc_t  # from previous triplet pa-SS-KS calculation
 
-        exc_s = (mf_sta.e_tot_oss - mf.e_tot) * HA_TO_EV
-        exc_t = (mf_sta.e_tot_t - mf.e_tot) * HA_TO_EV
+        exc_s = (mf_sta.e_tot_oss - mf.e_tot) * HARTREE2EV
+        exc_t = (mf_sta.e_tot_t - mf.e_tot) * HARTREE2EV
         print(f"Singlet Excitation energy (pa-STA-KS): {exc_s:.4f} eV")
         print(f"Triplet Excitation energy (pa-STA-KS): {exc_t:.4f} eV")
         results[system]["pa-STA-KS S"] = exc_s

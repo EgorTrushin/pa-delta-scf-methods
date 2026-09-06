@@ -8,8 +8,8 @@ from helpers_oep_swap import (
     uks_oep_triplet,
 )
 from pyscf import dft, gto
+from pyscf.data.nist import HARTREE2EV
 
-HA_TO_EV = 27.2114
 OEP_BASIS = "aug-cc-pVDZ-RIFIT"
 
 
@@ -27,27 +27,27 @@ def test_answer():
 
     mf_s = uks_oep_singlet(mf, OEP_BASIS, excitation=[0, 1])
     mf_t = uks_oep_triplet(mf, OEP_BASIS, excitation=[0, 1])
-    exc_s = (2 * mf_s.e_tot - mf_t.e_tot - E_GS) * HA_TO_EV
-    exc_t = (mf_t.e_tot - E_GS) * HA_TO_EV
-    assert abs(exc_s - 7.469258599740022) < 1e-6
-    assert abs(exc_t - 7.160898748980977) < 1e-6
+    exc_s = (2 * mf_s.e_tot - mf_t.e_tot - E_GS) * HARTREE2EV
+    exc_t = (mf_t.e_tot - E_GS) * HARTREE2EV
+    assert abs(exc_s - 7.469254762369095) < 1e-6
+    assert abs(exc_t - 7.160895070031547) < 1e-6
 
     mf_s_ss = ss_ks_oep_singlet(mf, OEP_BASIS, excitation=[0, 1])
     mf_t_ss = ss_ks_oep_triplet(mf, OEP_BASIS, excitation=[0, 1])
-    exc_s = (2 * mf_s_ss.e_tot - mf_t_ss.e_tot - E_GS) * HA_TO_EV
-    exc_t = (mf_t_ss.e_tot - E_GS) * HA_TO_EV
-    assert abs(exc_s - 7.678978013441429) < 1e-6
-    assert abs(exc_t - 7.2072352189385525) < 1e-6
+    exc_s = (2 * mf_s_ss.e_tot - mf_t_ss.e_tot - E_GS) * HARTREE2EV
+    exc_t = (mf_t_ss.e_tot - E_GS) * HARTREE2EV
+    assert abs(exc_s - 7.678974068326049) < 1e-6
+    assert abs(exc_t - 7.2072315161835165) < 1e-6
 
     mf_oss = oss_oep(mf, OEP_BASIS, excitation=[0, 1])
-    exc_s = (mf_oss.e_tot - E_GS) * HA_TO_EV
-    assert abs(exc_s - 7.675714434011857) < 1e-6
+    exc_s = (mf_oss.e_tot - E_GS) * HARTREE2EV
+    assert abs(exc_s - 7.675710490573158) < 1e-6
 
     mf_sta = sta_oep(mf, OEP_BASIS, excitation=[0, 1])
-    exc_s = (mf_sta.e_tot - E_GS) * HA_TO_EV
-    exc_t = (mf_sta.e_tot3 - E_GS) * HA_TO_EV
-    assert abs(exc_s - 7.677585187566519) < 1e-6
-    assert abs(exc_t - 7.208264401436549) < 1e-6
+    exc_s = (mf_sta.e_tot - E_GS) * HARTREE2EV
+    exc_t = (mf_sta.e_tot3 - E_GS) * HARTREE2EV
+    assert abs(exc_s - 7.677581243166711) < 1e-6
+    assert abs(exc_t - 7.208260698152765) < 1e-6
 
 
 if __name__ == "__main__":
