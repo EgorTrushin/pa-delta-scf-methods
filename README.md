@@ -1,10 +1,12 @@
 # Potential-averaged and optimized effective potential ΔSCF methods
 
-This repository contains codebase for the following publication:
+This repository contains the implementation of the methods introduced in:
 
-> E. Trushin, O. Bertleff, A. Görling. Potential-Averaged ΔSCF Methods: Underlying Formalism and Evaluation of Accuracy of Excitation Energies - J. Chem. Theory Comput. (2026) 22 (16): 8324–8349. https://doi.org/10.1021/acs.jctc.6c00983
+> E. Trushin, O. Bertleff, A. Görling. Potential-Averaged ΔSCF Methods: Underlying Formalism and Evaluation of Accuracy of Excitation Energies. J. Chem. Theory Comput. **2026**, *22*, 8324–8349. https://doi.org/10.1021/acs.jctc.6c00983
 
-The repository contains the implementation of the methods presented in the article, as well as the scripts required to run, process and analyse the excitation energy calculations for the QUEST1 and QUEST6 datasets.
+## Published version and ongoing development
+
+The version of the code associated with the published article is permanently archived on Zenodo: https://doi.org/10.5281/zenodo.20270737. The `main` branch of this repository may differ from the version used for the publication. For reproduction of the results reported in the article, please use the archived Zenodo version. The current `main` branch contains subsequent fixes, improvements, and further developments of the methods.
 
 ## Methods
 
