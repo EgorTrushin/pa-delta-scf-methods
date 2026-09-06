@@ -1,2 +1,30 @@
-[tool.black]
+[project]
+name = "pa-delta-scf-methods"
+version = "0.1.0"
+description = "Potential-averaged and optimized effective potential ΔSCF methods"
+requires-python = ">=3.12"
+dependencies = [
+    "pyscf",
+    "basis_set_exchange",
+    "pyyaml",
+    "pandas",
+    "matplotlib",
+    "pytest",
+    "ruff",
+    "jupyter>=1.1",
+]
+
+[tool.ruff]
 line-length = 120
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I"]
+ignore = ["E203"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+
+[tool.ruff.lint.per-file-ignores]
+# Dataset files contain commented-out entries with long inline geometries/labels
+"sets/*.py" = ["E501"]

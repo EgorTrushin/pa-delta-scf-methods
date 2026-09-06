@@ -80,19 +80,13 @@ pa-delta-scf-methods.ipynb      # Analysis notebook
 
 ## Installation
 
-Clone the repository and install the required packages:
+Clone the repository. [uv](https://docs.astral.sh/uv/) sets up everything and installs the exact versions recorded in `uv.lock`:
 
 ```bash
-pip install pyscf basis_set_exchange
+uv sync
 ```
 
-NumPy and SciPy are included with PySCF. For running tests, `pytest` is also required:
-
-```bash
-pip install pytest
-```
-
-To make the `methods/` and `utils/` packages importable, either run scripts from the project root or add the project root to `PYTHONPATH`.
+This creates the virtual environment `.venv/` using the Python version from `.python-version` (3.12). Prefix commands with `uv run` to use the environment, e.g. `uv run pytest` or `uv run jupyter lab`, or activate it once with `source .venv/bin/activate`.
 
 ## Examples
 
@@ -101,8 +95,8 @@ A full comparison of all four standard methods on H₂O and N₂ is available in
 `examples_oep.py`:
 
 ```bash
-python examples.py
-python examples_oep.py
+uv run python examples.py
+uv run python examples_oep.py
 ```
 
 The example below shows the essential workflow for computing the first singlet
@@ -113,8 +107,9 @@ from pyscf import dft, gto
 from methods.UKS import UKS
 
 # Ground-state calculation
-mol = gto.M(atom="O 0.0 0.0 -0.06990256; H 0.0 0.75753241 0.51843495; H 0.0 -0.75753241 0.51843495",
-            basis="aug-cc-pVTZ")
+mol = gto.M(
+    atom="O 0.0 0.0 -0.06990256; H 0.0 0.75753241 0.51843495; H 0.0 -0.75753241 0.51843495", basis="aug-cc-pVTZ"
+)
 mol.verbose = 0
 mf = dft.RKS(mol, xc="PBE").density_fit(auxbasis="aug-cc-pV5Z-RIFIT").run()
 mf = mf.to_uks()
@@ -122,11 +117,11 @@ mf = mf.to_uks()
 # Occupation numbers for HOMO -> LUMO excitation
 occ_s = mf.mo_occ.copy()
 occ_s[0][mf.nelec[0] - 1] = 0  # remove alpha electron from HOMO
-occ_s[0][mf.nelec[0]]     = 1  # add alpha electron to LUMO
+occ_s[0][mf.nelec[0]] = 1  # add alpha electron to LUMO
 
 occ_t = mf.mo_occ.copy()
 occ_t[1][mf.nelec[1] - 1] = 0  # remove beta electron from HOMO
-occ_t[0][mf.nelec[0]]     = 1  # add alpha electron to LUMO
+occ_t[0][mf.nelec[0]] = 1  # add alpha electron to LUMO
 
 # Excited-state calculations
 mf_s = UKS(mf, occ_s, frac_occ=False)
@@ -151,8 +146,9 @@ from pyscf import dft, gto
 from methods.pa_STA_KS import pa_STA_KS
 
 # Ground-state calculation
-mol = gto.M(atom="O 0.0 0.0 -0.06990256; H 0.0 0.75753241 0.51843495; H 0.0 -0.75753241 0.51843495",
-            basis="aug-cc-pVTZ")
+mol = gto.M(
+    atom="O 0.0 0.0 -0.06990256; H 0.0 0.75753241 0.51843495; H 0.0 -0.75753241 0.51843495", basis="aug-cc-pVTZ"
+)
 mol.verbose = 0
 mf = dft.RKS(mol, xc="PBE").density_fit(auxbasis="aug-cc-pV5Z-RIFIT").run()
 mf = mf.to_uks()
@@ -160,11 +156,11 @@ mf = mf.to_uks()
 # Occupation numbers for HOMO -> LUMO excitation
 occ_s = mf.mo_occ.copy()
 occ_s[0][mf.nelec[0] - 1] = 0  # remove alpha electron from HOMO
-occ_s[0][mf.nelec[0]]     = 1  # add alpha electron to LUMO
+occ_s[0][mf.nelec[0]] = 1  # add alpha electron to LUMO
 
 occ_t = mf.mo_occ.copy()
 occ_t[1][mf.nelec[1] - 1] = 0  # remove beta electron from HOMO
-occ_t[0][mf.nelec[0]]     = 1  # add alpha electron to LUMO
+occ_t[0][mf.nelec[0]] = 1  # add alpha electron to LUMO
 
 # Excited-state calculation
 mf_sta = pa_STA_KS(mf, occ_s, occ_t, frac_occ=False)
@@ -191,8 +187,9 @@ from pyscf import dft, gto
 from methods_oep.dftoep import DFTOEP
 from methods_oep.osdftoep_swap import OSDFTOEP_swap
 
-mol = gto.M(atom="O 0.0 0.0 -0.06990256; H 0.0 0.75753241 0.51843495; H 0.0 -0.75753241 0.51843495",
-            basis="aug-cc-pVTZ")
+mol = gto.M(
+    atom="O 0.0 0.0 -0.06990256; H 0.0 0.75753241 0.51843495; H 0.0 -0.75753241 0.51843495", basis="aug-cc-pVTZ"
+)
 mol.verbose = 0
 mf = dft.RKS(mol, xc="PBE").density_fit(auxbasis="aug-cc-pV5Z-RIFIT").run()
 
@@ -206,11 +203,11 @@ mf = mf.to_uks()
 # Occupation numbers for HOMO -> LUMO excitation
 occ_s = mf.mo_occ.copy()
 occ_s[0][mf.nelec[0] - 1] = 0  # remove alpha electron from HOMO
-occ_s[0][mf.nelec[0]]     = 1  # add alpha electron to LUMO
+occ_s[0][mf.nelec[0]] = 1  # add alpha electron to LUMO
 
 occ_t = mf.mo_occ.copy()
 occ_t[1][mf.nelec[1] - 1] = 0  # remove beta electron from HOMO
-occ_t[0][mf.nelec[0]]     = 1  # add alpha electron to LUMO
+occ_t[0][mf.nelec[0]] = 1  # add alpha electron to LUMO
 
 # Excited-state OEP calculations (spin_sym=False for UKS-OEP)
 mf_s = OSDFTOEP_swap(mf, "aug-cc-pVDZ-RIFIT", occ_s, spin_sym=False)
@@ -234,8 +231,9 @@ from pyscf import dft, gto
 from methods_oep.dftoep import DFTOEP
 from methods_oep.osdftoep_sta_swap import OSDFTOEP_STA_swap
 
-mol = gto.M(atom="O 0.0 0.0 -0.06990256; H 0.0 0.75753241 0.51843495; H 0.0 -0.75753241 0.51843495",
-            basis="aug-cc-pVTZ")
+mol = gto.M(
+    atom="O 0.0 0.0 -0.06990256; H 0.0 0.75753241 0.51843495; H 0.0 -0.75753241 0.51843495", basis="aug-cc-pVTZ"
+)
 mol.verbose = 0
 mf = dft.RKS(mol, xc="PBE").density_fit(auxbasis="aug-cc-pV5Z-RIFIT").run()
 
@@ -249,11 +247,11 @@ mf = mf.to_uks()
 # Occupation numbers for HOMO -> LUMO excitation
 occ_s = mf.mo_occ.copy()
 occ_s[0][mf.nelec[0] - 1] = 0  # remove alpha electron from HOMO
-occ_s[0][mf.nelec[0]]     = 1  # add alpha electron to LUMO
+occ_s[0][mf.nelec[0]] = 1  # add alpha electron to LUMO
 
 occ_t = mf.mo_occ.copy()
 occ_t[1][mf.nelec[1] - 1] = 0  # remove beta electron from HOMO
-occ_t[0][mf.nelec[0]]     = 1  # add alpha electron to LUMO
+occ_t[0][mf.nelec[0]] = 1  # add alpha electron to LUMO
 
 # Excited-state calculation (singlet and triplet in one SCF)
 mf_sta = OSDFTOEP_STA_swap(mf, "aug-cc-pVDZ-RIFIT", occ_s, occ_t)
@@ -261,7 +259,7 @@ mf_sta.run(maxit=50, thr_fai_oep=0.05)
 
 # Excitation energies (Hartree -> eV)
 HA_TO_EV = 27.2114
-exc_s = (mf_sta.e_tot  - e_gs) * HA_TO_EV
+exc_s = (mf_sta.e_tot - e_gs) * HA_TO_EV
 exc_t = (mf_sta.e_tot3 - e_gs) * HA_TO_EV
 print(f"S1 = {exc_s:.4f} eV")
 print(f"T1 = {exc_t:.4f} eV")
@@ -275,29 +273,34 @@ including the occupation-number implementation.
 Run all tests from the project root:
 
 ```bash
-python -m pytest tests/
+uv run pytest
 ```
 
 Run a specific test file:
 
 ```bash
 # Standard KS methods
-python -m pytest tests/test_h2o.py
-python -m pytest tests/test_n2.py
+uv run pytest tests/test_h2o.py
+uv run pytest tests/test_n2.py
 
 # OEP methods — orbital-swap implementation
-python -m pytest tests/test_h2o_oep_swap.py
-python -m pytest tests/test_n2_oep_swap.py
+uv run pytest tests/test_h2o_oep_swap.py
+uv run pytest tests/test_n2_oep_swap.py
 
 # OEP methods — occupation-number implementation
-python -m pytest tests/test_h2o_oep_occ.py
-python -m pytest tests/test_n2_oep_occ.py
+uv run pytest tests/test_h2o_oep_occ.py
+uv run pytest tests/test_n2_oep_occ.py
 ```
 
-The `-m` flag is required to ensure the `methods/` and `methods_oep/` packages are importable from the project root. Alternatively, add the project root to `PYTHONPATH`:
+The project root is put on `sys.path` by the `pythonpath` setting in `pyproject.toml`, so the `methods/` and `methods_oep/` packages are importable when tests are run from there.
+
+## Code style
+
+Formatting and linting are handled by [ruff](https://docs.astral.sh/ruff/) (line length 120), configured in `pyproject.toml`:
 
 ```bash
-export PYTHONPATH="/path/to/pa-delta-scf-methods:$PYTHONPATH"
+uv run ruff format .
+uv run ruff check .
 ```
 
 ## License
