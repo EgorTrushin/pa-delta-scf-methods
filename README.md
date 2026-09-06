@@ -2,7 +2,7 @@
 
 This repository contains codebase for the following publication:
 
-E. Trushin, O. Bertleff, and A. Görling. Potential-averaged ΔSCF methods: underlying formalism and evaluation of accuracy of excitation energies - J. Chem. Theory Comput. (2026) https://doi.org/10.1021/acs.jctc.6c00983
+> E. Trushin, O. Bertleff, A. Görling. Potential-Averaged ΔSCF Methods: Underlying Formalism and Evaluation of Accuracy of Excitation Energies - J. Chem. Theory Comput. (2026) 22 (16): 8324–8349. https://doi.org/10.1021/acs.jctc.6c00983
 
 The repository contains the implementation of the methods presented in the article, as well as the scripts required to run, process and analyse the excitation energy calculations for the QUEST1 and QUEST6 datasets.
 
