@@ -72,8 +72,6 @@ results/                  # Calculation outputs and parsed results
 
 csv/                      # Excitation energy and MAE tables (CSV)
 
-LibreOffice_Draw_Figures/ # Article figures (LibreOffice Draw)
-
 examples.py               # Standard KS examples: H₂O and N₂
 examples_oep.py           # OEP examples: H₂O and N₂
 pa-delta-scf-methods.ipynb      # Analysis notebook
