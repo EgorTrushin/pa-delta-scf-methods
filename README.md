@@ -31,7 +31,7 @@ With `frac_occ=True` (`space_sym=True` for the OEP methods), the orbitals of a p
 
 More about OEP methods and their usage can be learned at https://github.com/EgorTrushin/PyOEP
 
-Each OEP method has two implementations based on orbital swapping and occupation numbers. In orbital swapping case, after each SCF iteration the orbitals are reordered so that the MOM-selected configuration occupies canonical positions. In fractional occupation numbers case, MOM is applied through occupation numbers that track the desired configuration throughout the SCF.
+Each OEP method has two implementations based on orbital swapping and occupation numbers. In orbital swapping case, after each SCF iteration the orbitals are reordered so that the MOM-selected configuration occupies canonical positions. In fractional occupation numbers case, MOM is applied through occupation numbers that track the desired configuration throughout the SCF. Orbital swapping is the cheaper of the two for integer occupation numbers. For fractional occupation numbers (`space_sym=True`) the OEP equations of the swapping implementation still treat a partially filled degenerate shell as one integer configuration, so only the occupation-number implementation is the correct treatment there.
 
 ## Repository structure
 

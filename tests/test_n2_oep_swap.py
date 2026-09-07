@@ -13,6 +13,9 @@ from pyscf.data.nist import HARTREE2EV
 OEP_BASIS = "aug-cc-pVDZ-RIFIT"
 
 
+# N2 is run with space_sym=True, where the OEP equations of this implementation treat the
+# partially filled degenerate shell as one integer configuration. The reference values are
+# therefore the approximate treatment; they agree with the occupation-number ones to ~4e-6 eV.
 def test_answer():
     geom = "N 0.0 0.0 0.55038998; N 0.0 0.0 -0.55038998"
     mol = gto.M(atom=geom, basis="aug-cc-pVTZ")

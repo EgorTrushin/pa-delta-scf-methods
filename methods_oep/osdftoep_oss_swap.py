@@ -16,7 +16,10 @@ class OSDFTOEP_OSS_swap(OSDFTOEP_STA_swap):
         occ: initial occupation numbers for singlet state to initialize MOM
         occ3: initial occupation numbers for triplet state to initialize MOM
         vh_via_OEP: whether to construct AO Hartree potential via OEP basis
-        space_sym: whether to perform space-symmetrization
+        space_sym: whether to perform space-symmetrization. The OEP equations of this
+            implementation treat a partially filled degenerate shell as one integer
+            configuration, so the occupation-number implementation is the correct
+            treatment for fractional occupation numbers.
     """
 
     def run(self, maxit=50, thr_fai_oep=5e-2, linear_mixing=-1.0, e_conv_thr=1e-8):

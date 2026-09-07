@@ -14,7 +14,10 @@ class OSDFTOEP_swap(OSDFTOEP):
         oep_basis: auxiliary basis to solve OEP equation
         occ: initial occupation numbers to initialize MOM
         vh_via_OEP: whether to construct AO Hartree potential via OEP basis
-        space_sym: whether to perform space-symmetrization
+        space_sym: whether to perform space-symmetrization. The OEP equations of this
+            implementation treat a partially filled degenerate shell as one integer
+            configuration, so the occupation-number implementation is the correct
+            treatment for fractional occupation numbers.
         spin_sym: whether to perform spin-symmetrization
     """
 
