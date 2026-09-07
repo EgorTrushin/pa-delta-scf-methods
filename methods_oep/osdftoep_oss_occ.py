@@ -130,6 +130,7 @@ class OSDFTOEP_OSS_occ(OSDFTOEP_STA_occ):
                 print(f"{current_iter:3}  {self.e_tot:18.12f}  {self.e_tot3:18.12f}  {e_conv - e_tot_old:18.12f}")
                 if abs(e_tot_old - e_conv) < e_conv_thr:
                     print("SCF converged")
+                    self.converged = True
                     self.vref_oep_a = vref_oep_a
                     self.vref_oep_b = vref_oep_b
                     self.vrest_oep_a = vrest_oep_a

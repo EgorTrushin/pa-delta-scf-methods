@@ -18,14 +18,15 @@ class pa_OSS_KS(pa_STA_KS):
 
     def get_fock_ingredients(self, mo_energy=None):
         """Returns composite ingredients from singlet and triplet MOMs."""
-        vxc1, vj1, dm1, self.terms1 = self.get_state_ingredients(self.mom1, mo_energy)
-        vxc3, vj3, dm3, self.terms3 = self.get_state_ingredients(self.mom3, mo_energy)
+        vxc1, vj1, dm1, self.terms1, self.aux_terms1 = self.get_state_ingredients(self.mom1, mo_energy)
+        vxc3, vj3, dm3, self.terms3, self.aux_terms3 = self.get_state_ingredients(self.mom3, mo_energy)
 
         return 2 * vxc1 - vxc3, 2 * vj1 - vj3, 2 * dm1 - dm3
 
     def compute_energies(self, dm, vj):
         """Computes and stores the open-shell singlet total energy."""
         self.e_tot = self.total_energy(self.combine_terms([2.0, -1.0], [self.terms1, self.terms3]))
+        self.e_aux = self.total_energy(self.combine_terms([2.0, -1.0], [self.aux_terms1, self.aux_terms3]))
 
     def log_iteration(self, itr):
         """Logs per-iteration OSS total energy."""

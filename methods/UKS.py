@@ -45,6 +45,7 @@ class UKS:
         self.frac_occ = frac_occ
         self.h1e = self.mf.get_hcore()
         self.e_tot = None
+        self.e_aux = None
         self.converged = False
         self.setup_logger(logger)
 
@@ -94,13 +95,15 @@ class UKS:
                 self.log_iteration(itr)
                 self.print_occ_numbers()
 
+            e_conv = self.convergence_energy()
+
             if e_tot_old is None:
-                e_tot_old = self.e_tot
+                e_tot_old = e_conv
             else:
-                if abs(e_tot_old - self.e_tot) < e_conv_thr:
+                if abs(e_tot_old - e_conv) < e_conv_thr:
                     self.converged = True
                     break
-                e_tot_old = self.e_tot
+                e_tot_old = e_conv
 
         self.finalize(verb)
 
@@ -111,17 +114,28 @@ class UKS:
         are blended before the Fock matrix is constructed. The energy terms of
         the involved states are stored for compute_energies().
         """
-        vxc, vj, dm, self.terms = self.get_state_ingredients(self.mom, mo_energy)
+        vxc, vj, dm, self.terms, self.aux_terms = self.get_state_ingredients(self.mom, mo_energy)
         return vxc, vj, dm
 
     def get_state_ingredients(self, mom, mo_energy=None):
-        """Constructs the potentials and energy terms of a single state."""
+        """Constructs the potentials and energy terms of a single state.
+
+        The energy terms are returned twice. The first set is evaluated with
+        integer occupation numbers and the total energies are built from it.
+        The second set is evaluated with the fractional occupation numbers and
+        monitors the SCF convergence, see convergence_energy().
+        """
         occ = mom.get_occ(self.mf.mo_coeff, mo_energy)
         dm = self.mf.make_rdm1(self.mf.mo_coeff, occ)
         vxc, vj, e_xc = self.eval_dft(dm)
         vxc = self.symmetrize_vxc(vxc)
+        aux_terms = (
+            np.einsum("ij,ji->", self.h1e, dm[0] + dm[1]),
+            0.5 * np.einsum("ij,ji->", vj, dm[0] + dm[1]),
+            e_xc,
+        )
 
-        return vxc, vj, dm, self.energy_terms(occ, dm, vj, e_xc)
+        return vxc, vj, dm, self.energy_terms(occ, aux_terms), aux_terms
 
     def symmetrize_vxc(self, vxc):
         """Averages the alpha and beta components of vxc in spin-symmetrized methods.
@@ -133,19 +147,19 @@ class UKS:
             vxc[1, :, :] = vxc[0, :, :]
         return vxc
 
-    def energy_terms(self, occ, dm, vj, e_xc):
+    def energy_terms(self, occ, aux_terms):
         """Returns the energy terms (e1, e_coul, e_xc) of a single state.
 
         The terms are evaluated with integer occupation numbers. If the state
         has fractionally occupied degenerate orbitals, they are averaged over
-        all compatible integer occupation patterns.
+        all compatible integer occupation patterns. Without such orbitals the
+        terms of aux_terms are already the ones with integer occupation
+        numbers and are returned unchanged.
         """
         occ_list = self.gen_integer_occ(occ)
 
         if len(occ_list) == 1:
-            e1 = np.einsum("ij,ji->", self.h1e, dm[0] + dm[1])
-            e_coul = 0.5 * np.einsum("ij,ji->", vj, dm[0] + dm[1])
-            return e1, e_coul, e_xc
+            return aux_terms
 
         e1_sum, e_coul_sum, e_xc_sum = 0.0, 0.0, 0.0
         for occ_int in occ_list:
@@ -168,6 +182,12 @@ class UKS:
         fractionally occupied orbitals of a spin channel at once would move
         electrons between shells and generate patterns that do not belong to
         the state, among them the ground-state configuration.
+
+        The patterns, and with them the averaged energy, refer to the orbitals
+        of the shell as the diagonalization returns them. A rotation within the
+        shell leaves the fractional density unchanged but not the energy of the
+        individual patterns, so the averaged energy is defined only up to the
+        orientation of the degenerate orbitals.
         """
         combos_per_spin = []
 
@@ -207,19 +227,22 @@ class UKS:
         """Returns a linear combination of several sets of energy terms."""
         return tuple(sum(c * t[i] for c, t in zip(coeffs, terms, strict=True)) for i in range(3))
 
-    def aux_energy(self, dm, vj, e_xc):
-        """Returns the auxiliary total energy of a combined density matrix.
+    def convergence_energy(self):
+        """Returns the energy the SCF convergence is monitored with.
 
-        Methods that optimize the orbitals for a combination of several states
-        use this energy to monitor the SCF convergence.
+        The total energies are evaluated with integer occupation numbers and
+        therefore depend on the orientation of the orbitals within a partially
+        filled degenerate shell, which the diagonalization fixes only up to
+        numerical noise. The auxiliary energy is evaluated with the fractional
+        occupation numbers, which are invariant under that rotation, so it is
+        the quantity that settles down as the SCF procedure converges.
         """
-        e1 = np.einsum("ij,ji->", self.h1e, dm[0] + dm[1])
-        e_coul = 0.5 * np.einsum("ij,ji->", vj, dm[0] + dm[1])
-        return e1 + e_coul + e_xc + self.mf.energy_nuc()
+        return self.e_aux
 
     def compute_energies(self, dm, vj):
         """Computes and stores total energy."""
         self.e_tot = self.total_energy(self.terms)
+        self.e_aux = self.total_energy(self.aux_terms)
 
     def log_iteration(self, itr):
         """Logs per-iteration energy."""

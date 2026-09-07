@@ -33,6 +33,7 @@ class pa_STA_KS(UKS):
         self.frac_occ = frac_occ
         self.h1e = self.mf.get_hcore()
         self.e_tot = None
+        self.e_aux = None
         self.e_tot_oss = None
         self.e_tot_t = None
         self.converged = False
@@ -40,10 +41,8 @@ class pa_STA_KS(UKS):
 
     def get_fock_ingredients(self, mo_energy=None):
         """Returns averaged ingredients from singlet and triplet MOMs."""
-        vxc1, vj1, dm1, self.terms1 = self.get_state_ingredients(self.mom1, mo_energy)
-        vxc3, vj3, dm3, self.terms3 = self.get_state_ingredients(self.mom3, mo_energy)
-
-        self.e_xc_sta = 0.5 * (self.terms1[2] + self.terms3[2])
+        vxc1, vj1, dm1, self.terms1, self.aux_terms1 = self.get_state_ingredients(self.mom1, mo_energy)
+        vxc3, vj3, dm3, self.terms3, self.aux_terms3 = self.get_state_ingredients(self.mom3, mo_energy)
 
         return 0.5 * (vxc1 + vxc3), 0.5 * (vj1 + vj3), 0.5 * (dm1 + dm3)
 
@@ -54,11 +53,12 @@ class pa_STA_KS(UKS):
     def compute_energies(self, dm, vj):
         """Computes and stores state-averaged, OSS, and triplet energies.
 
-        The state-averaged energy is an auxiliary quantity used to monitor the
-        SCF convergence. The open-shell singlet energy follows from the
-        spin-purification formula E(OSS) = 2 E(M) - E(T).
+        The state-averaged energy is the auxiliary quantity that monitors the
+        SCF convergence, see convergence_energy(). The open-shell singlet
+        energy follows from the spin-purification formula E(OSS) = 2 E(M) - E(T).
         """
-        self.e_tot = self.aux_energy(dm, vj, self.e_xc_sta)
+        self.e_tot = self.total_energy(self.combine_terms([0.5, 0.5], [self.aux_terms1, self.aux_terms3]))
+        self.e_aux = self.e_tot
         self.e_tot_oss = self.total_energy(self.combine_terms([2.0, -1.0], [self.terms1, self.terms3]))
         self.e_tot_t = self.total_energy(self.terms3)
 

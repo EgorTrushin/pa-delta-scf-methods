@@ -24,19 +24,19 @@ def test_answer():
     mf_sta = sta(mf, frac_occ=True, excitation=[0, 1])
 
     exc_s = (2 * mf_mixed_singlet.e_tot - mf_triplet.e_tot - mf.e_tot) * HARTREE2EV
-    assert abs(exc_s - 8.540390345734506) < 1e-5
+    assert abs(exc_s - 8.540395740121276) < 1e-5
     exc_t = (mf_triplet.e_tot - mf.e_tot) * HARTREE2EV
-    assert abs(exc_t - 7.52011091914945) < 1e-5
+    assert abs(exc_t - 7.520106830757731) < 1e-5
 
     exc_s = (2 * mf_mixed_singlet_sa.e_tot - mf_triplet_sa.e_tot - mf.e_tot) * HARTREE2EV
-    assert abs(exc_s - 8.593860624773178) < 1e-5
+    assert abs(exc_s - 8.593862231135940) < 1e-5
     exc_t = (mf_triplet_sa.e_tot - mf.e_tot) * HARTREE2EV
-    assert abs(exc_t - 7.566428885532999) < 1e-5
+    assert abs(exc_t - 7.566428856526080) < 1e-5
 
     exc_s = (mf_oss.e_tot - mf.e_tot) * HARTREE2EV
-    assert abs(exc_s - 8.594617199767605) < 1e-5
+    assert abs(exc_s - 8.594619661079655) < 1e-5
 
     exc_s = (mf_sta.e_tot_oss - mf.e_tot) * HARTREE2EV
-    assert abs(exc_s - 8.593294423908250) < 1e-5
+    assert abs(exc_s - 8.593296441807935) < 1e-5
     exc_t = (mf_sta.e_tot_t - mf.e_tot) * HARTREE2EV
-    assert abs(exc_t - 7.566490949574019) < 1e-5
+    assert abs(exc_t - 7.566491122011517) < 1e-5

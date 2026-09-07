@@ -178,6 +178,7 @@ class OSDFTOEP_STA_swap(OSDFTOEP):
                 )
                 if abs(e_tot_old - self.e_multiplet) < e_conv_thr:
                     print("SCF converged")
+                    self.converged = True
                     self.vref_oep_a = vref_oep_a
                     self.vref_oep_b = vref_oep_b
                     self.vrest_oep_a = vrest_oep_a
