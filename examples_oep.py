@@ -77,7 +77,7 @@ def run_uks_oep_swap(mf, occ_s, occ_t, space_sym=False):
     mf_s = OSDFTOEP_swap(mf, OEP_BASIS, occ_s, spin_sym=False, space_sym=space_sym)
     mf_s.run(maxit=50, thr_fai_oep=0.05)
     mf_t = OSDFTOEP_swap(mf, OEP_BASIS, occ_t, spin_sym=False, space_sym=space_sym)
-    mf_t.run(maxit=50, thr_fai_oep=0.0)
+    mf_t.run(maxit=50, thr_fai_oep=0.05)
     return mf_s, mf_t
 
 
