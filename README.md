@@ -44,13 +44,17 @@ methods/                  # Standard KS methods
   mom.py                  # Maximum overlap method
 
 methods_oep/              # OEP variants
+  exxoep.py               # EXX-OEP for closed-shell systems, auxiliary basis and OEP equation
+  osexxoep.py             # EXX-OEP for open-shell systems
   dftoep.py               # Ground-state KS-OEP
+  osdftoep.py             # KS-OEP for open-shell systems, base of the excited-state methods
   osdftoep_swap.py        # UKS-OEP and SS-KS-OEP with orbital swapping
   osdftoep_occ.py         # UKS-OEP and SS-KS-OEP with occupation numbers
   osdftoep_oss_swap.py    # OSS-KS-OEP with orbital swapping
   osdftoep_oss_occ.py     # OSS-KS-OEP with occupation numbers
   osdftoep_sta_swap.py    # STA-KS-OEP with orbital swapping
   osdftoep_sta_occ.py     # STA-KS-OEP with occupation numbers
+  mom.py                  # Maximum overlap method
 
 tests/                    # Test suite
   test_h2o.py             # Standard KS tests on H₂O
@@ -59,6 +63,9 @@ tests/                    # Test suite
   test_n2_oep_swap.py     # OEP with orbital swapping, tests on N₂
   test_h2o_oep_occ.py     # OEP with occupation numbers, tests on H₂O
   test_n2_oep_occ.py      # OEP with occupation numbers, tests on N₂
+  helpers.py              # Shared drivers for the standard KS tests
+  helpers_oep_swap.py     # Shared drivers for the orbital-swap OEP tests
+  helpers_oep_occ.py      # Shared drivers for the occupation-number OEP tests
 
 examples.py               # Standard KS examples: H₂O and N₂
 examples_oep.py           # OEP examples: H₂O and N₂
