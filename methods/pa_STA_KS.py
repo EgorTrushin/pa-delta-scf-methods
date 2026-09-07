@@ -3,8 +3,6 @@
 
 from copy import deepcopy
 
-from pyscf import dft
-
 from .mom import MOM
 from .UKS import UKS
 
@@ -12,6 +10,11 @@ from .UKS import UKS
 class pa_STA_KS(UKS):
     r"""
     Implements potential-averaged state-averaged KS method.
+
+    The orbitals are optimized for the average of the Hartree-exchange-correlation
+    potentials of the mixed singlet-triplet and the triplet determinant, so that
+    a single SCF procedure yields both the open-shell singlet and the triplet
+    energy of one excitation.
 
     Args:
         mf: PySCF object with ground-state UKS calculation
@@ -21,11 +24,14 @@ class pa_STA_KS(UKS):
         logger: logger object for logging information
     """
 
+    spin_symmetrized = True
+
     def __init__(self, mf, occ1, occ3, frac_occ=True, logger=None):
         self.mf = deepcopy(mf)
         self.mom1 = MOM(mf.mo_coeff.copy(), occ1, mf.get_ovlp(), frac_occ)
         self.mom3 = MOM(mf.mo_coeff.copy(), occ3, mf.get_ovlp(), frac_occ)
         self.frac_occ = frac_occ
+        self.h1e = self.mf.get_hcore()
         self.e_tot = None
         self.e_tot_oss = None
         self.e_tot_t = None
@@ -34,52 +40,27 @@ class pa_STA_KS(UKS):
 
     def get_fock_ingredients(self, mo_energy=None):
         """Returns averaged ingredients from singlet and triplet MOMs."""
-        vxc1, vj1, dm1, e_xc1, e_x_nl1 = self.get_state_ingredients(self.mom1, mo_energy)
-        vxc3, vj3, dm3, e_xc3, e_x_nl3 = self.get_state_ingredients(self.mom3, mo_energy)
+        vxc1, vj1, dm1, self.terms1 = self.get_state_ingredients(self.mom1, mo_energy)
+        vxc3, vj3, dm3, self.terms3 = self.get_state_ingredients(self.mom3, mo_energy)
 
-        if mo_energy is None and self.frac_occ and dft.libxc.is_hybrid_xc(self.mf.xc):
-            self.dm1_p, self.vj1_p, self.e_x_nl1_p = dm1, vj1, e_x_nl1
-            self.dm3_p, self.vj3_p, self.e_x_nl3_p = dm3, vj3, e_x_nl3
-        else:
-            self.dm1, self.vj1, self.e_xc1, self.e_x_nl1 = dm1, vj1, e_xc1, e_x_nl1
-            self.dm3, self.vj3, self.e_xc3, self.e_x_nl3 = dm3, vj3, e_xc3, e_x_nl3
+        self.e_xc_sta = 0.5 * (self.terms1[2] + self.terms3[2])
 
-        vxc = 0.5 * (vxc1 + vxc3)
-        vj = 0.5 * (vj1 + vj3)
-        dm = 0.5 * (dm1 + dm3)
-        e_xc = 0.5 * (e_xc1 + e_xc3)
-        e_x_nl = 0.5 * (e_x_nl1 + e_x_nl3)
-
-        return vxc, vj, dm, e_xc, e_x_nl
-
-    def get_reference_mom(self):
-        """Returns the primary MOM for occupation number checks."""
-        return self.mom1
+        return 0.5 * (vxc1 + vxc3), 0.5 * (vj1 + vj3), 0.5 * (dm1 + dm3)
 
     def get_moms(self):
         """Returns the list of MOMs used in the calculation."""
         return [self.mom1, self.mom3]
 
-    def compute_energies(self, h1e, dm, vj, e_xc, dm_p=None, vj_p=None, e_x_nl=None, e_x_nl_p=None):
-        """Computes and stores state-averaged, OSS, and triplet energies."""
-        e_x_nl = e_x_nl or 0.0
-        e_x_nl_p = e_x_nl_p or 0.0
+    def compute_energies(self, dm, vj):
+        """Computes and stores state-averaged, OSS, and triplet energies.
 
-        self.e_tot = self.single_energy(h1e, dm, vj, e_xc, dm_p, vj_p, e_x_nl, e_x_nl_p)
-
-        dm_oss = 2 * self.dm1 - self.dm3
-        vj_oss = 2 * self.vj1 - self.vj3
-        e_xc_oss = 2 * self.e_xc1 - self.e_xc3
-        e_x_nl_oss = 2 * self.e_x_nl1 - self.e_x_nl3
-        dm_oss_p = 2 * self.dm1_p - self.dm3_p if dm_p is not None else None
-        vj_oss_p = 2 * self.vj1_p - self.vj3_p if dm_p is not None else None
-        e_x_nl_oss_p = 2 * self.e_x_nl1_p - self.e_x_nl3_p if dm_p is not None else 0.0
-        self.e_tot_oss = self.single_energy(h1e, dm_oss, vj_oss, e_xc_oss, dm_oss_p, vj_oss_p, e_x_nl_oss, e_x_nl_oss_p)
-
-        dm3_p = self.dm3_p if dm_p is not None else None
-        vj3_p = self.vj3_p if dm_p is not None else None
-        e_x_nl3_p = self.e_x_nl3_p if dm_p is not None else 0.0
-        self.e_tot_t = self.single_energy(h1e, self.dm3, self.vj3, self.e_xc3, dm3_p, vj3_p, self.e_x_nl3, e_x_nl3_p)
+        The state-averaged energy is an auxiliary quantity used to monitor the
+        SCF convergence. The open-shell singlet energy follows from the
+        spin-purification formula E(OSS) = 2 E(M) - E(T).
+        """
+        self.e_tot = self.aux_energy(dm, vj, self.e_xc_sta)
+        self.e_tot_oss = self.total_energy(self.combine_terms([2.0, -1.0], [self.terms1, self.terms3]))
+        self.e_tot_t = self.total_energy(self.terms3)
 
     def log_iteration(self, itr):
         """Logs per-iteration state-averaged, OSS, and triplet energies."""
@@ -90,18 +71,3 @@ class pa_STA_KS(UKS):
             self.e_tot_oss,
             self.e_tot_t,
         )
-
-    def get_state_ingredients(self, mom, mo_energy=None):
-        """Constructs ingredients for a single state with spin-averaged vxc.
-
-        The alpha and beta components of vxc are averaged so that the
-        exchange-correlation potential is the same for both spins.
-        """
-        occ = mom.get_occ(self.mf.mo_coeff, mo_energy)
-        dm = self.mf.make_rdm1(self.mf.mo_coeff, occ)
-        vxc, vj, exc, e_x_nl = self.eval_dft(dm)
-
-        vxc[0, :, :] = 0.5 * (vxc[0, :, :] + vxc[1, :, :])
-        vxc[1, :, :] = vxc[0, :, :]
-
-        return vxc, vj, dm, exc, e_x_nl

@@ -4,6 +4,34 @@ from functools import reduce
 
 import numpy as np
 
+DEGENERACY_TOL = 1e-8
+
+
+def degenerate_groups(energies, tol=DEGENERACY_TOL):
+    """Groups the orbital indices into shells of degenerate orbitals.
+
+    Args:
+      energies: MO energies of one spin channel
+      tol: energy difference below which two orbitals count as degenerate
+
+    Returns:
+      groups: list of index lists, one per shell, ordered by energy
+    """
+    sorted_indices = np.argsort(energies)
+
+    groups = []
+    current_group = [sorted_indices[0]]
+
+    for i in range(1, len(sorted_indices)):
+        if abs(energies[sorted_indices[i]] - energies[sorted_indices[i - 1]]) <= tol:
+            current_group.append(sorted_indices[i])
+        else:
+            groups.append(current_group)
+            current_group = [sorted_indices[i]]
+    groups.append(current_group)
+
+    return groups
+
 
 class MOM:
     """
@@ -59,28 +87,16 @@ class MOM:
 
         return new_occ
 
-    def fill_frac_occ(self, energies, occupations, tol=1e-10):
+    def fill_frac_occ(self, energies, occupations, tol=DEGENERACY_TOL):
         """
         Adjust occupations for degenerate orbitals to have equal fractional occupation.
+
+        The tolerance has to be looser than the numerical noise with which the
+        preceding SCF procedure resolves a degeneracy. Otherwise the orbitals of
+        a degenerate shell are not recognized as degenerate, the occupation
+        numbers stay integer, and the spatial symmetry breaks.
         """
-        sorted_indices = np.argsort(energies)
-
-        # Search for groups of degenerate orbitals
-        groups = []
-        current_group = [sorted_indices[0]]
-
-        for i in range(1, len(sorted_indices)):
-            if abs(energies[sorted_indices[i]] - energies[sorted_indices[i - 1]]) <= tol:
-                current_group.append(sorted_indices[i])
-            else:
-                groups.append(current_group)
-                current_group = [sorted_indices[i]]
-        groups.append(current_group)
-
-        # Assign fractional occupations for each group
         new_occ = occupations.copy()
-        for group in groups:
-            total_occ = occupations[group].sum()
-            equal_occ = total_occ / len(group)
-            new_occ[group] = equal_occ
+        for group in degenerate_groups(energies, tol):
+            new_occ[group] = occupations[group].sum() / len(group)
         return new_occ
