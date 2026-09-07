@@ -13,7 +13,7 @@ def excited_state_singlet(mf_gs, frac_occ, excitation):
     mf_es.run(verb=False)
     if not mf_es.converged:
         print("UKS excited-state singlet calculation did not converge")
-    print("Energy of excited-state singlet (UKS):", mf_es.e_tot, flush=True)
+    print("Energy of excited-state singlet (UKS):", mf_es.e_tot)
     mf_es.print_occ_numbers()
     return mf_es
 
@@ -27,7 +27,7 @@ def triplet(mf_gs, frac_occ, excitation):
     mf_es.run(verb=False)
     if not mf_es.converged:
         print("UKS excited-state triplet calculation did not converge")
-    print("Energy of excited-state triplet (UKS):", mf_es.e_tot, flush=True)
+    print("Energy of excited-state triplet (UKS):", mf_es.e_tot)
     mf_es.print_occ_numbers()
     return mf_es
 
@@ -41,7 +41,7 @@ def excited_state_singlet_sa(mf_gs, frac_occ, excitation):
     mf_es.run(verb=False)
     if not mf_es.converged:
         print("pa-SS-KS excited-state singlet calculation did not converge")
-    print("Energy of excited-state singlet (pa-SS-KS):", mf_es.e_tot, flush=True)
+    print("Energy of excited-state singlet (pa-SS-KS):", mf_es.e_tot)
     mf_es.print_occ_numbers()
     return mf_es
 
@@ -55,7 +55,7 @@ def triplet_sa(mf_gs, frac_occ, excitation):
     mf_es.run(verb=False)
     if not mf_es.converged:
         print("pa-SS-KS excited-state triplet calculation did not converge")
-    print("Energy of excited-state triplet (pa-SS-KS):", mf_es.e_tot, flush=True)
+    print("Energy of excited-state triplet (pa-SS-KS):", mf_es.e_tot)
     mf_es.print_occ_numbers()
     return mf_es
 
@@ -90,6 +90,6 @@ def sta(mf_gs, frac_occ, excitation):
     if not mf_es.converged:
         print("pa-STA-KS excited-state calculation did not converge")
     print("Energy of excited-state singlet (pa-STA-KS):", mf_es.e_tot_oss)
-    print("Energy of excited-state triplet (pa-STA-KS):", mf_es.e_tot_t, flush=True)
+    print("Energy of excited-state triplet (pa-STA-KS):", mf_es.e_tot_t)
     mf_es.print_occ_numbers()
     return mf_es

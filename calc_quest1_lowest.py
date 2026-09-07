@@ -60,7 +60,7 @@ def run_singlet(mf_gs, frac_occ, excitation, cls):
     mf_es.run(verb=False)
     if not mf_es.converged:
         print(f"{label} excited-state singlet calculation did not converge")
-    print(f"Energy of excited-state singlet ({label}):", mf_es.e_tot, flush=True)
+    print(f"Energy of excited-state singlet ({label}):", mf_es.e_tot)
     mf_es.print_occ_numbers()
     return mf_es
 
@@ -85,7 +85,7 @@ def run_triplet(mf_gs, frac_occ, excitation, cls):
     mf_es.run(verb=False)
     if not mf_es.converged:
         print(f"{label} excited-state triplet calculation did not converge")
-    print(f"Energy of excited-state triplet ({label}):", mf_es.e_tot, flush=True)
+    print(f"Energy of excited-state triplet ({label}):", mf_es.e_tot)
     mf_es.print_occ_numbers()
     return mf_es
 
@@ -142,7 +142,7 @@ def run_sta(mf_gs, frac_occ, excitation):
     if not mf_es.converged:
         print("pa-STA-KS excited-state calculation did not converge")
     print("Energy of excited-state singlet (pa-STA-KS):", mf_es.e_tot_oss)
-    print("Energy of excited-state triplet (pa-STA-KS):", mf_es.e_tot_t, flush=True)
+    print("Energy of excited-state triplet (pa-STA-KS):", mf_es.e_tot_t)
     mf_es.print_occ_numbers()
     return mf_es
 
@@ -273,7 +273,7 @@ def calc_quest1(config):
     results = {}
     for i, system in enumerate(systems2use, 1):
         t_mol = time.time()
-        print(f"\n[{i}/{len(systems2use)}] {system}", flush=True)
+        print(f"\n[{i}/{len(systems2use)}] {system}")
 
         results[system] = {
             "excitation": reference[system]["label"],
@@ -295,7 +295,7 @@ def calc_quest1(config):
         mf.run()
         if not mf.converged:
             print("RKS ground-state calculation did not converge")
-        print("Energy of ground-state singlet:", mf.e_tot, flush=True)
+        print("Energy of ground-state singlet:", mf.e_tot)
         mf = mf.to_uks()
 
         exci = config["exceptions"][system] if system in config["exceptions"] else config["excitation"]
@@ -338,7 +338,7 @@ def calc_quest1(config):
 
         elapsed_mol = fmt_time(time.time() - t_mol)
         elapsed_total = fmt_time(time.time() - t_total)
-        print(f"Elapsed: {elapsed_mol}  Total: {elapsed_total}", flush=True)
+        print(f"Elapsed: {elapsed_mol}  Total: {elapsed_total}")
 
     with open("results.json", "w", encoding="utf-8") as file_obj:
         print(json.dumps(results, indent=4), file=file_obj)

@@ -151,7 +151,7 @@ def calc_quest1(config):
     results = {}
     for i, system in enumerate(systems2use, 1):
         t_mol = time.time()
-        print(f"\n[{i}/{len(systems2use)}] {system}", flush=True)
+        print(f"\n[{i}/{len(systems2use)}] {system}")
 
         results[system] = {
             "excitation": reference[system]["label"],
@@ -270,7 +270,7 @@ def calc_quest1(config):
 
         elapsed_mol = fmt_time(time.time() - t_mol)
         elapsed_total = fmt_time(time.time() - t_total)
-        print(f"Elapsed: {elapsed_mol}  Total: {elapsed_total}", flush=True)
+        print(f"Elapsed: {elapsed_mol}  Total: {elapsed_total}")
 
     with open("results.json", "w", encoding="utf-8") as file_obj:
         print(json.dumps(results, indent=4), file=file_obj)

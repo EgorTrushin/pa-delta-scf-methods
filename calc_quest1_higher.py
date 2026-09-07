@@ -116,7 +116,7 @@ def calc_quest1(config):
         for excitation in config["excitations"][system]:
             count += 1
             t_exc = time.time()
-            print(f"\n[{count}/{total}] {system} {excitation}", flush=True)
+            print(f"\n[{count}/{total}] {system} {excitation}")
 
             results[system][excitation] = {
                 "excitation": reference[system][excitation]["label"],
@@ -138,7 +138,7 @@ def calc_quest1(config):
             mf.run()
             if not mf.converged:
                 print("RKS ground-state calculation did not converge")
-            print("Energy of ground-state singlet:", mf.e_tot, flush=True)
+            print("Energy of ground-state singlet:", mf.e_tot)
             mf = mf.to_uks()
 
             exci = config["excitations"][system][excitation]
@@ -181,7 +181,7 @@ def calc_quest1(config):
 
             elapsed_exc = fmt_time(time.time() - t_exc)
             elapsed_total = fmt_time(time.time() - t_total)
-            print(f"Elapsed: {elapsed_exc}  Total: {elapsed_total}", flush=True)
+            print(f"Elapsed: {elapsed_exc}  Total: {elapsed_total}")
 
     with open("results.json", "w", encoding="utf-8") as file_obj:
         print(json.dumps(results, indent=4), file=file_obj)
