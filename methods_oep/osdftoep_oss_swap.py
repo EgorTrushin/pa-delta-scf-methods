@@ -166,7 +166,7 @@ class OSDFTOEP_OSS_swap(OSDFTOEP_STA_swap):
 
         self.occ = self.mom.get_occ(self.mf.mo_coeff, self.mf.mo_energy if self.frac_occ else None)
         dm = self.mf.make_rdm1(self.mf.mo_coeff, self.occ)
-        self.occ3 = self.mom3.get_occ(self.mf.mo_coeff3, self.mf.mo_energy if self.frac_occ else None)
+        self.occ3 = self.mom3.get_occ(self.mf.mo_coeff3, self.mf.mo_energy3 if self.frac_occ else None)
         dm3 = self.mf.make_rdm1(self.mf.mo_coeff3, self.occ3)
 
         e_xc, self.vj_ao, self.E_Coul, self.vxnl_ao, self.E_x, omega, alpha, hyb = self.eval_state(dm)
@@ -203,8 +203,8 @@ class OSDFTOEP_OSS_swap(OSDFTOEP_STA_swap):
                 E_Coul_p = np.einsum("ij,ji->", vj_ao_p, dm_p[0] + dm_p[1]).real * 0.5
                 self.E_Coul = (1 - hyb) * self.E_Coul + hyb * E_Coul_p
 
-                occ_p = self.mom3.get_occ(self.mf.mo_coeff)
-                dm3_p = self.mf.make_rdm1(self.mf.mo_coeff, occ_p)
+                occ_p = self.mom3.get_occ(self.mf.mo_coeff3)
+                dm3_p = self.mf.make_rdm1(self.mf.mo_coeff3, occ_p)
                 if omega == 0:
                     vj_ao_p, vxnl_ao_p = self.mf.get_jk(self.mf.mol, dm3_p)
                 elif alpha == 0:  # LR=0, only SR exchange
