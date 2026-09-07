@@ -6,12 +6,9 @@ requires-python = ">=3.12"
 dependencies = [
     "pyscf",
     "basis_set_exchange",
-    "pyyaml",
-    "pandas",
-    "matplotlib",
+    "psutil",
     "pytest",
     "ruff",
-    "jupyter>=1.1",
 ]
 
 [tool.ruff]
@@ -24,7 +21,3 @@ ignore = ["E203"]
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 pythonpath = ["."]
-
-[tool.ruff.lint.per-file-ignores]
-# Dataset files contain commented-out entries with long inline geometries/labels
-"sets/*.py" = ["E501"]

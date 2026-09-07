@@ -6,7 +6,7 @@ This repository contains the implementation of the methods introduced in:
 
 ## Published version and ongoing development
 
-The version of the code associated with the published article is permanently archived on Zenodo: https://doi.org/10.5281/zenodo.20270737. The `main` branch of this repository may differ from the version used for the publication. For reproduction of the results reported in the article, please use the archived Zenodo version. The current `main` branch contains subsequent fixes, improvements, and further developments of the methods.
+The version of the code associated with the published article is permanently archived on Zenodo: https://doi.org/10.5281/zenodo.20270737. The `main` branch of this repository may differ from the version used for the publication. For reproduction of the results reported in the article, please use the archived Zenodo version. The current `main` branch contains subsequent fixes, improvements, and further developments of the methods. The scripts, datasets, configurations, results, tables and the analysis notebook of the QUEST calculations reported in the article are part of the archived version and are no longer carried on `main`, which keeps the method implementations, their examples and the test suite.
 
 ## Methods
 
@@ -60,24 +60,8 @@ tests/                    # Test suite
   test_h2o_oep_occ.py     # OEP with occupation numbers, tests on H₂O
   test_n2_oep_occ.py      # OEP with occupation numbers, tests on N₂
 
-sets/                     # Molecular geometries and reference energies
-  quest1_lowest.py        # QUEST1 lowest excited states
-  quest1_higher.py        # QUEST1 higher excited states
-  quest6.py               # QUEST6 dataset
-
-configs/                  # Calculation configuration files (YAML)
-
-results/                  # Calculation outputs and parsed results
-  quest1_lowest/          # QUEST1 lowest excited states
-  quest1_higher/          # QUEST1 higher excited states
-  quest6/                 # QUEST6 dataset
-
-csv/                      # Excitation energy and MAE tables (CSV)
-
 examples.py               # Standard KS examples: H₂O and N₂
 examples_oep.py           # OEP examples: H₂O and N₂
-
-pa-delta-scf-methods.ipynb      # Analysis notebook
 ```
 
 ## Installation
@@ -88,7 +72,7 @@ Clone the repository. [uv](https://docs.astral.sh/uv/) sets up everything and in
 uv sync
 ```
 
-This creates the virtual environment `.venv/` using the Python version from `.python-version` (3.12). Prefix commands with `uv run` to use the environment, e.g. `uv run pytest` or `uv run jupyter lab`, or activate it once with `source .venv/bin/activate`.
+This creates the virtual environment `.venv/` using the Python version from `.python-version` (3.12). Prefix commands with `uv run` to use the environment, e.g. `uv run pytest` or `uv run python examples.py`, or activate it once with `source .venv/bin/activate`.
 
 ## Examples
 

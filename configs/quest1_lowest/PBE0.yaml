@@ -1,8 +1,0 @@
-basis: aug-cc-pVQZ
-auxbasis: aug-cc-pV5Z-RIFIT
-xc: PBE0
-excitation: [0, 1]
-exceptions: {"Hydrogen sulfide": [0, 2], "Formamide": [0, 2]}
-grid_level: 3
-frac_occ: True
-systems: null
