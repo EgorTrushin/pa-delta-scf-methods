@@ -66,13 +66,29 @@ examples_oep.py           # OEP examples: H₂O and N₂
 
 ## Installation
 
-Clone the repository. [uv](https://docs.astral.sh/uv/) sets up everything and installs the exact versions recorded in `uv.lock`:
+Clone the repository, then set up the environment in one of two ways.
+
+### With uv
+
+[uv](https://docs.astral.sh/uv/) sets up everything and installs the exact versions recorded in `uv.lock`:
 
 ```bash
 uv sync
 ```
 
 This creates the virtual environment `.venv/` using the Python version from `.python-version` (3.12). Prefix commands with `uv run` to use the environment, e.g. `uv run pytest` or `uv run python examples.py`, or activate it once with `source .venv/bin/activate`.
+
+### With python3 and pip
+
+Without uv, create the virtual environment with `python3` (3.12 or newer) and install the pinned packages from `requirements.txt`:
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+```
+
+pa-delta-scf-methods is not installed as a package, so scripts must be started from the project root for the `methods/` and `methods_oep/` packages to be importable.
 
 ## Examples
 
