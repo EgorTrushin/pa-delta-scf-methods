@@ -1,11 +1,10 @@
 #!/usr/bin/env python3
 
-import sys
 from copy import deepcopy
 
 import numpy as np
 import scipy
-from pyscf import dft, lib
+from pyscf import lib
 
 from .mom import MOM
 from .osdftoep import OSDFTOEP
@@ -196,91 +195,17 @@ class OSDFTOEP_STA_swap(OSDFTOEP):
     def get_energies_and_potentials(self):
         """Determines energy contributions and potentials. Swap orbitals in the end."""
 
-        self.occ = self.mom.get_occ(self.mf.mo_coeff, self.mf.mo_energy if self.frac_occ else None)
-        dm = self.mf.make_rdm1(self.mf.mo_coeff, self.occ)
-        self.occ3 = self.mom3.get_occ(self.mf.mo_coeff3, self.mf.mo_energy3 if self.frac_occ else None)
-        dm3 = self.mf.make_rdm1(self.mf.mo_coeff3, self.occ3)
+        self.occ, _, self.vj_ao, self.vxnl_ao, terms, aux_terms = self.get_state_ingredients(
+            self.mom, self.mf.mo_coeff, self.mf.mo_energy
+        )
+        self.occ3, _, _, self.vxnl_ao3, terms3, aux_terms3 = self.get_state_ingredients(
+            self.mom3, self.mf.mo_coeff3, self.mf.mo_energy3
+        )
 
-        e_xc, self.vj_ao, self.E_Coul, self.vxnl_ao, self.E_x, omega, alpha, hyb = self.eval_state(dm)
-        e_xc3, self.vj_ao3, self.E_Coul3, self.vxnl_ao3, self.E_x3, _, _, _ = self.eval_state(dm3)
-
-        h1e = self.mf.get_hcore()
-        e1 = 2.0 * np.einsum("ij,ji->", h1e, dm[0] + dm[1]) - np.einsum("ij,ji->", h1e, dm3[0] + dm3[1])
-        self.e_tot = e1 + 2 * self.E_Coul - self.E_Coul3 + 2 * e_xc - e_xc3 + self.mf.energy_nuc()
-        if dft.libxc.is_hybrid_xc(self.mf.xc):
-            self.e_tot += hyb * (2 * self.E_x - self.E_x3)
-
-        e1 = np.einsum("ij,ji->", h1e, dm3[0] + dm3[1])
-        self.e_tot3 = e1 + self.E_Coul3 + e_xc3 + self.mf.energy_nuc()
-        if dft.libxc.is_hybrid_xc(self.mf.xc):
-            self.e_tot3 += hyb * self.E_x3
-
-        e1 = 0.5 * np.einsum("ij,ji->", h1e, dm[0] + dm[1]) + 0.5 * np.einsum("ij,ji->", h1e, dm3[0] + dm3[1])
-        self.e_multiplet = e1 + 0.5 * (self.E_Coul + self.E_Coul3) + 0.5 * (e_xc + e_xc3) + self.mf.energy_nuc()
-        if dft.libxc.is_hybrid_xc(self.mf.xc):
-            self.e_multiplet += hyb * 0.5 * (self.E_x + self.E_x3)
-
-        if self.frac_occ:
-            nocc = np.count_nonzero(self.occ)
-            if nocc > sum(self.mf.nelec) and dft.libxc.is_hybrid_xc(self.mf.xc):
-                occ_p = self.mom.get_occ(self.mf.mo_coeff)
-                dm_p = self.mf.make_rdm1(self.mf.mo_coeff, occ_p)
-                if omega == 0:
-                    vj_ao_p, vxnl_ao_p = self.mf.get_jk(self.mf.mol, dm_p)
-                elif alpha == 0:  # LR=0, only SR exchange
-                    vj_ao_p = self.mf.get_j(self.mf.mol, dm_p)
-                    vxnl_ao_p = self.mf.get_k(self.mf.mol, dm_p, omega=-omega)
-                else:
-                    sys.exit("Not implemented case for hybrid functionals")
-
-                self.E_x_p = -0.5 * np.einsum("ij,ji->", vxnl_ao_p[0], dm_p[0])
-                self.E_x_p += -0.5 * np.einsum("ij,ji->", vxnl_ao_p[1], dm_p[1])
-
-                vj_ao_p = vj_ao_p[0] + vj_ao_p[1]
-                E_Coul_p = np.einsum("ij,ji->", vj_ao_p, dm_p[0] + dm_p[1]).real * 0.5
-                self.E_Coul = (1 - hyb) * self.E_Coul + hyb * E_Coul_p
-
-                occ_p = self.mom3.get_occ(self.mf.mo_coeff3)
-                dm3_p = self.mf.make_rdm1(self.mf.mo_coeff3, occ_p)
-                if omega == 0:
-                    vj_ao_p, vxnl_ao_p = self.mf.get_jk(self.mf.mol, dm3_p)
-                elif alpha == 0:  # LR=0, only SR exchange
-                    vj_ao_p = self.mf.get_j(self.mf.mol, dm3_p)
-                    vxnl_ao_p = self.mf.get_k(self.mf.mol, dm3_p, omega=-omega)
-                else:
-                    sys.exit("Not implemented case for hybrid functionals")
-
-                self.E_x3_p = -0.5 * np.einsum("ij,ji->", vxnl_ao_p[0], dm3_p[0])
-                self.E_x3_p += -0.5 * np.einsum("ij,ji->", vxnl_ao_p[1], dm3_p[1])
-
-                vj_ao_p = vj_ao_p[0] + vj_ao_p[1]
-                E_Coul3_p = np.einsum("ij,ji->", vj_ao_p, dm3_p[0] + dm3_p[1]).real * 0.5
-                self.E_Coul3 = (1 - hyb) * self.E_Coul3 + hyb * E_Coul3_p
-
-                e1 = 2.0 * np.einsum("ij,ji->", h1e, dm_p[0] + dm_p[1]) - np.einsum("ij,ji->", h1e, dm3_p[0] + dm3_p[1])
-                self.e_tot = (
-                    e1
-                    + 2 * self.E_Coul
-                    - self.E_Coul3
-                    + 2 * e_xc
-                    - e_xc3
-                    + self.mf.energy_nuc()
-                    + hyb * (2 * self.E_x_p - self.E_x3_p)
-                )
-
-                e1 = np.einsum("ij,ji->", h1e, dm3_p[0] + dm3_p[1])
-                self.e_tot3 = e1 + self.E_Coul3 + e_xc3 + self.mf.energy_nuc() + hyb * self.E_x3_p
-
-                e1 = 0.5 * np.einsum("ij,ji->", h1e, dm_p[0] + dm_p[1]) + 0.5 * np.einsum(
-                    "ij,ji->", h1e, dm3_p[0] + dm3_p[1]
-                )
-                self.e_multiplet = (
-                    e1
-                    + 0.5 * (self.E_Coul + self.E_Coul3)
-                    + 0.5 * (e_xc + e_xc3)
-                    + self.mf.energy_nuc()
-                    + 0.5 * hyb * (self.E_x_p + self.E_x3_p)
-                )
+        self.e_tot = self.total_energy(self.combine_terms([2.0, -1.0], [terms, terms3]))
+        self.e_tot3 = self.total_energy(terms3)
+        self.e_multiplet = self.total_energy(self.combine_terms([0.5, 0.5], [aux_terms, aux_terms3]))
+        self.e_aux = self.e_multiplet
 
         self.swap_orbitals(self.mf.mo_coeff, self.mf.mo_energy, self.occ)
         self.swap_orbitals(self.mf.mo_coeff3, self.mf.mo_energy3, self.occ3)

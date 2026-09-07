@@ -12,7 +12,7 @@ The version of the code associated with the published article is permanently arc
 
 All methods are implemented on top of [PySCF](https://pyscf.org).
 
-With `frac_occ=True`, the orbitals of a partially filled degenerate shell carry fractional occupation numbers, which enter the construction of the potentials. Total energies, in contrast, are always evaluated with integer occupation numbers, averaged over all integer occupation patterns that are compatible with the fractional ones.
+With `frac_occ=True` (`space_sym=True` for the OEP methods), the orbitals of a partially filled degenerate shell carry fractional occupation numbers, which enter the construction of the potentials. Total energies, in contrast, are always evaluated with integer occupation numbers, averaged over all integer occupation patterns that are compatible with the fractional ones.
 
 - **UKS-KS**: standard spin-unrestricted Kohn-Sham method
 

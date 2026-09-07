@@ -37,6 +37,7 @@ class EXXOEP:
         get_energies_and_potentials().
         """
         self.mf = deepcopy(mf)
+        self.h1e = self.mf.get_hcore()
         self.oep_basis = oep_basis
         self.vh_via_OEP = vh_via_OEP
         self.space_sym = space_sym
@@ -49,6 +50,10 @@ class EXXOEP:
         self.get_WII()
         self.get_y_and_yII()
         self.converged = False
+
+    def convergence_energy(self):
+        """Returns the energy the SCF convergence is monitored with."""
+        return self.e_tot
 
     def run(self, maxit=50, thr_fai_oep=5e-2, linear_mixing=-1.0, e_conv_thr=1e-8):
         r"""
@@ -124,18 +129,20 @@ class EXXOEP:
 
             self.get_energies_and_potentials()
 
+            e_conv = self.convergence_energy()
+
             if e_tot_old is None:
                 print(f"{current_iter:3}  {self.e_tot:18.12f}")
-                e_tot_old = self.e_tot
+                e_tot_old = e_conv
             else:
-                print(f"{current_iter:3}  {self.e_tot:18.12f}  {self.e_tot - e_tot_old:18.12f}")
-                if abs(e_tot_old - self.e_tot) < e_conv_thr:
+                print(f"{current_iter:3}  {self.e_tot:18.12f}  {e_conv - e_tot_old:18.12f}")
+                if abs(e_tot_old - e_conv) < e_conv_thr:
                     print("SCF converged")
                     self.converged = True
                     self.vref_oep = vref_oep
                     self.vrest_oep = vrest_oep
                     break
-                e_tot_old = self.e_tot
+                e_tot_old = e_conv
 
             if current_iter == maxit - 1:
                 print("SCF was not converged")

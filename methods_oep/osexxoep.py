@@ -172,12 +172,14 @@ class OSEXXOEP(EXXOEP):
 
             self.get_energies_and_potentials()
 
+            e_conv = self.convergence_energy()
+
             if e_tot_old is None:
                 print(f"{current_iter:3}  {self.e_tot:18.12f}")
-                e_tot_old = self.e_tot
+                e_tot_old = e_conv
             else:
-                print(f"{current_iter:3}  {self.e_tot:18.12f}  {self.e_tot - e_tot_old:18.12f}")
-                if abs(e_tot_old - self.e_tot) < e_conv_thr:
+                print(f"{current_iter:3}  {self.e_tot:18.12f}  {e_conv - e_tot_old:18.12f}")
+                if abs(e_tot_old - e_conv) < e_conv_thr:
                     print("SCF converged")
                     self.converged = True
                     self.vref_oep_a = vref_oep_a
@@ -185,7 +187,7 @@ class OSEXXOEP(EXXOEP):
                     self.vrest_oep_a = vrest_oep_a
                     self.vrest_oep_b = vrest_oep_b
                     break
-                e_tot_old = self.e_tot
+                e_tot_old = e_conv
 
             if current_iter == maxit - 1:
                 print("SCF was not converged")
