@@ -44,6 +44,7 @@ class UKS:
         self.mom = MOM(mf.mo_coeff.copy(), occ, mf.get_ovlp(), frac_occ)
         self.frac_occ = frac_occ
         self.h1e = self.mf.get_hcore()
+        self.X_lindep = self.canorth_matrix()
         self.e_tot = None
         self.e_aux = None
         self.converged = False
@@ -84,8 +85,8 @@ class UKS:
             err_vec = np.hstack((err_a.ravel(), err_b.ravel()))
             fock = adiis.update(fock, err_vec)
 
-            eigvals_a, c_a = scipy.linalg.eigh(fock[0], sovlp)
-            eigvals_b, c_b = scipy.linalg.eigh(fock[1], sovlp)
+            eigvals_a, c_a = self.eigh_canorth(fock[0])
+            eigvals_b, c_b = self.eigh_canorth(fock[1])
             self.mf.mo_energy = (eigvals_a, eigvals_b)
             self.mf.mo_coeff = (c_a, c_b)
 
@@ -136,6 +137,29 @@ class UKS:
         )
 
         return vxc, vj, dm, self.energy_terms(occ, aux_terms), aux_terms
+
+    def canorth_matrix(self):
+        """Returns the canonical orthogonalization matrix of the orbital subspace.
+
+        PySCF drops the eigenvectors of the overlap matrix below its threshold
+        during the canonical orthogonalization, so mo_coeff has nmo columns with
+        nmo smaller than nao for a linearly dependent basis. The matrix spans
+        that nmo-dimensional subspace.
+        """
+        nmo = self.mf.mo_coeff.shape[-1]
+        e_s, v_s = scipy.linalg.eigh(self.mf.get_ovlp())
+        return v_s[:, -nmo:] / np.sqrt(e_s[-nmo:])
+
+    def eigh_canorth(self, fock):
+        """Diagonalizes the Fock matrix within that subspace.
+
+        The orbitals of every iteration then keep the shape the occupation
+        numbers are stored with, which a plain scipy.linalg.eigh(fock, sovlp)
+        does not for a linearly dependent basis.
+        """
+        x = self.X_lindep
+        eigvals, c = scipy.linalg.eigh(x.T @ fock @ x)
+        return eigvals, x @ c
 
     def symmetrize_vxc(self, vxc):
         """Averages the alpha and beta components of vxc in spin-symmetrized methods.

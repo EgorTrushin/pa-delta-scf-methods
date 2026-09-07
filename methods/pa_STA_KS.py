@@ -32,6 +32,7 @@ class pa_STA_KS(UKS):
         self.mom3 = MOM(mf.mo_coeff.copy(), occ3, mf.get_ovlp(), frac_occ)
         self.frac_occ = frac_occ
         self.h1e = self.mf.get_hcore()
+        self.X_lindep = self.canorth_matrix()
         self.e_tot = None
         self.e_aux = None
         self.e_tot_oss = None
