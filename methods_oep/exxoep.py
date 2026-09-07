@@ -1,13 +1,10 @@
 #!/usr/bin/env python3
 
-import functools
 from copy import deepcopy
 
 import numpy as np
 import scipy
 from pyscf import df, dft, gto, lib
-
-print = functools.partial(print, flush=True)
 
 
 class EXXOEP:
