@@ -121,16 +121,7 @@ class OSDFTOEP_STA_swap(OSDFTOEP):
             vrest_ao_a = np.einsum("ijk,k->ij", self.ints_3c_ao_t, vrest_oep_a[:])
             vrest_ao_b = np.einsum("ijk,k->ij", self.ints_3c_ao_t, vrest_oep_b[:])
 
-            self.potentials_test(
-                vrest_oep_a,
-                vref_oep_a,
-                vrest_ao_a,
-                vref_ao_a,
-                self.vxnl_ao[0],
-                self.mf.mo_coeff[0],
-                self.nelec[0],
-                None,
-            )
+            self.potentials_test(vrest_oep_a, vref_oep_a)
 
             h1e = self.mf.get_hcore()
             F_a = h1e + self.vj_ao + vref_ao_a + vrest_ao_a

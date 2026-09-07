@@ -16,13 +16,11 @@ class EXXOEP:
     Args:
         mf: PySCF object with RHF or RKS calculation
         oep_basis: auxiliary basis to solve OEP equation
-        use_HOMO_condition: whether to use HOMO condition
         vh_via_OEP: whether to construct AO Hartree potential via OEP basis
         space_sym: whether to perform space-symmetrization
     """
 
-    def __init__(self, mf, oep_basis, use_HOMO_condition=False, vh_via_OEP=False, space_sym=False):
-        self.use_HOMO_condition = use_HOMO_condition
+    def __init__(self, mf, oep_basis, vh_via_OEP=False, space_sym=False):
         self.nelec = sum(i != 0 for i in mf.mo_occ)
         self.init_common(mf, oep_basis, vh_via_OEP, space_sym)
         self.get_energies_and_potentials()
@@ -89,14 +87,8 @@ class EXXOEP:
         print("ITER" + " " * 8 + "ENERGY" + " " * 15 + "EDIFF")
         for current_iter in range(maxit):
             ints_3c = self.mf.mo_coeff.T @ self.ints_3c_ao @ self.mf.mo_coeff
-            z = None
-            if self.use_HOMO_condition:
-                z, zII = self.get_z_and_zII(ints_3c, self.mf.mo_energy, self.nelec)
-                vref_oep = self.get_v_ref_w_homo(zII, ints_3c, self.mf.mo_coeff, self.nelec, self.vxnl_ao)
-                W3 = self.get_W3_charge_and_homo(zII)
-            else:
-                vref_oep = self.get_v_ref(ints_3c, self.nelec)
-                W3 = self.get_W3_charge()
+            vref_oep = self.get_v_ref(ints_3c, self.nelec)
+            W3 = self.get_W3_charge()
 
             if self.vh_via_OEP or self.space_sym:
                 self.get_vh_via_OEP(ints_3c, self.nelec)
@@ -114,16 +106,7 @@ class EXXOEP:
 
             vrest_ao = np.einsum("ijk,k->ij", self.ints_3c_ao_t, vrest_oep[:])
 
-            self.potentials_test(
-                vrest_oep,
-                vref_oep,
-                vrest_ao,
-                vref_ao,
-                self.vxnl_ao,
-                self.mf.mo_coeff,
-                self.nelec,
-                z,
-            )
+            self.potentials_test(vrest_oep, vref_oep)
 
             h1e = self.mf.get_hcore(self.mf.mol)
             F = h1e + self.vj_ao + vref_ao + vrest_ao
@@ -235,59 +218,6 @@ class EXXOEP:
         v_ref = -1 / np.dot(self.y, vc) * vc
         return v_ref
 
-    def get_z_and_zII(self, ints_3c, mo_energy, nelec):
-        r"""
-        Determines quantities required for the auxiliary basis set preprocessing with HOMO condition.
-        See Appendix C in J. Chem. Phys. 155 (2021) 054109.
-        """
-        ndeg = 1
-        for i in range(1, nelec - 1):
-            if abs(mo_energy[nelec - 1 - i] - mo_energy[nelec - 1]) < 1e-12:
-                ndeg += 1
-            else:
-                break
-        z = ints_3c[:, nelec - 1, nelec - 1].copy()
-        for ideg in range(1, ndeg):
-            z += ints_3c[:, nelec - 1 - ideg, nelec - 1 - ideg]
-        z /= ndeg
-        zII = self.WII.T @ z
-        return z, zII
-
-    def get_W3_charge_and_homo(self, zII):
-        r"""
-        Performs part of the third step of the auxiliary basis set preprocessing with HOMO condition.
-        See Appendix C in J. Chem. Phys. 155 (2021) 054109.
-        """
-        constraint_vector = np.stack((self.yII, zII)).T
-        overlap_cv = constraint_vector.T @ constraint_vector
-        eval_overlap_cv, evec_overlap_cv = scipy.linalg.eigh(overlap_cv)
-        eval_ocv_sqrtinv = np.diag(1.0 / np.sqrt(eval_overlap_cv))
-        orth_constraint = constraint_vector @ (evec_overlap_cv @ eval_ocv_sqrtinv)
-        proj_mat = np.eye(orth_constraint.shape[0]) - orth_constraint @ orth_constraint.T
-        orth_overlap = proj_mat.T @ proj_mat
-        _, evecs = scipy.linalg.eigh(orth_overlap)
-        return evecs[:, 2:]
-
-    def get_v_ref_w_homo(self, zII, ints_3c, mo_coeff, nelec, vxnl_ao, ip=None):
-        r"""
-        Constructs the Fermi-Amaldi reference potential with HOMO condition.
-        See Appendix C in J. Chem. Phys. 155 (2021) 054109.
-        """
-        u = 2 * np.einsum("ijj->i", ints_3c[:, :nelec, :nelec])
-        vcII = self.WII.T @ u
-        aux_x = np.zeros([2, 2])
-        aux_x[0, 0] = np.dot(self.yII, self.yII)
-        aux_x[0, 1] = np.dot(self.yII, vcII)
-        aux_x[1, 0] = np.dot(zII, self.yII)
-        aux_x[1, 1] = np.dot(zII, vcII)
-        aux_y = np.zeros([2])
-        aux_y[0] = -1
-        aux_y[1] = (mo_coeff.T @ vxnl_ao @ mo_coeff)[nelec - 1, nelec - 1]
-        aux_sol = scipy.linalg.solve(aux_x, aux_y)
-        vrefII = aux_sol[0] * self.yII + aux_sol[1] * vcII
-        vref_oep = self.WII @ vrefII
-        return vref_oep
-
     def get_W(self, W3, ints_3c, nelec, thr_fai_oep):
         r"""
         Performs the last step of the auxiliary basis set preprocessing and returns the final transformation matrix.
@@ -351,30 +281,12 @@ class EXXOEP:
         rhs = trans_mat.T @ aux
         return rhs
 
-    def potentials_test(self, vrest_oep, vref_oep, vrest_ao, vref_ao, vxnl_ao, mo_coeff, nelec, z, ip=None):
-        """Performs consistency checks for potentials.
-        ip is accepted for interface consistency with subclass overrides; unused in the base class.
-        """
+    def potentials_test(self, vrest_oep, vref_oep):
+        """Performs consistency checks for potentials."""
         if abs(np.dot(self.y, vrest_oep)) > 1e-12:
             print("Warning! y*vrest_oep =", np.dot(self.y, vrest_oep))
         if abs(np.dot(self.y, vref_oep) + 1.0) > 1e-12:
             print("Warning! y*vref_oep =", np.dot(self.y, vref_oep))
-        if self.use_HOMO_condition:
-            if abs(np.dot(z, vrest_oep)) > 1e-12:
-                print("Warning! z*vrest_oep =", np.dot(z, vrest_oep))
-            if abs((mo_coeff.T @ vrest_ao @ mo_coeff)[nelec - 1, nelec - 1]) > 1e-12:
-                print("Warning!")
-                print(f"v(HOMO) =  {(mo_coeff.T @ vrest_ao @ mo_coeff)[nelec - 1, nelec - 1]:.5f}  (VrestL)")
-            if (
-                abs(
-                    (mo_coeff.T @ vxnl_ao @ mo_coeff)[nelec - 1, nelec - 1]
-                    - (mo_coeff.T @ vref_ao @ mo_coeff)[nelec - 1, nelec - 1]
-                )
-                > 1e-12
-            ):
-                print("Warning!")
-                print(f"v(HOMO) =  {(mo_coeff.T @ vxnl_ao @ mo_coeff)[nelec - 1, nelec - 1]:.5f}  (VxNL)")
-                print(f"v(HOMO) =  {(mo_coeff.T @ vref_ao @ mo_coeff)[nelec - 1, nelec - 1]:.5f}  (Vref)")
 
     def get_vh_via_OEP(self, ints_3c, nelec):
         """Constructs AO Hartree potential via OEP basis."""
