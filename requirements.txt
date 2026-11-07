@@ -12,20 +12,20 @@ colorama==0.4.6 ; sys_platform == 'win32'
     # via pytest
 h5py==3.16.0
     # via pyscf
-iniconfig==2.3.0
+iniconfig==2.3.1
     # via pytest
 jsonschema==4.26.0
     # via basis-set-exchange
 jsonschema-specifications==2025.9.1
     # via jsonschema
-numpy==2.5.3
+numpy==2.5.4
     # via
     #   h5py
     #   pyscf
     #   scipy
 packaging==26.3
     # via pytest
-pluggy==1.6.0
+pluggy==1.7.0
     # via pytest
 psutil==7.2.2
     # via
@@ -33,25 +33,25 @@ psutil==7.2.2
     #   pyscf
 pygments==2.21.0
     # via pytest
-pyscf==2.14.0
+pyscf==2.15.0
     # via pa-delta-scf-methods
-pytest==9.1.1
+pytest==9.2.0
     # via pa-delta-scf-methods
 referencing==0.37.0
     # via
     #   jsonschema
     #   jsonschema-specifications
-regex==2026.9.3
+regex==2026.11.7
     # via basis-set-exchange
-rpds-py==2026.6.3
+rpds-py==2026.9.1
     # via
     #   jsonschema
     #   referencing
-ruff==0.16.6
+ruff==0.17.4
     # via pa-delta-scf-methods
 scipy==1.18.1
     # via pyscf
-setuptools==84.0.0
+setuptools==84.2.1
     # via pyscf
 typing-extensions==4.16.0 ; python_full_version < '3.13'
     # via referencing
