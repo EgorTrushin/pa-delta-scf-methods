@@ -1,5 +1,10 @@
 # Potential-averaged and optimized effective potential ΔSCF methods
 
+[![tests](https://github.com/EgorTrushin/pa-delta-scf-methods/actions/workflows/tests.yml/badge.svg)](https://github.com/EgorTrushin/pa-delta-scf-methods/actions/workflows/tests.yml)
+[![Python](https://img.shields.io/badge/python-3.12-blue)](https://www.python.org/)
+[![License: MIT](https://img.shields.io/github/license/EgorTrushin/pa-delta-scf-methods)](LICENSE)
+[![uv](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/uv/main/assets/badge/v0.json)](https://github.com/astral-sh/uv)
+
 This repository contains the implementation of the methods introduced in:
 
 > E. Trushin, O. Bertleff, A. Görling. Potential-Averaged ΔSCF Methods: Underlying Formalism and Evaluation of Accuracy of Excitation Energies. J. Chem. Theory Comput. **2026**, *22*, 8324–8349. https://doi.org/10.1021/acs.jctc.6c00983
